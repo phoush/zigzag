@@ -1,0 +1,1346 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ABC	classes/hardware/architecture/operational_array.py	/^from abc import ABC, abstractmethod$/;"	i
+AIMCArray	classes/hardware/architecture/operational_array.py	/^class AIMCArray(OperationalArray):$/;"	c
+Accelerator	classes/cost_model/cost_model.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/hardware/architecture/accelerator.py	/^class Accelerator:$/;"	c
+Accelerator	classes/opt/temporal/loma/engine.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/opt/temporal/salsa/engine.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/opt/temporal/salsa/state.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/stages/CostModelStage.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/stages/LomaStage.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/stages/SpatialMappingConversionStage.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/stages/TemporalOrderingConversionStage.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/stages/adjust_accelerator.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	classes/stages/salsa.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Ascend_like.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Ascend_like_DF.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Edge_TPU_like.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Edge_TPU_like_DF.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Eyeriss_like.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Meta_prototype.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Meta_prototype_DF.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/TPU_like.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/TPU_like_DF.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Tesla_NPU_like.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/workshop/accelerator copy.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/workshop/accelerator.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/workshop/eyeriss_like_complex.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+Accelerator	inputs/workshop/eyeriss_like_simple.py	/^from classes.hardware.architecture.accelerator import Accelerator$/;"	i
+AcceleratorParserStage	classes/stages/MainInputParserStages.py	/^class AcceleratorParserStage(Stage):$/;"	c
+AcceleratorParserStage	classes/stages/__init__.py	/^from .MainInputParserStages import AcceleratorParserStage, WorkloadParserStage, WorkloadAndAcceleratorParserStage$/;"	i
+Adder	classes/hardware/architecture/adder_hierarchy.py	/^class Adder:$/;"	c
+AdderHierarchy	classes/hardware/architecture/adder_hierarchy.py	/^class AdderHierarchy:$/;"	c
+AdderLevel	classes/hardware/architecture/adder_hierarchy.py	/^class AdderLevel:$/;"	c
+AdjustAcceleratorStage	classes/stages/adjust_accelerator.py	/^class AdjustAcceleratorStage:$/;"	c
+Any	classes/stages/CostModelStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Any	classes/stages/DepthFirstStage.py	/^from typing import Tuple, Dict, List, DefaultDict, Callable, Any$/;"	i
+Any	classes/stages/DumpStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Any	classes/stages/GeneralParameterIteratorStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Any	classes/stages/LomaStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Any	classes/stages/MainInputParserStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Any	classes/stages/PlotTemporalMappingsStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Any	classes/stages/ReduceStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Any	classes/stages/RunOptStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Any	classes/stages/SaveStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Any	classes/stages/adjust_accelerator.py	/^from typing import Callable, Any$/;"	i
+Any	classes/workload/dnn_workload.py	/^from typing import Dict, Any$/;"	i
+Any	classes/workload/layer_node.py	/^from typing import Callable, Any$/;"	i
+Any	classes/workload/onnx_workload.py	/^from typing import Dict, Any$/;"	i
+CacheBeforeYieldStage	classes/stages/RunOptStages.py	/^class CacheBeforeYieldStage(Stage):$/;"	c
+CacheBeforeYieldStage	classes/stages/__init__.py	/^from .RunOptStages import CacheBeforeYieldStage, RemoveExtraInfoStage, MultiProcessingGatherStage, MultiProcessingSpawnStage, SkipIfDumpExistsStage$/;"	i
+Callable	classes/stages/CostModelStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Callable	classes/stages/DepthFirstStage.py	/^from typing import Tuple, Dict, List, DefaultDict, Callable, Any$/;"	i
+Callable	classes/stages/GeneralParameterIteratorStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Callable	classes/stages/LomaStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Callable	classes/stages/MainInputParserStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Callable	classes/stages/ReduceStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Callable	classes/stages/RunOptStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Callable	classes/stages/Stage.py	/^from typing import Generator, Callable, List$/;"	i
+Callable	classes/stages/adjust_accelerator.py	/^from typing import Callable, Any$/;"	i
+Callable	classes/workload/layer_node.py	/^from typing import Callable, Any$/;"	i
+CompleteSaveStage	classes/stages/SaveStage.py	/^class CompleteSaveStage(Stage):$/;"	c
+CompleteSaveStage	classes/stages/__init__.py	/^from .SaveStage import CompleteSaveStage, SimpleSaveStage$/;"	i
+Core	classes/hardware/architecture/accelerator.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	classes/hardware/architecture/core.py	/^class Core:$/;"	c
+Core	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Ascend_like.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Ascend_like_DF.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Edge_TPU_like.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Edge_TPU_like_DF.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Eyeriss_like.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Meta_prototype.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Meta_prototype_DF.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/TPU_like.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/TPU_like_DF.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Tesla_NPU_like.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/workshop/accelerator copy.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/workshop/accelerator.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/workshop/eyeriss_like_complex.py	/^from classes.hardware.architecture.core import Core$/;"	i
+Core	inputs/workshop/eyeriss_like_simple.py	/^from classes.hardware.architecture.core import Core$/;"	i
+CostModelCaller	classes/opt/temporal/loma/cost_model.py	/^class CostModelCaller:$/;"	c
+CostModelCaller	classes/opt/temporal/loma/engine.py	/^from classes.opt.temporal.loma.cost_model import CostModelCaller$/;"	i
+CostModelCaller	classes/opt/temporal/salsa/engine.py	/^from classes.opt.temporal.loma.cost_model import CostModelCaller$/;"	i
+CostModelEvaluation	classes/cost_model/cost_model.py	/^class CostModelEvaluation:$/;"	c
+CostModelEvaluation	classes/opt/temporal/salsa/state.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/CostModelStage.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/DumpStage.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/GeneralParameterIteratorStage.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/LomaStage.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/PlotTemporalMappingsStage.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/ReduceStages.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/RunOptStages.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/SaveStage.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	classes/stages/salsa_pipeline.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	utils.py	/^    from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelEvaluation	visualization/results/plot_cme.py	/^from classes.cost_model.cost_model import CostModelEvaluation$/;"	i
+CostModelOutput	classes/opt/temporal/loma/cost_model.py	/^class CostModelOutput:$/;"	c
+CostModelPipeline	classes/stages/salsa_pipeline.py	/^from classes.stages.cost_model_pipeline import CostModelPipeline$/;"	i
+CostModelStage	classes/stages/CostModelStage.py	/^class CostModelStage(Stage):$/;"	c
+CostModelStage	classes/stages/__init__.py	/^from .CostModelStage import CostModelStage$/;"	i
+DNNWorkload	classes/io/input_parser.py	/^from classes.workload.dnn_workload import DNNWorkload$/;"	i
+DNNWorkload	classes/stages/DepthFirstStage.py	/^from classes.workload.dnn_workload import DNNWorkload$/;"	i
+DNNWorkload	classes/stages/MainInputParserStages.py	/^from classes.workload.dnn_workload import DNNWorkload$/;"	i
+DNNWorkload	classes/stages/WorkloadStage.py	/^from classes.workload.dnn_workload import DNNWorkload$/;"	i
+DNNWorkload	classes/workload/dnn_workload.py	/^class DNNWorkload(DiGraph):$/;"	c
+DUT	classes/stages/GeneralParameterIteratorStage.py	/^    DUT = MainStage([GeneralParameterIteratorStage, Dummy],$/;"	v
+DataCopyAction	classes/depthfirst/data_copy_layer.py	/^class DataCopyAction:$/;"	c
+DataCopyAction	classes/stages/DepthFirstStage.py	/^from classes.depthfirst.data_copy_layer import DataCopyAction, DataCopyLayer$/;"	i
+DataCopyLayer	classes/depthfirst/data_copy_layer.py	/^class DataCopyLayer:$/;"	c
+DataCopyLayer	classes/stages/DepthFirstStage.py	/^from classes.depthfirst.data_copy_layer import DataCopyAction, DataCopyLayer$/;"	i
+DataMovePattern	classes/mapping/combined_mapping.py	/^class DataMovePattern:$/;"	c
+DefaultDict	classes/stages/DepthFirstStage.py	/^from typing import Tuple, Dict, List, DefaultDict, Callable, Any$/;"	i
+DepthFirstStage	classes/stages/DepthFirstStage.py	/^class DepthFirstStage(Stage):$/;"	c
+DepthFirstStage	classes/stages/__init__.py	/^from .DepthFirstStage import DepthFirstStage$/;"	i
+DiGraph	classes/hardware/architecture/memory_hierarchy.py	/^from networkx import DiGraph$/;"	i
+DiGraph	classes/workload/dnn_workload.py	/^from networkx import DiGraph$/;"	i
+DiGraph	classes/workload/onnx_workload.py	/^from networkx import DiGraph$/;"	i
+Dict	classes/cost_model/cost_model.py	/^from typing import Dict, List, Tuple$/;"	i
+Dict	classes/hardware/architecture/adder_hierarchy.py	/^from typing import Dict, List, Tuple$/;"	i
+Dict	classes/hardware/architecture/memory_level.py	/^from typing import Dict, Tuple, List$/;"	i
+Dict	classes/hardware/architecture/operational_array.py	/^from typing import Dict, Set$/;"	i
+Dict	classes/hardware/architecture/operational_unit.py	/^from typing import List, Dict$/;"	i
+Dict	classes/mapping/combined_mapping.py	/^from typing import Dict$/;"	i
+Dict	classes/mapping/mapping_assist_funcs.py	/^from typing import Dict, List$/;"	i
+Dict	classes/mapping/spatial/spatial_mapping.py	/^from typing import Dict$/;"	i
+Dict	classes/mapping/temporal/temporal_mapping.py	/^from typing import Dict$/;"	i
+Dict	classes/stages/DepthFirstStage.py	/^from typing import Tuple, Dict, List, DefaultDict, Callable, Any$/;"	i
+Dict	classes/workload/dnn_workload.py	/^from typing import Dict, Any$/;"	i
+Dict	classes/workload/layer_node.py	/^from typing import Dict, List$/;"	i
+Dict	classes/workload/onnx_workload.py	/^from typing import Dict, Any$/;"	i
+Dict	utils.py	/^from typing import Dict, List, Tuple$/;"	i
+Dict	visualization/results/plot_cme.py	/^from typing import Dict, List, Tuple$/;"	i
+Dimension	classes/hardware/architecture/dimension.py	/^class Dimension:$/;"	c
+Dimension	classes/hardware/architecture/operand_spatial_sharing.py	/^from classes.hardware.architecture.dimension import Dimension$/;"	i
+Dimension	classes/hardware/architecture/operational_array.py	/^from classes.hardware.architecture.dimension import Dimension$/;"	i
+Dimension	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.hardware.architecture.dimension import Dimension$/;"	i
+Dummy	classes/stages/GeneralParameterIteratorStage.py	/^    class Dummy(Stage):$/;"	c
+DummyNode	classes/stages/ONNXModelParserStage.py	/^from classes.workload.dummy_node import DummyNode$/;"	i
+DummyNode	classes/stages/WorkloadStage.py	/^from classes.workload.dummy_node import DummyNode$/;"	i
+DummyNode	classes/workload/dummy_node.py	/^class DummyNode:$/;"	c
+DumpStage	classes/stages/DumpStage.py	/^class DumpStage(Stage):$/;"	c
+DumpStage	classes/stages/__init__.py	/^from .DumpStage import DumpStage$/;"	i
+FourWayDataMoving	classes/cost_model/cost_model.py	/^from classes.mapping.combined_mapping import FourWayDataMoving$/;"	i
+FourWayDataMoving	classes/depthfirst/data_copy_layer.py	/^from classes.mapping.combined_mapping import FourWayDataMoving$/;"	i
+FourWayDataMoving	classes/mapping/combined_mapping.py	/^class FourWayDataMoving:$/;"	c
+FourWayDataMoving	visualization/results/plot_cme.py	/^from classes.mapping.combined_mapping import FourWayDataMoving$/;"	i
+FunctionType	classes/workload/layer_node.py	/^from types import FunctionType$/;"	i
+GeneralParameterIteratorStage	classes/stages/GeneralParameterIteratorStage.py	/^class GeneralParameterIteratorStage(Stage):$/;"	c
+GeneralParameterIteratorStage	classes/stages/__init__.py	/^from .GeneralParameterIteratorStage import GeneralParameterIteratorStage$/;"	i
+Generator	classes/opt/temporal/loma/engine.py	/^from typing import Generator$/;"	i
+Generator	classes/stages/CostModelStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Generator	classes/stages/DumpStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Generator	classes/stages/GeneralParameterIteratorStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Generator	classes/stages/LomaStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Generator	classes/stages/MainInputParserStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Generator	classes/stages/ONNXModelParserStage.py	/^from typing import Generator$/;"	i
+Generator	classes/stages/PlotTemporalMappingsStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Generator	classes/stages/ReduceStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Generator	classes/stages/RunOptStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Generator	classes/stages/SaveStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Generator	classes/stages/Stage.py	/^from typing import Generator, Callable, List$/;"	i
+LayerNode	classes/cost_model/cost_model.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/depthfirst/data_copy_layer.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/mapping/combined_mapping.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/mapping/mapping_assist_funcs.py	/^    from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/mapping/spatial/spatial_mapping.py	/^    from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/mapping/temporal/temporal_mapping.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/opt/temporal/loma/engine.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/opt/temporal/loma/memory_allocator.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/opt/temporal/salsa/engine.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/opt/temporal/salsa/state.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/CostModelStage.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/DepthFirstStage.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/LomaStage.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/ONNXModelParserStage.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/SpatialMappingConversionStage.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/TemporalOrderingConversionStage.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/stages/salsa.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/workload/dnn_workload.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/workload/layer_node.py	/^class LayerNode:$/;"	c
+LayerNode	classes/workload/onnx_workload.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/workload/runner.py	/^from classes.workload.layer_node import LayerNode$/;"	i
+LayerNode	classes/workload/test_layer_node.py	/^from layer_node import LayerNode$/;"	i
+List	classes/cost_model/cost_model.py	/^from typing import Dict, List, Tuple$/;"	i
+List	classes/hardware/architecture/adder_hierarchy.py	/^from typing import Dict, List, Tuple$/;"	i
+List	classes/hardware/architecture/memory_hierarchy.py	/^from typing import Set, Tuple, List$/;"	i
+List	classes/hardware/architecture/memory_level.py	/^from typing import Dict, Tuple, List$/;"	i
+List	classes/hardware/architecture/operand_spatial_sharing.py	/^from typing import List$/;"	i
+List	classes/hardware/architecture/operational_unit.py	/^from typing import List, Dict$/;"	i
+List	classes/mapping/mapping_assist_funcs.py	/^from typing import Dict, List$/;"	i
+List	classes/opt/temporal/loma/memory_allocator.py	/^from typing import List$/;"	i
+List	classes/stages/CostModelStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+List	classes/stages/DepthFirstStage.py	/^from typing import Tuple, Dict, List, DefaultDict, Callable, Any$/;"	i
+List	classes/stages/GeneralParameterIteratorStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+List	classes/stages/LomaStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+List	classes/stages/MainInputParserStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+List	classes/stages/ReduceStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+List	classes/stages/RunOptStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+List	classes/stages/Stage.py	/^from typing import Generator, Callable, List$/;"	i
+List	classes/workload/layer_node.py	/^from typing import Dict, List$/;"	i
+List	utils.py	/^from typing import Dict, List, Tuple$/;"	i
+List	visualization/results/plot_cme.py	/^from typing import Dict, List, Tuple$/;"	i
+ListElement	classes/opt/temporal/loma/multipermute.py	/^class ListElement:$/;"	c
+ListifyStage	classes/stages/ReduceStages.py	/^class ListifyStage(Stage):$/;"	c
+LomaEngine	classes/opt/temporal/loma/engine.py	/^class LomaEngine:$/;"	c
+LomaEngine	classes/opt/temporal/salsa/engine.py	/^from classes.opt.temporal.loma.engine import LomaEngine$/;"	i
+LomaEngine	classes/stages/LomaStage.py	/^from classes.opt.temporal.loma.engine import LomaEngine$/;"	i
+LomaPipeline	classes/opt/temporal/salsa/engine.py	/^from classes.stages.loma_pipeline import LomaPipeline$/;"	i
+LomaStage	classes/stages/LomaStage.py	/^class LomaStage(Stage):$/;"	c
+LomaStage	classes/stages/__init__.py	/^from .LomaStage import LomaStage$/;"	i
+Loop	classes/mapping/mapping_assist_funcs.py	/^class Loop:$/;"	c
+Loop	classes/opt/temporal/loma/loop.py	/^class Loop:$/;"	c
+Loop	classes/opt/temporal/loma/memory_allocator.py	/^from classes.opt.temporal.loma.loop import Loop$/;"	i
+MainInputs	classes/io/input_config.py	/^class MainInputs:$/;"	c
+MainStage	classes/stages/GeneralParameterIteratorStage.py	/^    from classes.stages.Stage import MainStage$/;"	i
+MainStage	classes/stages/Stage.py	/^class MainStage:$/;"	c
+MainStage	classes/stages/__init__.py	/^from .Stage import Stage, MainStage$/;"	i
+Mapping	classes/cost_model/cost_model.py	/^from classes.mapping.combined_mapping import Mapping$/;"	i
+Mapping	classes/mapping/combined_mapping.py	/^class Mapping:$/;"	c
+MemHierarchyTooSmallException	classes/opt/temporal/loma/engine.py	/^from classes.opt.temporal.loma.memory_allocator import MemHierarchyTooSmallException, MemoryAllocator$/;"	i
+MemHierarchyTooSmallException	classes/opt/temporal/loma/memory_allocator.py	/^class MemHierarchyTooSmallException(Exception):$/;"	c
+MemHierarchyTooSmallException	classes/stages/DepthFirstStage.py	/^from classes.opt.temporal.loma.memory_allocator import MemHierarchyTooSmallException$/;"	i
+MemoryAllocator	classes/opt/temporal/loma/engine.py	/^from classes.opt.temporal.loma.memory_allocator import MemHierarchyTooSmallException, MemoryAllocator$/;"	i
+MemoryAllocator	classes/opt/temporal/loma/memory_allocator.py	/^class MemoryAllocator:$/;"	c
+MemoryAllocator	classes/opt/temporal/salsa/engine.py	/^from classes.opt.temporal.loma.memory_allocator import MemoryAllocator$/;"	i
+MemoryAllocator	classes/opt/temporal/salsa/state.py	/^from classes.opt.temporal.loma.memory_allocator import MemoryAllocator$/;"	i
+MemoryAllocator	classes/stages/TemporalOrderingConversionStage.py	/^from classes.opt.temporal.loma.memory_allocator import MemoryAllocator$/;"	i
+MemoryHierarchy	classes/hardware/architecture/core.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/hardware/architecture/memory_hierarchy.py	/^class MemoryHierarchy(DiGraph):$/;"	c
+MemoryHierarchy	classes/hardware/architecture/runtime_mode.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/opt/temporal/loma/engine.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/opt/temporal/loma/memory_allocator.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/opt/temporal/salsa/engine.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/opt/temporal/salsa/state.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/stages/DepthFirstStage.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	classes/workload/layer_node.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Ascend_like.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Ascend_like_DF.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Edge_TPU_like.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Edge_TPU_like_DF.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Eyeriss_like.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Meta_prototype.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Meta_prototype_DF.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/TPU_like.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/TPU_like_DF.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Tesla_NPU_like.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/workshop/accelerator copy.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/workshop/accelerator.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/workshop/eyeriss_like_complex.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	inputs/workshop/eyeriss_like_simple.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryHierarchy	visualization/graph/memory_hierarchy.py	/^from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy$/;"	i
+MemoryInstance	classes/hardware/architecture/accelerator.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	classes/hardware/architecture/memory_hierarchy.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	classes/hardware/architecture/memory_instance.py	/^class MemoryInstance:$/;"	c
+MemoryInstance	classes/hardware/architecture/memory_level.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Ascend_like.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Ascend_like_DF.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Edge_TPU_like.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Edge_TPU_like_DF.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Eyeriss_like.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Meta_prototype.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Meta_prototype_DF.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/TPU_like.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/TPU_like_DF.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Tesla_NPU_like.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/workshop/accelerator copy.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/workshop/accelerator.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/workshop/eyeriss_like_complex.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryInstance	inputs/workshop/eyeriss_like_simple.py	/^from classes.hardware.architecture.memory_instance import MemoryInstance$/;"	i
+MemoryLevel	classes/hardware/architecture/memory_hierarchy.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	classes/hardware/architecture/memory_level.py	/^class MemoryLevel:$/;"	c
+MemoryLevel	classes/opt/temporal/loma/memory_allocator.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	classes/stages/DepthFirstStage.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Ascend_like.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Ascend_like_DF.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Edge_TPU_like.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Edge_TPU_like_DF.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Eyeriss_like.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Meta_prototype.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Meta_prototype_DF.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/TPU_like.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/TPU_like_DF.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Tesla_NPU_like.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/workshop/accelerator copy.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/workshop/accelerator.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/workshop/eyeriss_like_complex.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryLevel	inputs/workshop/eyeriss_like_simple.py	/^from classes.hardware.architecture.memory_level import MemoryLevel$/;"	i
+MemoryPort	classes/hardware/architecture/memory_level.py	/^class MemoryPort:$/;"	c
+MinimalEnergyStage	classes/stages/ReduceStages.py	/^class MinimalEnergyStage(Stage):$/;"	c
+MinimalEnergyStage	classes/stages/__init__.py	/^from .ReduceStages import MinimalEnergyStage, MinimalLatencyStage, SumStage$/;"	i
+MinimalLatencyStage	classes/stages/ReduceStages.py	/^class MinimalLatencyStage(Stage):$/;"	c
+MinimalLatencyStage	classes/stages/__init__.py	/^from .ReduceStages import MinimalEnergyStage, MinimalLatencyStage, SumStage$/;"	i
+ModuleType	classes/io/input_config.py	/^from types import ModuleType$/;"	i
+MultiProcessingGatherStage	classes/stages/RunOptStages.py	/^class MultiProcessingGatherStage(Stage):$/;"	c
+MultiProcessingGatherStage	classes/stages/__init__.py	/^from .RunOptStages import CacheBeforeYieldStage, RemoveExtraInfoStage, MultiProcessingGatherStage, MultiProcessingSpawnStage, SkipIfDumpExistsStage$/;"	i
+MultiProcessingSpawnStage	classes/stages/RunOptStages.py	/^class MultiProcessingSpawnStage(Stage):$/;"	c
+MultiProcessingSpawnStage	classes/stages/__init__.py	/^from .RunOptStages import CacheBeforeYieldStage, RemoveExtraInfoStage, MultiProcessingGatherStage, MultiProcessingSpawnStage, SkipIfDumpExistsStage$/;"	i
+Multiplier	classes/hardware/architecture/adder_hierarchy.py	/^from classes.hardware.architecture.operational_array import Multiplier, MultiplierArray$/;"	i
+Multiplier	classes/hardware/architecture/operational_array.py	/^from classes.hardware.architecture.operational_unit import OperationalUnit, Multiplier$/;"	i
+Multiplier	classes/hardware/architecture/operational_unit.py	/^class Multiplier(OperationalUnit):$/;"	c
+Multiplier	inputs/examples/hardware/Ascend_like.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Ascend_like_DF.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Edge_TPU_like.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Edge_TPU_like_DF.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Eyeriss_like.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Meta_prototype.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Meta_prototype_DF.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/TPU_like.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/TPU_like_DF.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Tesla_NPU_like.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/workshop/accelerator copy.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/workshop/accelerator.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/workshop/eyeriss_like_complex.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+Multiplier	inputs/workshop/eyeriss_like_simple.py	/^from classes.hardware.architecture.operational_unit import Multiplier$/;"	i
+MultiplierArray	classes/hardware/architecture/adder_hierarchy.py	/^from classes.hardware.architecture.operational_array import Multiplier, MultiplierArray$/;"	i
+MultiplierArray	classes/hardware/architecture/operational_array.py	/^class MultiplierArray(OperationalArray):$/;"	c
+MultiplierArray	inputs/examples/hardware/Ascend_like.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Ascend_like_DF.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Edge_TPU_like.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Edge_TPU_like_DF.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Eyeriss_like.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Meta_prototype.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Meta_prototype_DF.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/TPU_like.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/TPU_like_DF.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Tesla_NPU_like.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/workshop/accelerator copy.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/workshop/accelerator.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/workshop/eyeriss_like_complex.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+MultiplierArray	inputs/workshop/eyeriss_like_simple.py	/^from classes.hardware.architecture.operational_array import MultiplierArray$/;"	i
+Namespace	classes/io/input_parser.py	/^    from argparse import Namespace$/;"	i
+ONNXModelParserStage	classes/stages/ONNXModelParserStage.py	/^class ONNXModelParserStage(Stage):$/;"	c
+ONNXModelParserStage	classes/stages/__init__.py	/^from .ONNXModelParserStage import ONNXModelParserStage$/;"	i
+ONNXWorkload	classes/stages/ONNXModelParserStage.py	/^from classes.workload.onnx_workload import ONNXWorkload$/;"	i
+ONNXWorkload	classes/workload/onnx_workload.py	/^class ONNXWorkload(DiGraph):$/;"	c
+OperandSpatialSharing	classes/hardware/architecture/operand_spatial_sharing.py	/^class OperandSpatialSharing:$/;"	c
+OperandSpatialSharing	classes/hardware/architecture/operational_array.py	/^from classes.hardware.architecture.operand_spatial_sharing import OperandSpatialSharing$/;"	i
+OperationalArray	classes/hardware/architecture/core.py	/^from classes.hardware.architecture.operational_array import OperationalArray$/;"	i
+OperationalArray	classes/hardware/architecture/memory_hierarchy.py	/^from classes.hardware.architecture.operational_array import OperationalArray$/;"	i
+OperationalArray	classes/hardware/architecture/memory_level.py	/^from classes.hardware.architecture.operational_array import OperationalArray$/;"	i
+OperationalArray	classes/hardware/architecture/operational_array.py	/^class OperationalArray(ABC):$/;"	c
+OperationalArray	classes/hardware/architecture/runtime_mode.py	/^    from operational_array import multiplier_array_example1, multiplier_array_example2, OperationalArray$/;"	i
+OperationalArray	classes/hardware/architecture/runtime_mode.py	/^from classes.hardware.architecture.operational_array import OperationalArray$/;"	i
+OperationalArray	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.hardware.architecture.operational_array import OperationalArray$/;"	i
+OperationalUnit	classes/hardware/architecture/operational_array.py	/^from classes.hardware.architecture.operational_unit import OperationalUnit, Multiplier$/;"	i
+OperationalUnit	classes/hardware/architecture/operational_unit.py	/^class OperationalUnit:$/;"	c
+PlotTemporalMappingsStage	classes/stages/PlotTemporalMappingsStage.py	/^class PlotTemporalMappingsStage(Stage):$/;"	c
+PlotTemporalMappingsStage	classes/stages/__init__.py	/^from .PlotTemporalMappingsStage import PlotTemporalMappingsStage$/;"	i
+PortActivity	classes/cost_model/cost_model.py	/^class PortActivity:$/;"	c
+PortBeginOrEndActivity	classes/cost_model/cost_model.py	/^class PortBeginOrEndActivity:$/;"	c
+RemoveExtraInfoStage	classes/stages/RunOptStages.py	/^class RemoveExtraInfoStage(Stage):$/;"	c
+RemoveExtraInfoStage	classes/stages/__init__.py	/^from .RunOptStages import CacheBeforeYieldStage, RemoveExtraInfoStage, MultiProcessingGatherStage, MultiProcessingSpawnStage, SkipIfDumpExistsStage$/;"	i
+RuntimeMode	classes/hardware/architecture/runtime_mode.py	/^class RuntimeMode:$/;"	c
+SalsaEngine	classes/opt/temporal/salsa/engine.py	/^class SalsaEngine:$/;"	c
+SalsaEngine	classes/stages/salsa.py	/^from classes.opt.temporal.salsa.engine import SalsaEngine$/;"	i
+SalsaPipeline	classes/stages/salsa_pipeline.py	/^class SalsaPipeline:$/;"	c
+SalsaStage	classes/stages/salsa.py	/^class SalsaStage:$/;"	c
+SalsaStage	classes/stages/salsa_pipeline.py	/^from classes.stages.salsa import SalsaStage$/;"	i
+SalsaState	classes/opt/temporal/salsa/engine.py	/^from classes.opt.temporal.salsa.state import SalsaState$/;"	i
+SalsaState	classes/opt/temporal/salsa/state.py	/^class SalsaState:$/;"	c
+Set	classes/hardware/architecture/accelerator.py	/^from typing import Set$/;"	i
+Set	classes/hardware/architecture/memory_hierarchy.py	/^from typing import Set, Tuple, List$/;"	i
+Set	classes/hardware/architecture/operational_array.py	/^from typing import Dict, Set$/;"	i
+Set	classes/stages/SpatialMappingGeneratorStage.py	/^from typing import Set$/;"	i
+SimpleSaveStage	classes/stages/SaveStage.py	/^class SimpleSaveStage(Stage):$/;"	c
+SimpleSaveStage	classes/stages/__init__.py	/^from .SaveStage import CompleteSaveStage, SimpleSaveStage$/;"	i
+SkipIfDumpExistsStage	classes/stages/RunOptStages.py	/^class SkipIfDumpExistsStage(Stage):$/;"	c
+SkipIfDumpExistsStage	classes/stages/__init__.py	/^from .RunOptStages import CacheBeforeYieldStage, RemoveExtraInfoStage, MultiProcessingGatherStage, MultiProcessingSpawnStage, SkipIfDumpExistsStage$/;"	i
+SpatialMapping	classes/cost_model/cost_model.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/depthfirst/data_copy_layer.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/mapping/combined_mapping.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/mapping/spatial/spatial_mapping.py	/^class SpatialMapping:$/;"	c
+SpatialMapping	classes/opt/temporal/loma/engine.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/opt/temporal/loma/memory_allocator.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/opt/temporal/salsa/engine.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/opt/temporal/salsa/state.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/stages/CostModelStage.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/stages/LomaStage.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/stages/SpatialMappingConversionStage.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/stages/TemporalOrderingConversionStage.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMapping	classes/stages/salsa.py	/^from classes.mapping.spatial.spatial_mapping import SpatialMapping$/;"	i
+SpatialMappingConversionStage	classes/stages/SpatialMappingConversionStage.py	/^class SpatialMappingConversionStage(Stage):$/;"	c
+SpatialMappingConversionStage	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.stages.SpatialMappingConversionStage import SpatialMappingConversionStage$/;"	i
+SpatialMappingConversionStage	classes/stages/__init__.py	/^from .SpatialMappingConversionStage import SpatialMappingConversionStage$/;"	i
+SpatialMappingGeneratorStage	classes/stages/SpatialMappingGeneratorStage.py	/^class SpatialMappingGeneratorStage(Stage):$/;"	c
+SpatialMappingGeneratorStage	classes/stages/__init__.py	/^from .SpatialMappingGeneratorStage import SpatialMappingGeneratorStage$/;"	i
+Stage	classes/stages/CostModelStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/DepthFirstStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/DumpStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/GeneralParameterIteratorStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/LomaStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/MainInputParserStages.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/ONNXModelParserStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/PlotTemporalMappingsStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/ReduceStages.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/RunOptStages.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/SaveStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/SpatialMappingConversionStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/SpatialMappingGeneratorStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/Stage.py	/^class Stage:$/;"	c
+Stage	classes/stages/TemporalOrderingConversionStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/WorkloadStage.py	/^from classes.stages.Stage import Stage$/;"	i
+Stage	classes/stages/__init__.py	/^from .Stage import Stage, MainStage$/;"	i
+SumStage	classes/stages/ReduceStages.py	/^class SumStage(Stage):$/;"	c
+SumStage	classes/stages/__init__.py	/^from .ReduceStages import MinimalEnergyStage, MinimalLatencyStage, SumStage$/;"	i
+TYPE_CHECKING	classes/mapping/mapping_assist_funcs.py	/^from typing import TYPE_CHECKING$/;"	i
+TYPE_CHECKING	classes/mapping/spatial/spatial_mapping.py	/^from typing import TYPE_CHECKING$/;"	i
+TYPE_CHECKING	utils.py	/^from typing import TYPE_CHECKING$/;"	i
+TYPE_CHECKING	visualization/results/plot_cme.py	/^from typing import TYPE_CHECKING$/;"	i
+TemporalMapping	classes/cost_model/cost_model.py	/^from classes.mapping.temporal.temporal_mapping import TemporalMapping$/;"	i
+TemporalMapping	classes/mapping/combined_mapping.py	/^from classes.mapping.temporal.temporal_mapping import TemporalMapping$/;"	i
+TemporalMapping	classes/mapping/temporal/temporal_mapping.py	/^class TemporalMapping:$/;"	c
+TemporalMapping	classes/opt/temporal/loma/engine.py	/^from classes.mapping.temporal.temporal_mapping import TemporalMapping$/;"	i
+TemporalMapping	classes/opt/temporal/loma/memory_allocator.py	/^from classes.mapping.temporal.temporal_mapping import TemporalMapping$/;"	i
+TemporalMapping	classes/stages/CostModelStage.py	/^from classes.mapping.temporal.temporal_mapping import TemporalMapping$/;"	i
+TemporalMapping	classes/stages/TemporalOrderingConversionStage.py	/^from classes.mapping.temporal.temporal_mapping import TemporalMapping$/;"	i
+TemporalOrderingConversionStage	classes/stages/TemporalOrderingConversionStage.py	/^class TemporalOrderingConversionStage(Stage):$/;"	c
+TemporalOrderingConversionStage	classes/stages/__init__.py	/^from .TemporalOrderingConversionStage import TemporalOrderingConversionStage$/;"	i
+TestLayerNode	classes/workload/test_layer_node.py	/^class TestLayerNode(unittest.TestCase):$/;"	c
+Tuple	classes/cost_model/cost_model.py	/^from typing import Dict, List, Tuple$/;"	i
+Tuple	classes/hardware/architecture/adder_hierarchy.py	/^from typing import Dict, List, Tuple$/;"	i
+Tuple	classes/hardware/architecture/memory_hierarchy.py	/^from typing import Set, Tuple, List$/;"	i
+Tuple	classes/hardware/architecture/memory_instance.py	/^from typing import Tuple$/;"	i
+Tuple	classes/hardware/architecture/memory_level.py	/^from typing import Dict, Tuple, List$/;"	i
+Tuple	classes/stages/CostModelStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Tuple	classes/stages/DepthFirstStage.py	/^from typing import Tuple, Dict, List, DefaultDict, Callable, Any$/;"	i
+Tuple	classes/stages/DumpStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Tuple	classes/stages/GeneralParameterIteratorStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Tuple	classes/stages/LomaStage.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Tuple	classes/stages/MainInputParserStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Tuple	classes/stages/PlotTemporalMappingsStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Tuple	classes/stages/ReduceStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Tuple	classes/stages/RunOptStages.py	/^from typing import Generator, Callable, List, Tuple, Any$/;"	i
+Tuple	classes/stages/SaveStage.py	/^from typing import Generator, Any, Tuple$/;"	i
+Tuple	utils.py	/^from typing import Dict, List, Tuple$/;"	i
+Tuple	visualization/results/plot_cme.py	/^from typing import Dict, List, Tuple$/;"	i
+WorkloadAndAcceleratorParserStage	classes/stages/MainInputParserStages.py	/^class WorkloadAndAcceleratorParserStage(Stage):$/;"	c
+WorkloadAndAcceleratorParserStage	classes/stages/__init__.py	/^from .MainInputParserStages import AcceleratorParserStage, WorkloadParserStage, WorkloadAndAcceleratorParserStage$/;"	i
+WorkloadParserStage	classes/stages/MainInputParserStages.py	/^class WorkloadParserStage(Stage):$/;"	c
+WorkloadParserStage	classes/stages/__init__.py	/^from .MainInputParserStages import AcceleratorParserStage, WorkloadParserStage, WorkloadAndAcceleratorParserStage$/;"	i
+WorkloadRunner	classes/workload/runner.py	/^class WorkloadRunner:$/;"	c
+WorkloadStage	classes/stages/DepthFirstStage.py	/^from classes.stages.WorkloadStage import WorkloadStage$/;"	i
+WorkloadStage	classes/stages/WorkloadStage.py	/^class WorkloadStage(Stage):$/;"	c
+WorkloadStage	classes/stages/__init__.py	/^from .WorkloadStage import WorkloadStage$/;"	i
+__add__	classes/cost_model/cost_model.py	/^    def __add__(self, other):$/;"	m	class:CostModelEvaluation	file:
+__add__	classes/depthfirst/data_copy_layer.py	/^    def __add__(self, other):$/;"	m	class:DataCopyLayer	file:
+__add__	classes/mapping/combined_mapping.py	/^    def __add__(self, other):$/;"	m	class:FourWayDataMoving	file:
+__eq__	classes/cost_model/cost_model.py	/^    def __eq__(self, other) -> bool:$/;"	m	class:PortActivity	file:
+__eq__	classes/hardware/architecture/dimension.py	/^    def __eq__(self, other):$/;"	m	class:Dimension	file:
+__eq__	classes/hardware/architecture/memory_level.py	/^    def __eq__(self, other) -> bool:$/;"	m	class:MemoryLevel	file:
+__eq__	classes/hardware/architecture/memory_level.py	/^    def __eq__(self, other) -> bool:$/;"	m	class:MemoryPort	file:
+__getitem__	classes/mapping/combined_mapping.py	/^    def __getitem__(self, item):$/;"	m	class:FourWayDataMoving	file:
+__hash__	classes/cost_model/cost_model.py	/^    def __hash__(self):$/;"	m	class:PortActivity	file:
+__hash__	classes/hardware/architecture/dimension.py	/^    def __hash__(self):$/;"	m	class:Dimension	file:
+__hash__	classes/hardware/architecture/memory_level.py	/^    def __hash__(self) -> int:$/;"	m	class:MemoryLevel	file:
+__hash__	classes/hardware/architecture/memory_level.py	/^    def __hash__(self):$/;"	m	class:MemoryPort	file:
+__init__	classes/cost_model/cost_model.py	/^    def __init__(self, *, accelerator, layer, spatial_mapping, temporal_mapping):$/;"	m	class:CostModelEvaluation
+__init__	classes/cost_model/cost_model.py	/^    def __init__(self, real_cycle: int, allowed_cycle: int, period: int, period_count: int,$/;"	m	class:PortActivity
+__init__	classes/cost_model/cost_model.py	/^    def __init__(self, real_cycle: int, data_in_charge: int, mem_bw: int, layer_op: str, mem_lv: int, mov_dir: str):$/;"	m	class:PortBeginOrEndActivity
+__init__	classes/depthfirst/data_copy_layer.py	/^    def __init__(self, data_amount, data_source, data_destination, core):$/;"	m	class:DataCopyAction
+__init__	classes/depthfirst/data_copy_layer.py	/^    def __init__(self, layer_id, data_copy_actions, accelerator, core_id):$/;"	m	class:DataCopyLayer
+__init__	classes/hardware/architecture/accelerator.py	/^    def __init__(self, name, core_set: Set[Core], global_buffer: MemoryInstance or None):$/;"	m	class:Accelerator
+__init__	classes/hardware/architecture/adder_hierarchy.py	/^    def __init__(self, adder_hierarchy: Dict[str, Dict[str, str or int]], multiplier_array: MultiplierArray):$/;"	m	class:AdderHierarchy
+__init__	classes/hardware/architecture/adder_hierarchy.py	/^    def __init__(self, fan_in: int, unit_cost: float, unit_area: float, input_precision: List[int] or int, output_precision: int):$/;"	m	class:Adder
+__init__	classes/hardware/architecture/adder_hierarchy.py	/^    def __init__(self, index: int, name: str, details: Dict[str, str or int]):$/;"	m	class:AdderLevel
+__init__	classes/hardware/architecture/core.py	/^    def __init__(self, id: int, operational_array: OperationalArray, memory_hierarchy: MemoryHierarchy):$/;"	m	class:Core
+__init__	classes/hardware/architecture/dimension.py	/^    def __init__(self, index: int, name: str, size: int):$/;"	m	class:Dimension
+__init__	classes/hardware/architecture/memory_hierarchy.py	/^    def __init__(self, operational_array: OperationalArray, name: str = "Memory Hierarchy", **attr):$/;"	m	class:MemoryHierarchy
+__init__	classes/hardware/architecture/memory_instance.py	/^    def __init__(self, name: str, size: int, r_bw: int, w_bw: int, r_cost: float, w_cost: float, area: float,$/;"	m	class:MemoryInstance
+__init__	classes/hardware/architecture/memory_level.py	/^    def __init__(self, memory_instance: MemoryInstance, operands: List[str], mem_level_of_operands: Dict,$/;"	m	class:MemoryLevel
+__init__	classes/hardware/architecture/memory_level.py	/^    def __init__(self, port_name: str, port_bw: int, port_bw_min: int, port_attr: str, port_id=None):$/;"	m	class:MemoryPort
+__init__	classes/hardware/architecture/operand_spatial_sharing.py	/^    def __init__(self, index: int, name: str, direction: tuple, operand: str, base_dims: List[Dimension]):$/;"	m	class:OperandSpatialSharing
+__init__	classes/hardware/architecture/operational_array.py	/^    def __init__(self):$/;"	m	class:AIMCArray
+__init__	classes/hardware/architecture/operational_array.py	/^    def __init__(self):$/;"	m	class:MultiplierArray
+__init__	classes/hardware/architecture/operational_array.py	/^    def __init__(self, operational_unit: OperationalUnit, dimensions: Dict[str, int]):$/;"	m	class:OperationalArray
+__init__	classes/hardware/architecture/operational_unit.py	/^    def __init__(self, input_precision: List[int], energy_cost: float, area: float):$/;"	m	class:Multiplier
+__init__	classes/hardware/architecture/operational_unit.py	/^    def __init__(self, input_precision: List[int], output_precision: int, unit_cost: Dict[str, float], unit_area: Dict[str, float],$/;"	m	class:OperationalUnit
+__init__	classes/hardware/architecture/runtime_mode.py	/^    def __init__(self, id: int, operational_array: OperationalArray, memory_hierarchy: MemoryHierarchy):$/;"	m	class:RuntimeMode
+__init__	classes/io/input_config.py	/^    def __init__(self, workload : 'DNNWorkload'=None,$/;"	m	class:MainInputs
+__init__	classes/mapping/combined_mapping.py	/^    def __init__(self, operand, mem_level):$/;"	m	class:DataMovePattern
+__init__	classes/mapping/combined_mapping.py	/^    def __init__(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:FourWayDataMoving
+__init__	classes/mapping/combined_mapping.py	/^    def __init__(self, spatial_mapping: Dict or SpatialMapping, temporal_mapping: Dict or TemporalMapping,$/;"	m	class:Mapping
+__init__	classes/mapping/mapping_assist_funcs.py	/^    def __init__(self, loop: tuple, MAC_op: int, data_elem: int):$/;"	m	class:Loop
+__init__	classes/mapping/spatial/spatial_mapping.py	/^    def __init__(self, spatial_mapping_dict: Dict, layer_node: 'LayerNode'):$/;"	m	class:SpatialMapping
+__init__	classes/mapping/temporal/temporal_mapping.py	/^    def __init__(self, temporal_mapping_dict: Dict, layer_node: LayerNode):$/;"	m	class:TemporalMapping
+__init__	classes/opt/temporal/loma/cost_model.py	/^    def __init__(self):$/;"	m	class:CostModelOutput
+__init__	classes/opt/temporal/loma/cost_model.py	/^    def __init__(self, layer, memory_hierarchy, spatial_mapping):$/;"	m	class:CostModelCaller
+__init__	classes/opt/temporal/loma/engine.py	/^    def __init__(self, *, accelerator, layer, spatial_mapping, loma_lpf_limit=np.inf,  **kwargs):$/;"	m	class:LomaEngine
+__init__	classes/opt/temporal/loma/loop.py	/^    def __init__(self, dimension: str, size: int, type: str = "temporal"):$/;"	m	class:Loop
+__init__	classes/opt/temporal/loma/memory_allocator.py	/^    def __init__(self, accelerator, layer, spatial_mapping, ordering: List):$/;"	m	class:MemoryAllocator
+__init__	classes/opt/temporal/loma/multipermute.py	/^    def __init__(self, value, next):$/;"	m	class:ListElement
+__init__	classes/opt/temporal/salsa/engine.py	/^    def __init__(self, main_inputs: inputs.MainInputs):$/;"	m	class:SalsaEngine
+__init__	classes/opt/temporal/salsa/state.py	/^    def __init__(self, main_inputs: inputs.MainInputs, ordering):$/;"	m	class:SalsaState
+__init__	classes/stages/CostModelStage.py	/^    def __init__(self, list_of_callables:List[Callable], *, accelerator, layer, spatial_mapping, temporal_mapping, **kwargs):$/;"	m	class:CostModelStage
+__init__	classes/stages/DepthFirstStage.py	/^    def __init__(self, list_of_callables, *,$/;"	m	class:DepthFirstStage
+__init__	classes/stages/DumpStage.py	/^    def __init__(self, list_of_callables, *, dump_filename_pattern, **kwargs):$/;"	m	class:DumpStage
+__init__	classes/stages/GeneralParameterIteratorStage.py	/^    def __init__(self, list_of_callables, *, general_parameter_iterations, **kwargs):$/;"	m	class:GeneralParameterIteratorStage
+__init__	classes/stages/LomaStage.py	/^    def __init__(self, list_of_callables: List[Callable], *, accelerator, layer, spatial_mapping, **kwargs):$/;"	m	class:LomaStage
+__init__	classes/stages/MainInputParserStages.py	/^    def __init__(self, list_of_callables, *, accelerator_path, **kwargs):$/;"	m	class:AcceleratorParserStage
+__init__	classes/stages/MainInputParserStages.py	/^    def __init__(self, list_of_callables, *, workload_path, **kwargs):$/;"	m	class:WorkloadParserStage
+__init__	classes/stages/MainInputParserStages.py	/^    def __init__(self, list_of_callables, *, workload_path, accelerator_path, **kwargs):$/;"	m	class:WorkloadAndAcceleratorParserStage
+__init__	classes/stages/ONNXModelParserStage.py	/^    def __init__(self, list_of_callables, *, onnx_model_path, mapping_path, **kwargs):$/;"	m	class:ONNXModelParserStage
+__init__	classes/stages/PlotTemporalMappingsStage.py	/^    def __init__(self, list_of_callables, *, plot_filename_pattern, **kwargs):$/;"	m	class:PlotTemporalMappingsStage
+__init__	classes/stages/ReduceStages.py	/^    def __init__(self, list_of_callables, **kwargs):$/;"	m	class:ListifyStage
+__init__	classes/stages/ReduceStages.py	/^    def __init__(self, list_of_callables, **kwargs):$/;"	m	class:SumStage
+__init__	classes/stages/ReduceStages.py	/^    def __init__(self, list_of_callables, *, reduce_minimal_keep_others=False, **kwargs):$/;"	m	class:MinimalEnergyStage
+__init__	classes/stages/ReduceStages.py	/^    def __init__(self, list_of_callables,*, reduce_minimal_keep_others=False, **kwargs):$/;"	m	class:MinimalLatencyStage
+__init__	classes/stages/RunOptStages.py	/^    def __init__(self, list_of_callables, **kwargs):$/;"	m	class:CacheBeforeYieldStage
+__init__	classes/stages/RunOptStages.py	/^    def __init__(self, list_of_callables, **kwargs):$/;"	m	class:RemoveExtraInfoStage
+__init__	classes/stages/RunOptStages.py	/^    def __init__(self, list_of_callables, *, dump_filename_pattern, **kwargs):$/;"	m	class:SkipIfDumpExistsStage
+__init__	classes/stages/RunOptStages.py	/^    def __init__(self, list_of_callables, *, multiprocessing_callback, nb_multiprocessing_threads=multiprocessing.cpu_count(), **kwargs):$/;"	m	class:MultiProcessingSpawnStage
+__init__	classes/stages/SaveStage.py	/^    def __init__(self, list_of_callables, *, dump_filename_pattern, **kwargs):$/;"	m	class:CompleteSaveStage
+__init__	classes/stages/SaveStage.py	/^    def __init__(self, list_of_callables, *, dump_filename_pattern, **kwargs):$/;"	m	class:SimpleSaveStage
+__init__	classes/stages/SpatialMappingConversionStage.py	/^    def __init__(self, list_of_callables, *, accelerator, layer, **kwargs):$/;"	m	class:SpatialMappingConversionStage
+__init__	classes/stages/SpatialMappingGeneratorStage.py	/^    def __init__(self, list_of_callables, *, accelerator, layer, **kwargs):$/;"	m	class:SpatialMappingGeneratorStage
+__init__	classes/stages/Stage.py	/^    def __init__(self, list_of_callables, **kwargs):$/;"	m	class:MainStage
+__init__	classes/stages/Stage.py	/^    def __init__(self, list_of_callables:List[Callable], **kwargs):$/;"	m	class:Stage
+__init__	classes/stages/TemporalOrderingConversionStage.py	/^    def __init__(self, list_of_callables, *, accelerator, layer, spatial_mapping, **kwargs):$/;"	m	class:TemporalOrderingConversionStage
+__init__	classes/stages/WorkloadStage.py	/^    def __init__(self, list_of_callables, *, workload, **kwargs):$/;"	m	class:WorkloadStage
+__init__	classes/stages/adjust_accelerator.py	/^    def __init__(self, main_inputs: inputs.MainInputs, change: Callable[[inputs.MainInputs], Any]):$/;"	m	class:AdjustAcceleratorStage
+__init__	classes/stages/salsa.py	/^    def __init__(self, main_inputs: inputs.MainInputs):$/;"	m	class:SalsaStage
+__init__	classes/stages/salsa_pipeline.py	/^    def __init__(self, main_inputs: inputs.MainInputs):$/;"	m	class:SalsaPipeline
+__init__	classes/workload/dnn_workload.py	/^    def __init__(self, workload: Dict[Any, Dict], **attr):$/;"	m	class:DNNWorkload
+__init__	classes/workload/dummy_node.py	/^    def __init__(self, id, preds, node_name="") -> None:$/;"	m	class:DummyNode
+__init__	classes/workload/layer_node.py	/^    def __init__(self, layer_id, layer_attrs, node_name=""):$/;"	m	class:LayerNode
+__init__	classes/workload/onnx_workload.py	/^    def __init__(self, **attr):$/;"	m	class:ONNXWorkload
+__init__	classes/workload/runner.py	/^    def __init__(self):$/;"	m	class:WorkloadRunner
+__iter__	classes/mapping/combined_mapping.py	/^    def __iter__(self):$/;"	m	class:FourWayDataMoving	file:
+__iter__	classes/stages/Stage.py	/^    def __iter__(self):$/;"	m	class:Stage	file:
+__jsonrepr__	classes/cost_model/cost_model.py	/^    def __jsonrepr__(self):$/;"	m	class:CostModelEvaluation	file:
+__jsonrepr__	classes/hardware/architecture/accelerator.py	/^    def __jsonrepr__(self):$/;"	m	class:Accelerator	file:
+__jsonrepr__	classes/hardware/architecture/core.py	/^    def __jsonrepr__(self):$/;"	m	class:Core	file:
+__jsonrepr__	classes/hardware/architecture/dimension.py	/^    def __jsonrepr__(self):$/;"	m	class:Dimension	file:
+__jsonrepr__	classes/hardware/architecture/memory_hierarchy.py	/^    def __jsonrepr__(self):$/;"	m	class:MemoryHierarchy	file:
+__jsonrepr__	classes/hardware/architecture/memory_instance.py	/^    def __jsonrepr__(self):$/;"	m	class:MemoryInstance	file:
+__jsonrepr__	classes/hardware/architecture/memory_level.py	/^    def __jsonrepr__(self):$/;"	m	class:MemoryLevel	file:
+__jsonrepr__	classes/hardware/architecture/operational_array.py	/^    def __jsonrepr__(self):$/;"	m	class:OperationalArray	file:
+__jsonrepr__	classes/hardware/architecture/operational_unit.py	/^    def __jsonrepr__(self):$/;"	m	class:OperationalUnit	file:
+__jsonrepr__	classes/mapping/combined_mapping.py	/^    def __jsonrepr__(self):$/;"	m	class:FourWayDataMoving	file:
+__jsonrepr__	classes/mapping/spatial/spatial_mapping.py	/^    def __jsonrepr__(self):$/;"	m	class:SpatialMapping	file:
+__jsonrepr__	classes/mapping/temporal/temporal_mapping.py	/^    def __jsonrepr__(self):$/;"	m	class:TemporalMapping	file:
+__jsonrepr__	classes/workload/dummy_node.py	/^    def __jsonrepr__(self):$/;"	m	class:DummyNode	file:
+__jsonrepr__	classes/workload/layer_node.py	/^    def __jsonrepr__(self):$/;"	m	class:LayerNode	file:
+__lt__	classes/opt/temporal/loma/cost_model.py	/^    def __lt__(self, other):$/;"	m	class:CostModelOutput	file:
+__mul__	classes/cost_model/cost_model.py	/^    def __mul__(self, number):$/;"	m	class:CostModelEvaluation	file:
+__mul__	classes/depthfirst/data_copy_layer.py	/^    def __mul__(self, number):$/;"	m	class:DataCopyLayer	file:
+__mul__	classes/mapping/combined_mapping.py	/^    def __mul__(self, other):$/;"	m	class:FourWayDataMoving	file:
+__repr__	classes/cost_model/cost_model.py	/^    def __repr__(self):$/;"	m	class:CostModelEvaluation	file:
+__repr__	classes/cost_model/cost_model.py	/^    def __repr__(self):$/;"	m	class:PortActivity	file:
+__repr__	classes/cost_model/cost_model.py	/^    def __repr__(self):$/;"	m	class:PortBeginOrEndActivity	file:
+__repr__	classes/depthfirst/data_copy_layer.py	/^    def __repr__(self):$/;"	m	class:DataCopyAction	file:
+__repr__	classes/hardware/architecture/adder_hierarchy.py	/^    def __repr__(self):$/;"	m	class:AdderLevel	file:
+__repr__	classes/hardware/architecture/dimension.py	/^    def __repr__(self):$/;"	m	class:Dimension	file:
+__repr__	classes/hardware/architecture/memory_level.py	/^    def __repr__(self):$/;"	m	class:MemoryLevel	file:
+__repr__	classes/hardware/architecture/memory_level.py	/^    def __repr__(self):$/;"	m	class:MemoryPort	file:
+__repr__	classes/hardware/architecture/operand_spatial_sharing.py	/^    def __repr__(self):$/;"	m	class:OperandSpatialSharing	file:
+__repr__	classes/hardware/architecture/runtime_mode.py	/^    def __repr__(self):$/;"	m	class:RuntimeMode	file:
+__repr__	classes/mapping/combined_mapping.py	/^    def __repr__(self):$/;"	m	class:DataMovePattern	file:
+__repr__	classes/mapping/combined_mapping.py	/^    def __repr__(self):$/;"	m	class:FourWayDataMoving	file:
+__repr__	classes/mapping/mapping_assist_funcs.py	/^    def __repr__(self):$/;"	m	class:Loop	file:
+__repr__	classes/mapping/spatial/spatial_mapping.py	/^    def __repr__(self):$/;"	m	class:SpatialMapping	file:
+__repr__	classes/mapping/temporal/temporal_mapping.py	/^    def __repr__(self):$/;"	m	class:TemporalMapping	file:
+__repr__	classes/opt/temporal/loma/loop.py	/^    def __repr__(self):$/;"	m	class:Loop	file:
+__repr__	classes/stages/DepthFirstStage.py	/^    def __repr__(self):$/;"	m	class:DepthFirstStage	file:
+__repr__	classes/workload/dummy_node.py	/^    def __repr__(self) -> str:$/;"	m	class:DummyNode	file:
+__repr__	classes/workload/layer_node.py	/^    def __repr__(self):$/;"	m	class:LayerNode	file:
+__simplejsonrepr__	classes/cost_model/cost_model.py	/^    def __simplejsonrepr__(self):$/;"	m	class:CostModelEvaluation	file:
+__str__	classes/cost_model/cost_model.py	/^    def __str__(self):$/;"	m	class:CostModelEvaluation	file:
+__str__	classes/cost_model/cost_model.py	/^    def __str__(self):$/;"	m	class:PortActivity	file:
+__str__	classes/cost_model/cost_model.py	/^    def __str__(self):$/;"	m	class:PortBeginOrEndActivity	file:
+__str__	classes/depthfirst/data_copy_layer.py	/^    def __str__(self):$/;"	m	class:DataCopyAction	file:
+__str__	classes/hardware/architecture/adder_hierarchy.py	/^    def __str__(self):$/;"	m	class:AdderLevel	file:
+__str__	classes/hardware/architecture/dimension.py	/^    def __str__(self):$/;"	m	class:Dimension	file:
+__str__	classes/hardware/architecture/memory_level.py	/^    def __str__(self):$/;"	m	class:MemoryLevel	file:
+__str__	classes/hardware/architecture/memory_level.py	/^    def __str__(self):$/;"	m	class:MemoryPort	file:
+__str__	classes/hardware/architecture/operand_spatial_sharing.py	/^    def __str__(self):$/;"	m	class:OperandSpatialSharing	file:
+__str__	classes/hardware/architecture/runtime_mode.py	/^    def __str__(self):$/;"	m	class:RuntimeMode	file:
+__str__	classes/mapping/combined_mapping.py	/^    def __str__(self):$/;"	m	class:DataMovePattern	file:
+__str__	classes/mapping/mapping_assist_funcs.py	/^    def __str__(self):$/;"	m	class:Loop	file:
+__str__	classes/mapping/spatial/spatial_mapping.py	/^    def __str__(self):$/;"	m	class:SpatialMapping	file:
+__str__	classes/mapping/temporal/temporal_mapping.py	/^    def __str__(self):$/;"	m	class:TemporalMapping	file:
+__str__	classes/opt/temporal/loma/loop.py	/^    def __str__(self):$/;"	m	class:Loop	file:
+__str__	classes/stages/DepthFirstStage.py	/^    def __str__(self):$/;"	m	class:DepthFirstStage	file:
+__str__	classes/workload/dummy_node.py	/^    def __str__(self):$/;"	m	class:DummyNode	file:
+__str__	classes/workload/layer_node.py	/^    def __str__(self):$/;"	m	class:LayerNode	file:
+__update_formatted_string	classes/hardware/architecture/memory_level.py	/^    def __update_formatted_string(self):$/;"	m	class:MemoryLevel	file:
+_callback	classes/stages/RunOptStages.py	/^    def _callback(self, ans):$/;"	m	class:MultiProcessingGatherStage
+_logging	main.py	/^import logging as _logging$/;"	i
+_logging	main_onnx.py	/^import logging as _logging$/;"	i
+_logging_format	main.py	/^_logging_format = '%(asctime)s - %(name)s.%(funcName)s +%(lineno)s - %(levelname)s - %(message)s'$/;"	v
+_logging_format	main_onnx.py	/^_logging_format = '%(asctime)s - %(funcName)s +%(lineno)s - %(levelname)s - %(message)s'$/;"	v
+_logging_level	main.py	/^_logging_level = _logging.INFO$/;"	v
+_logging_level	main_onnx.py	/^_logging_level = _logging.INFO$/;"	v
+_to_run	classes/stages/RunOptStages.py	/^    def _to_run(self):$/;"	m	class:MultiProcessingSpawnStage
+a	classes/cost_model/cost_model.py	/^    a = 1$/;"	v	class:CostModelEvaluation
+a	classes/depthfirst/data_copy_layer.py	/^    a = 1$/;"	v	class:DataCopyLayer
+a	classes/hardware/architecture/adder_hierarchy.py	/^    a=1$/;"	v	class:AdderHierarchy
+a	classes/mapping/combined_mapping.py	/^    a = 1$/;"	v	class:Mapping
+a	classes/mapping/mapping_assist_funcs.py	/^    a=1$/;"	v
+a	classes/mapping/spatial/spatial_mapping.py	/^    a=1$/;"	v	class:SpatialMapping
+a	classes/mapping/temporal/temporal_mapping.py	/^    a = 1$/;"	v	class:TemporalMapping
+a	classes/opt/temporal/loma/engine.py	/^    a = 1$/;"	v
+a	classes/workload/layer_node.py	/^    a=1$/;"	v
+a	inputs/examples/hardware/Ascend_like.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/Ascend_like_DF.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/Edge_TPU_like.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/Edge_TPU_like_DF.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/Meta_prototype.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/Meta_prototype_DF.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/TPU_like.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/TPU_like_DF.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/Tesla_NPU_like.py	/^a = 1$/;"	v
+a	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^a = 1$/;"	v
+a	inputs/workshop/accelerator copy.py	/^a = 1$/;"	v
+a	inputs/workshop/accelerator.py	/^a = 1$/;"	v
+aa	classes/workload/layer_node.py	/^    aa = LayerNode(equation, dimension_size, operand_precision, equation_relations)$/;"	v
+abstractmethod	classes/hardware/architecture/operational_array.py	/^from abc import ABC, abstractmethod$/;"	i
+acc_cores	inputs/workshop/accelerator.py	/^acc_cores = cores()$/;"	v
+acc_name	inputs/examples/hardware/Ascend_like.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/Ascend_like_DF.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/Edge_TPU_like.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/Edge_TPU_like_DF.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/Meta_prototype.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/Meta_prototype_DF.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/TPU_like.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/TPU_like_DF.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/Tesla_NPU_like.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^acc_name = os.path.basename(__file__)[:-3]$/;"	v
+acc_name	inputs/workshop/accelerator copy.py	/^acc_name = "MyAccelerator"$/;"	v
+acc_name	inputs/workshop/accelerator.py	/^acc_name = "MyAccelerator"$/;"	v
+accelerator	classes/cost_model/cost_model.py	/^    from inputs.examples.hardware.accelerator_latency_test1 import accelerator$/;"	i
+accelerator	classes/depthfirst/data_copy_layer.py	/^    from inputs.examples.hardware.accelerator_latency_test1 import accelerator$/;"	i
+accelerator	classes/hardware/architecture/accelerator.py	/^    accelerator = accelerator_example()$/;"	v
+accelerator	inputs/examples/hardware/Ascend_like.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Ascend_like_DF.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Edge_TPU_like.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Edge_TPU_like_DF.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Eyeriss_like.py	/^accelerator = Accelerator("Eyeriss-like-simple", cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Meta_prototype.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Meta_prototype_DF.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/TPU_like.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/TPU_like_DF.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Tesla_NPU_like.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/workshop/accelerator copy.py	/^accelerator = Accelerator(acc_name, cores, global_buffer)$/;"	v
+accelerator	inputs/workshop/accelerator.py	/^accelerator = Accelerator(acc_name, acc_cores, global_buffer)$/;"	v
+accelerator	inputs/workshop/eyeriss_like_complex.py	/^accelerator = Accelerator("Eyeriss-like-complex", cores, global_buffer)$/;"	v
+accelerator	inputs/workshop/eyeriss_like_simple.py	/^accelerator = Accelerator("Eyeriss-like-simple", cores, global_buffer)$/;"	v
+accelerator_example	classes/hardware/architecture/accelerator.py	/^def accelerator_example():$/;"	f
+accelerator_path	main.py	/^    accelerator_path=args.accelerator,$/;"	v
+accelerator_path	main_onnx.py	/^    accelerator_path=args.accelerator,  # required by AcceleratorParserStage$/;"	v
+add	classes/workload/onnx_workload.py	/^    def add(self, node_id, node_obj):$/;"	m	class:ONNXWorkload
+add_memory	classes/hardware/architecture/memory_hierarchy.py	/^    def add_memory(self, $/;"	m	class:MemoryHierarchy
+add_port_function	classes/hardware/architecture/memory_level.py	/^    def add_port_function(self, operand_level_direction: Tuple[str, int, str]):$/;"	m	class:MemoryPort
+add_to_size	classes/stages/DepthFirstStage.py	/^    def add_to_size(s):$/;"	f	function:get_largest_alive_size
+ah	classes/hardware/architecture/adder_hierarchy.py	/^    ah = AdderHierarchy(user_defined_adder_hierarchy, multiplier_array)$/;"	v	class:AdderHierarchy
+all_unique	classes/stages/SpatialMappingGeneratorStage.py	/^    def all_unique(items):$/;"	m	class:SpatialMappingGeneratorStage
+allocate_node	classes/opt/temporal/loma/memory_allocator.py	/^    def allocate_node(self, node: MemoryLevel, top_levels: List[MemoryLevel]):$/;"	m	class:MemoryAllocator
+argparse	main.py	/^import argparse$/;"	i
+argparse	main_onnx.py	/^import argparse$/;"	i
+args	main.py	/^args = parser.parse_args()$/;"	v
+args	main_onnx.py	/^args = parser.parse_args()$/;"	v
+assert_valid	classes/hardware/architecture/adder_hierarchy.py	/^    def assert_valid(self, adder_hierarchy: Dict[str, Dict[str, str or int]]):$/;"	m	class:AdderHierarchy
+assert_valid	classes/hardware/architecture/memory_level.py	/^    def assert_valid(self):$/;"	m	class:MemoryLevel
+author	docs/source/conf.py	/^author = 'Arne Symons'$/;"	v
+backpropagate_tilesize	classes/stages/DepthFirstStage.py	/^def backpropagate_tilesize(workload: DNNWorkload, on_i, tile_x, tile_y,$/;"	f
+bisect	classes/stages/SpatialMappingGeneratorStage.py	/^import bisect$/;"	i
+build_pr_funcs	classes/workload/layer_node.py	/^    def build_pr_funcs(self):$/;"	m	class:LayerNode
+calc_MAC_energy_cost	classes/cost_model/cost_model.py	/^    def calc_MAC_energy_cost(self):$/;"	m	class:CostModelEvaluation
+calc_MUW_union	classes/cost_model/cost_model.py	/^def calc_MUW_union(port_duty_list):$/;"	f
+calc_allowed_and_real_data_transfer_cycle_per_DTL	classes/cost_model/cost_model.py	/^    def calc_allowed_and_real_data_transfer_cycle_per_DTL(self):$/;"	m	class:CostModelEvaluation
+calc_cycle_cabl_level	classes/mapping/temporal/temporal_mapping.py	/^    def calc_cycle_cabl_level(self):$/;"	m	class:TemporalMapping
+calc_data_access	classes/mapping/combined_mapping.py	/^    def calc_data_access(self):$/;"	m	class:Mapping
+calc_data_loading_offloading_latency	classes/cost_model/cost_model.py	/^    def calc_data_loading_offloading_latency(self):$/;"	m	class:CostModelEvaluation
+calc_data_serve_scope	classes/mapping/spatial/spatial_mapping.py	/^    def calc_data_serve_scope(self):$/;"	m	class:SpatialMapping
+calc_data_size	classes/mapping/combined_mapping.py	/^    def calc_data_size(self):$/;"	m	class:Mapping
+calc_data_size_MAC_count_per_loop	classes/mapping/mapping_assist_funcs.py	/^def calc_data_size_MAC_count_per_loop(mapping_dict_reform: Dict, operand_loop_dim_reform: Dict):$/;"	f
+calc_double_buffer_flag	classes/cost_model/cost_model.py	/^    def calc_double_buffer_flag(self):$/;"	m	class:CostModelEvaluation
+calc_effective_data_size	classes/mapping/combined_mapping.py	/^    def calc_effective_data_size(self):$/;"	m	class:Mapping
+calc_energy	classes/cost_model/cost_model.py	/^    def calc_energy(self):$/;"	m	class:CostModelEvaluation
+calc_energy_and_latency	classes/depthfirst/data_copy_layer.py	/^    def calc_energy_and_latency(self):$/;"	m	class:DataCopyAction
+calc_fanout	classes/hardware/architecture/memory_level.py	/^    def calc_fanout(self):$/;"	m	class:MemoryLevel
+calc_interconnect_instances	classes/hardware/architecture/operand_spatial_sharing.py	/^    def calc_interconnect_instances(self, base_dims: List[Dimension]) -> int:$/;"	m	class:OperandSpatialSharing
+calc_latency	classes/cost_model/cost_model.py	/^    def calc_latency(self):$/;"	m	class:CostModelEvaluation
+calc_loops_size	classes/opt/temporal/loma/memory_allocator.py	/^    def calc_loops_size(self, loops: List, mem_op: str, all_unallocated_loops: List):$/;"	m	class:MemoryAllocator
+calc_mem_bw_boost_factor	classes/mapping/spatial/spatial_mapping.py	/^    def calc_mem_bw_boost_factor(self):$/;"	m	class:SpatialMapping
+calc_memory_energy_cost	classes/cost_model/cost_model.py	/^    def calc_memory_energy_cost(self):$/;"	m	class:CostModelEvaluation
+calc_memory_utilization	classes/cost_model/cost_model.py	/^    def calc_memory_utilization(self):$/;"	m	class:CostModelEvaluation
+calc_memory_word_access	classes/cost_model/cost_model.py	/^    def calc_memory_word_access(self):$/;"	m	class:CostModelEvaluation
+calc_output_reduction_size	classes/hardware/architecture/adder_hierarchy.py	/^    def calc_output_reduction_size(self, multiplier_array: MultiplierArray):$/;"	m	class:AdderHierarchy
+calc_overall_latency	classes/cost_model/cost_model.py	/^    def calc_overall_latency(self):$/;"	m	class:CostModelEvaluation
+calc_pr_dimension_size	classes/workload/layer_node.py	/^    def calc_pr_dimension_size(sa, A, sb, B):$/;"	m	class:LayerNode
+calc_req_mem_bw_and_data_transfer_rate	classes/mapping/combined_mapping.py	/^    def calc_req_mem_bw_and_data_transfer_rate(self):$/;"	m	class:Mapping
+calc_size_slices	classes/opt/temporal/loma/memory_allocator.py	/^    def calc_size_slices(self, mem_op: str, mem_capacity: int):$/;"	m	class:MemoryAllocator
+calc_tensor_dim	classes/workload/layer_node.py	/^    def calc_tensor_dim(self, layer_op, loop_sizes, dim):$/;"	m	class:LayerNode
+calc_tensor_dims	classes/workload/layer_node.py	/^    def calc_tensor_dims(self, layer_op, loop_sizes):$/;"	m	class:LayerNode
+calc_tensor_size	classes/workload/layer_node.py	/^    def calc_tensor_size(self, layer_op, loop_sizes):$/;"	m	class:LayerNode
+calc_top_r_and_ir_loop	classes/mapping/temporal/temporal_mapping.py	/^    def calc_top_r_and_ir_loop(self):$/;"	m	class:TemporalMapping
+calc_unit_count	classes/mapping/spatial/spatial_mapping.py	/^    def calc_unit_count(self):$/;"	m	class:SpatialMapping
+calc_unroll_count	classes/hardware/architecture/memory_level.py	/^    def calc_unroll_count(self):$/;"	m	class:MemoryLevel
+calc_unroll_size	classes/mapping/spatial/spatial_mapping.py	/^    def calc_unroll_size(self):$/;"	m	class:SpatialMapping
+ceil	classes/cost_model/cost_model.py	/^from math import ceil$/;"	i
+ceil	classes/depthfirst/data_copy_layer.py	/^from math import ceil$/;"	i
+ceil	classes/hardware/architecture/adder_hierarchy.py	/^from math import log2, ceil, prod$/;"	i
+check_layer	classes/stages/SpatialMappingConversionStage.py	/^    def check_layer(layer):$/;"	m	class:SpatialMappingConversionStage
+check_layer	classes/stages/SpatialMappingGeneratorStage.py	/^    def check_layer(layer):$/;"	m	class:SpatialMappingGeneratorStage
+check_layer	classes/stages/TemporalOrderingConversionStage.py	/^    def check_layer(layer):$/;"	m	class:TemporalOrderingConversionStage
+check_served_dimensions	classes/hardware/architecture/memory_level.py	/^    def check_served_dimensions(self):$/;"	m	class:MemoryLevel
+check_valid	classes/hardware/architecture/core.py	/^    def check_valid(self):$/;"	m	class:Core
+classes	classes/cost_model/cost_model.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/io/input_parser.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/mapping/combined_mapping.py	/^import classes.mapping.mapping_assist_funcs as mapping_assist_funcs$/;"	i
+classes	classes/mapping/spatial/spatial_mapping.py	/^import classes.mapping.mapping_assist_funcs as mapping_assist_funcs$/;"	i
+classes	classes/opt/temporal/loma/engine.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/opt/temporal/loma/memory_allocator.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/opt/temporal/salsa/engine.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/opt/temporal/salsa/state.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/CostModelStage.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/DepthFirstStage.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/LomaStage.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/SpatialMappingConversionStage.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/SpatialMappingGeneratorStage.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/TemporalOrderingConversionStage.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/WorkloadStage.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/adjust_accelerator.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/salsa.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/stages/salsa_pipeline.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/workload/layer_node.py	/^import classes.io.input_config as inputs$/;"	i
+classes	classes/workload/runner.py	/^import classes.io.input_config as inputs$/;"	i
+close_threadpool	classes/stages/RunOptStages.py	/^def close_threadpool():$/;"	f
+cme	classes/cost_model/cost_model.py	/^    cme = CostModelEvaluation(accelerator=accelerator, layer=layer_node, spatial_mapping=spatial_mapping, temporal_mapping=temporal_mapping)$/;"	v	class:CostModelEvaluation
+cme	classes/cost_model/cost_model.py	/^    cme = CostModelEvaluation(spatial_mapping=spatial_mapping_dic, temporal_mapping=temporal_mapping_dic,$/;"	v	class:CostModelEvaluation
+cme	classes/cost_model/cost_model.py	/^    cme = cme * 10$/;"	v	class:CostModelEvaluation
+cme	classes/cost_model/cost_model.py	/^    cme = cme * 5$/;"	v	class:CostModelEvaluation
+cme	classes/cost_model/cost_model.py	/^    cme = cme + cme * 9$/;"	v	class:CostModelEvaluation
+cme	classes/cost_model/cost_model.py	/^    cme = cme + cme$/;"	v	class:CostModelEvaluation
+combine_data_transfer_rate_per_physical_port	classes/cost_model/cost_model.py	/^    def combine_data_transfer_rate_per_physical_port(self):$/;"	m	class:CostModelEvaluation
+combine_energy	classes/depthfirst/data_copy_layer.py	/^    def combine_energy(self):$/;"	m	class:DataCopyLayer
+combine_latency	classes/depthfirst/data_copy_layer.py	/^    def combine_latency(self):$/;"	m	class:DataCopyLayer
+combine_spatial_temporal_mapping_dict	classes/mapping/combined_mapping.py	/^    def combine_spatial_temporal_mapping_dict(self):$/;"	m	class:Mapping
+complete_mapping	classes/cost_model/cost_model.py	/^    complete_mapping = Mapping(spatial_mapping_dic, temporal_mapping_dic, layer_node)$/;"	v	class:CostModelEvaluation
+complete_mapping	classes/mapping/combined_mapping.py	/^    complete_mapping = Mapping(spatial_mapping_dic, temporal_mapping_dic, layer_node)$/;"	v	class:Mapping
+complexHandler	classes/io/gen_output_files.py	/^def complexHandler(obj):$/;"	f
+complexHandler	classes/stages/SaveStage.py	/^    def complexHandler(obj):$/;"	m	class:CompleteSaveStage
+complexHandler	classes/stages/SaveStage.py	/^    def complexHandler(obj):$/;"	m	class:SimpleSaveStage
+construct_adder_levels	classes/hardware/architecture/adder_hierarchy.py	/^    def construct_adder_levels(self, multiplier_output_precision: int, adder_hierarchy: Dict[str, Dict[str, str or int]]):$/;"	m	class:AdderHierarchy
+convert_user_spatial_mapping	classes/stages/SpatialMappingConversionStage.py	/^    def convert_user_spatial_mapping(self, user_spatial_mapping):$/;"	m	class:SpatialMappingConversionStage
+convert_user_temporal_mapping	classes/stages/TemporalOrderingConversionStage.py	/^    def convert_user_temporal_mapping(self, user_temporal_mapping):$/;"	m	class:TemporalOrderingConversionStage
+copy	classes/cost_model/cost_model.py	/^import copy$/;"	i
+copy	classes/io/input_parser.py	/^import copy$/;"	i
+copyright	docs/source/conf.py	/^copyright = '2022, Arne Symons'$/;"	v
+core	classes/depthfirst/data_copy_layer.py	/^    core = accelerator.get_core(core_id)$/;"	v	class:DataCopyLayer
+core_example	classes/hardware/architecture/accelerator.py	/^    from classes.hardware.architecture.core import core_example$/;"	i
+core_id	classes/depthfirst/data_copy_layer.py	/^    core_id = 1$/;"	v	class:DataCopyLayer
+cores	inputs/examples/hardware/Ascend_like.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Ascend_like.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Ascend_like_DF.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Ascend_like_DF.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Edge_TPU_like.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Edge_TPU_like.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Edge_TPU_like_DF.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Edge_TPU_like_DF.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Eyeriss_like.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Eyeriss_like.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Meta_prototype.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Meta_prototype.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Meta_prototype_DF.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Meta_prototype_DF.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/TPU_like.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/TPU_like.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/TPU_like_DF.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/TPU_like_DF.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Tesla_NPU_like.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Tesla_NPU_like.py	/^def cores():$/;"	f
+cores	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^cores = cores()$/;"	v
+cores	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^def cores():$/;"	f
+cores	inputs/workshop/accelerator copy.py	/^cores = cores()$/;"	v
+cores	inputs/workshop/accelerator copy.py	/^def cores():$/;"	f
+cores	inputs/workshop/accelerator.py	/^def cores():$/;"	f
+cores	inputs/workshop/eyeriss_like_complex.py	/^cores = cores()$/;"	v
+cores	inputs/workshop/eyeriss_like_complex.py	/^def cores():$/;"	f
+cores	inputs/workshop/eyeriss_like_simple.py	/^cores = cores()$/;"	v
+cores	inputs/workshop/eyeriss_like_simple.py	/^def cores():$/;"	f
+data_amount1	classes/depthfirst/data_copy_layer.py	/^    data_amount1 = 8600  # bit$/;"	v	class:DataCopyLayer
+data_amount2	classes/depthfirst/data_copy_layer.py	/^    data_amount2 = 11200  # bit$/;"	v	class:DataCopyLayer
+data_amount3	classes/depthfirst/data_copy_layer.py	/^    data_amount3 = 7000  # bit$/;"	v	class:DataCopyLayer
+data_copy_action1	classes/depthfirst/data_copy_layer.py	/^    data_copy_action1 = DataCopyAction(data_amount1, data_source1, data_destination1, core)$/;"	v	class:DataCopyLayer
+data_copy_action2	classes/depthfirst/data_copy_layer.py	/^    data_copy_action2 = DataCopyAction(data_amount2, data_source2, data_destination2, core)$/;"	v	class:DataCopyLayer
+data_copy_action3	classes/depthfirst/data_copy_layer.py	/^    data_copy_action3 = DataCopyAction(data_amount3, data_source3, data_destination3, core)$/;"	v	class:DataCopyLayer
+data_copy_actions	classes/depthfirst/data_copy_layer.py	/^    data_copy_actions = [data_copy_action1, data_copy_action2, data_copy_action3]$/;"	v	class:DataCopyLayer
+data_destination1	classes/depthfirst/data_copy_layer.py	/^    data_destination1 = ('I1', 1)$/;"	v	class:DataCopyLayer
+data_destination2	classes/depthfirst/data_copy_layer.py	/^    data_destination2 = ('I1', 1)$/;"	v	class:DataCopyLayer
+data_destination3	classes/depthfirst/data_copy_layer.py	/^    data_destination3 = ('O', 2)$/;"	v	class:DataCopyLayer
+data_source1	classes/depthfirst/data_copy_layer.py	/^    data_source1 = ('O', 0)$/;"	v	class:DataCopyLayer
+data_source2	classes/depthfirst/data_copy_layer.py	/^    data_source2 = ('I1', 2)$/;"	v	class:DataCopyLayer
+data_source3	classes/depthfirst/data_copy_layer.py	/^    data_source3 = ('O', 1)$/;"	v	class:DataCopyLayer
+datetime	classes/stages/SaveStage.py	/^from datetime import datetime$/;"	i
+dcl	classes/depthfirst/data_copy_layer.py	/^    dcl = DataCopyLayer(layer_id, data_copy_actions, core)$/;"	v	class:DataCopyLayer
+decouple_pr_loop	classes/mapping/mapping_assist_funcs.py	/^def decouple_pr_loop(mapping_dict: Dict, layer_node: 'LayerNode'):$/;"	f
+deepcopy	classes/mapping/mapping_assist_funcs.py	/^from copy import deepcopy$/;"	i
+deepcopy	classes/mapping/temporal/temporal_mapping.py	/^from copy import deepcopy$/;"	i
+deepcopy	classes/workload/layer_node.py	/^from copy import deepcopy$/;"	i
+deepcopy	utils.py	/^from copy import deepcopy$/;"	i
+deepcopy	visualization/results/plot_cme.py	/^from copy import deepcopy$/;"	i
+defaultdict	classes/hardware/architecture/memory_hierarchy.py	/^from collections import defaultdict$/;"	i
+defaultdict	classes/stages/DepthFirstStage.py	/^from collections import defaultdict$/;"	i
+defaultdict	classes/workload/layer_node.py	/^from collections import defaultdict$/;"	i
+defaultdict	utils.py	/^from collections import defaultdict$/;"	i
+defaultdict	visualization/results/plot_cme.py	/^from collections import defaultdict$/;"	i
+detailed_mapping_dict	classes/mapping/mapping_assist_funcs.py	/^    detailed_mapping_dict = calc_data_size_MAC_count_per_loop(mapping_dict_reform, operand_loop_dim_reform)$/;"	v
+determine_caching_for_tilesize	classes/stages/DepthFirstStage.py	/^            def determine_caching_for_tilesize(tile_x:int,$/;"	f	function:DepthFirstStage.run
+dimension_size	classes/workload/layer_node.py	/^    dimension_size = {'B': 1, 'K': 32, 'C': 64, 'OY': 28, 'OX': 28, 'FY': 3, 'FX': 3, 'G': 2}$/;"	v
+dimensions	classes/hardware/architecture/adder_hierarchy.py	/^    dimensions = {'D1': 8, 'D2': 3, 'D3': 2}$/;"	v	class:AdderHierarchy
+disable_data_traffic_external	classes/mapping/combined_mapping.py	/^    def disable_data_traffic_external(self):$/;"	m	class:Mapping
+distinguish_output	classes/mapping/combined_mapping.py	/^    def distinguish_output(self):$/;"	m	class:Mapping
+dump_filename_pattern	main.py	/^    dump_filename_pattern="outputs_workshop\/{datetime}.json",$/;"	v
+dump_filename_pattern	main_onnx.py	/^    dump_filename_pattern="outputs\/{datetime}.json",  # output file save pattern$/;"	v
+exclude_patterns	docs/source/conf.py	/^exclude_patterns = []$/;"	v
+extensions	docs/source/conf.py	/^extensions = [$/;"	v
+extract_data_copy_mem_chain	classes/depthfirst/data_copy_layer.py	/^    def extract_data_copy_mem_chain(self):$/;"	m	class:DataCopyAction
+extract_layer_info	classes/workload/layer_node.py	/^    def extract_layer_info(self):$/;"	m	class:LayerNode
+extract_port_latency	classes/depthfirst/data_copy_layer.py	/^def extract_port_latency(port_busy_time):$/;"	f
+extract_pr_loop_info	classes/workload/layer_node.py	/^    def extract_pr_loop_info(equation_relations):$/;"	m	class:LayerNode
+extract_r_ir_loop_info	classes/workload/layer_node.py	/^    def extract_r_ir_loop_info(equation, loop_dim_size, pr_loop, pr_loop_list):$/;"	m	class:LayerNode
+eyeriss_like_complex_memory_hierarchy	inputs/workshop/eyeriss_like_complex.py	/^def eyeriss_like_complex_memory_hierarchy(multiplier_array):$/;"	f
+eyeriss_like_complex_multiplier_array	inputs/workshop/eyeriss_like_complex.py	/^def eyeriss_like_complex_multiplier_array():$/;"	f
+factorint	classes/opt/temporal/loma/engine.py	/^from sympy.ntheory import factorint$/;"	i
+factorint	classes/opt/temporal/salsa/engine.py	/^from sympy.ntheory import factorint$/;"	i
+factorint	classes/stages/SpatialMappingGeneratorStage.py	/^from sympy import factorint$/;"	i
+find_best_loop_combination	classes/opt/temporal/loma/memory_allocator.py	/^    def find_best_loop_combination(self, mem_ops, all_sizes, node, top_levels):$/;"	m	class:MemoryAllocator
+find_dimension_with_idx	classes/hardware/architecture/memory_level.py	/^    def find_dimension_with_idx(self, idx: int):$/;"	m	class:MemoryLevel
+format	main.py	/^                     format=_logging_format)$/;"	v
+format	main_onnx.py	/^                     format=_logging_format)$/;"	v
+gcd	classes/workload/layer_node.py	/^from math import gcd, prod$/;"	i
+gen_data_precision_dict	classes/mapping/combined_mapping.py	/^    def gen_data_precision_dict(self):$/;"	m	class:Mapping
+gen_r_ir_loop_list	classes/mapping/combined_mapping.py	/^    def gen_r_ir_loop_list(self):$/;"	m	class:Mapping
+generate_dummy_node	classes/stages/ONNXModelParserStage.py	/^def generate_dummy_node(node_id, node, nodes_outputs):$/;"	f
+generate_layer_node_for_matmul	classes/stages/ONNXModelParserStage.py	/^def generate_layer_node_for_matmul(node_id, node, nodes_outputs, mapping, onnx_model):$/;"	f
+generate_layer_node_for_qlinearconv	classes/stages/ONNXModelParserStage.py	/^def generate_layer_node_for_qlinearconv(node_id, node, nodes_outputs, mapping, onnx_model):$/;"	f
+generate_memory_hierarchy_dict	classes/hardware/architecture/core.py	/^    def generate_memory_hierarchy_dict(self):$/;"	m	class:Core
+generate_memory_sharing_list	classes/hardware/architecture/core.py	/^    def generate_memory_sharing_list(self):$/;"	m	class:Core
+generate_user_spatial_mappings	classes/stages/SpatialMappingGeneratorStage.py	/^    def generate_user_spatial_mappings(self):$/;"	m	class:SpatialMappingGeneratorStage
+get_MAC_energy	classes/hardware/architecture/operational_array.py	/^    def get_MAC_energy(self):$/;"	m	class:OperationalArray
+get_MAC_energy	classes/hardware/architecture/operational_array.py	/^    def get_MAC_energy(self, total_MAC_count, spatial_mapping):$/;"	m	class:MultiplierArray
+get_MAC_energy	classes/hardware/architecture/operational_array.py	/^    def get_MAC_energy(total_MAC_count, spatial_mapping):$/;"	m	class:AIMCArray
+get_area	classes/hardware/architecture/operational_array.py	/^    def get_area(self):$/;"	m	class:AIMCArray
+get_area	classes/hardware/architecture/operational_array.py	/^    def get_area(self):$/;"	m	class:MultiplierArray
+get_area	classes/hardware/architecture/operational_array.py	/^    def get_area(self):$/;"	m	class:OperationalArray
+get_attribute_ints_with_name	classes/stages/ONNXModelParserStage.py	/^def get_attribute_ints_with_name(name, attrs, default=None):$/;"	f
+get_core	classes/hardware/architecture/accelerator.py	/^    def get_core(self, core_id: int or str) -> Core:$/;"	m	class:Accelerator
+get_core_allocation	classes/workload/layer_node.py	/^    def get_core_allocation(self):$/;"	m	class:LayerNode
+get_effective_output_to_cache	classes/stages/DepthFirstStage.py	/^def get_effective_output_to_cache(to_cache, node):$/;"	f
+get_end	classes/workload/dummy_node.py	/^    def get_end(self):$/;"	m	class:DummyNode
+get_id	classes/hardware/architecture/memory_level.py	/^    def get_id(self):$/;"	m	class:MemoryLevel
+get_inner_memories	classes/hardware/architecture/memory_hierarchy.py	/^    def get_inner_memories(self) -> List[MemoryLevel]:$/;"	m	class:MemoryHierarchy
+get_input_output_weight_data_type	classes/stages/ONNXModelParserStage.py	/^    def get_input_output_weight_data_type(node, model):$/;"	f	function:generate_layer_node_for_qlinearconv
+get_largest_alive_size	classes/stages/DepthFirstStage.py	/^def get_largest_alive_size(corrected_workload: DNNWorkload, permanent_data: Dict[LayerNode, int] = {}):$/;"	f
+get_layer_node_input_format	classes/stages/ONNXModelParserStage.py	/^    def get_layer_node_input_format(B, C, K, node_mapping, nodes_outputs):$/;"	f	function:generate_layer_node_for_matmul
+get_layer_node_input_format	classes/stages/ONNXModelParserStage.py	/^    def get_layer_node_input_format(kernel_shape, strides, dilations, ia_shape, oa_shape, ia_data_type, oa_data_type, w_data_type, node_mapping, node_outputs):$/;"	f	function:generate_layer_node_for_qlinearconv
+get_layer_operand	classes/workload/layer_node.py	/^    def get_layer_operand(self, mem_op: str) -> str:$/;"	m	class:LayerNode
+get_lowest_shared_mem_level_above	classes/hardware/architecture/core.py	/^    def get_lowest_shared_mem_level_above(self, mem_op1, mem_lv1, mem_op2, mem_lv2):$/;"	m	class:Core
+get_mac_energy	classes/hardware/architecture/core.py	/^    def get_mac_energy(self, total_MAC_count, spatial_mapping):$/;"	m	class:Core
+get_main_inputs	classes/stages/salsa.py	/^    def get_main_inputs(self, main_inputs):$/;"	m	class:SalsaStage
+get_memory_bw_dict	classes/hardware/architecture/core.py	/^    def get_memory_bw_dict(self):$/;"	m	class:Core
+get_memory_bw_min_dict	classes/hardware/architecture/core.py	/^    def get_memory_bw_min_dict(self):$/;"	m	class:Core
+get_memory_hierarchy	classes/hardware/architecture/core.py	/^    def get_memory_hierarchy(self):$/;"	m	class:Core
+get_memory_hierarchy_dict	classes/hardware/architecture/core.py	/^    def get_memory_hierarchy_dict(self):$/;"	m	class:Core
+get_memory_level	classes/hardware/architecture/core.py	/^    def get_memory_level(self, mem_op: str, mem_lv: int):$/;"	m	class:Core
+get_memory_levels	classes/hardware/architecture/memory_hierarchy.py	/^    def get_memory_levels(self, mem_op: str):$/;"	m	class:MemoryHierarchy
+get_memory_sharing_list	classes/hardware/architecture/core.py	/^    def get_memory_sharing_list(self):$/;"	m	class:Core
+get_memory_size_dict	classes/hardware/architecture/core.py	/^    def get_memory_size_dict(self):$/;"	m	class:Core
+get_memorylevel_with_id	classes/hardware/architecture/memory_hierarchy.py	/^    def get_memorylevel_with_id(self, id):$/;"	m	class:MemoryHierarchy
+get_node_input_output_dimension_shapes	classes/stages/ONNXModelParserStage.py	/^def get_node_input_output_dimension_shapes(node, model):$/;"	f
+get_node_with_id	classes/workload/dnn_workload.py	/^    def get_node_with_id(self, id):$/;"	m	class:DNNWorkload
+get_node_with_id	classes/workload/onnx_workload.py	/^    def get_node_with_id(self, id):$/;"	m	class:ONNXWorkload
+get_operand_irrelevant_dimensions	classes/workload/layer_node.py	/^    def get_operand_irrelevant_dimensions(self, layer_op: str):$/;"	m	class:LayerNode
+get_operand_storage_level	classes/workload/layer_node.py	/^    def get_operand_storage_level(self, layer_op: str):$/;"	m	class:LayerNode
+get_operands	classes/hardware/architecture/memory_hierarchy.py	/^    def get_operands(self):$/;"	m	class:MemoryHierarchy
+get_operator_top_level	classes/hardware/architecture/memory_hierarchy.py	/^    def get_operator_top_level(self, operand) -> Tuple[List[MemoryLevel], int]:$/;"	m	class:MemoryHierarchy
+get_outer_memories	classes/hardware/architecture/memory_hierarchy.py	/^    def get_outer_memories(self) -> List[MemoryLevel]:$/;"	m	class:MemoryHierarchy
+get_port_list	classes/hardware/architecture/memory_level.py	/^    def get_port_list(self):$/;"	m	class:MemoryLevel
+get_prime_factors	classes/opt/temporal/loma/engine.py	/^    def get_prime_factors(self):$/;"	m	class:LomaEngine
+get_prime_factors	classes/opt/temporal/salsa/engine.py	/^    def get_prime_factors(self):$/;"	m	class:SalsaEngine
+get_runtime	classes/workload/dummy_node.py	/^    def get_runtime(self):$/;"	m	class:DummyNode
+get_shared_mem_list	classes/cost_model/cost_model.py	/^def get_shared_mem_list(mem_op, mem_lv, memory_sharing_list) -> List[Tuple]:$/;"	f
+get_start	classes/workload/dummy_node.py	/^    def get_start(self):$/;"	m	class:DummyNode
+get_temporal_loops	classes/opt/temporal/loma/engine.py	/^    def get_temporal_loops(self):$/;"	m	class:LomaEngine
+get_temporal_loops	classes/opt/temporal/salsa/engine.py	/^    def get_temporal_loops(self):$/;"	m	class:SalsaEngine
+get_threadpool	classes/stages/RunOptStages.py	/^def get_threadpool(nb_threads_if_non_existent):$/;"	f
+get_top_memories	classes/hardware/architecture/memory_hierarchy.py	/^    def get_top_memories(self) -> Tuple[List[MemoryLevel], int]:$/;"	m	class:MemoryHierarchy
+get_total_read_outs_to_above	classes/mapping/combined_mapping.py	/^    def get_total_read_outs_to_above(self, scaling: float = 1):$/;"	m	class:FourWayDataMoving
+get_total_read_outs_to_below	classes/mapping/combined_mapping.py	/^    def get_total_read_outs_to_below(self, scaling: float = 1):$/;"	m	class:FourWayDataMoving
+get_total_write_ins_from_above	classes/mapping/combined_mapping.py	/^    def get_total_write_ins_from_above(self, scaling: float = 1):$/;"	m	class:FourWayDataMoving
+get_total_write_ins_from_below	classes/mapping/combined_mapping.py	/^    def get_total_write_ins_from_below(self, scaling: float = 1):$/;"	m	class:FourWayDataMoving
+get_unrolling	classes/mapping/spatial/spatial_mapping.py	/^    def get_unrolling(self, op: str, level: int):$/;"	m	class:SpatialMapping
+get_variables_from_module	classes/io/input_parser.py	/^def get_variables_from_module(module):$/;"	f
+global_buffer	inputs/examples/hardware/Ascend_like.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Ascend_like_DF.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Edge_TPU_like.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Edge_TPU_like_DF.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Eyeriss_like.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Meta_prototype.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Meta_prototype_DF.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/TPU_like.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/TPU_like_DF.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Tesla_NPU_like.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/workshop/accelerator copy.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/workshop/accelerator.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/workshop/eyeriss_like_complex.py	/^global_buffer = None$/;"	v
+global_buffer	inputs/workshop/eyeriss_like_simple.py	/^global_buffer = None$/;"	v
+global_main_inputs	classes/io/input_config.py	/^global_main_inputs = MainInputs()$/;"	v
+has_end	classes/workload/dummy_node.py	/^    def has_end(self) -> bool:$/;"	m	class:DummyNode
+hsv_to_rgb	visualization/results/plot_cme.py	/^from matplotlib.colors import hsv_to_rgb$/;"	i
+html_favicon	docs/source/conf.py	/^html_favicon = "zigzag_logo_white_32x32.svg"$/;"	v
+html_logo	docs/source/conf.py	/^html_logo = "zigzag_logo_white_32x32.svg"$/;"	v
+html_sidebars	docs/source/conf.py	/^html_sidebars = {$/;"	v
+html_static_path	docs/source/conf.py	/^html_static_path = ['_static']/;"	v
+html_theme	docs/source/conf.py	/^html_theme = "sphinx_material"$/;"	v
+html_theme_options	docs/source/conf.py	/^html_theme_options = {$/;"	v
+i	classes/opt/temporal/loma/multipermute.py	/^    i = 0$/;"	v
+identifier_counter	classes/hardware/architecture/memory_level.py	/^    identifier_counter = 0$/;"	v	class:MemoryLevel
+importlib	classes/io/input_parser.py	/^import importlib$/;"	i
+importlib	classes/stages/MainInputParserStages.py	/^import importlib$/;"	i
+importlib	classes/stages/ONNXModelParserStage.py	/^import importlib$/;"	i
+init	classes/io/input_config.py	/^def init(input_workload, input_accelerator, input_settings):$/;"	f
+init	classes/opt/temporal/loma/multipermute.py	/^def init(multiset):$/;"	f
+innermost_stationary_loop_merge_down	classes/mapping/temporal/temporal_mapping.py	/^    def innermost_stationary_loop_merge_down(self):$/;"	m	class:TemporalMapping
+inputs	classes/cost_model/cost_model.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/io/input_parser.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/opt/temporal/loma/engine.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/opt/temporal/loma/memory_allocator.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/opt/temporal/salsa/engine.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/opt/temporal/salsa/state.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/CostModelStage.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/DepthFirstStage.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/LomaStage.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/SpatialMappingConversionStage.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/SpatialMappingGeneratorStage.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/TemporalOrderingConversionStage.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/WorkloadStage.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/adjust_accelerator.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/salsa.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/stages/salsa_pipeline.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/workload/layer_node.py	/^import classes.io.input_config as inputs$/;"	i
+inputs	classes/workload/runner.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/cost_model/cost_model.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/io/input_parser.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/opt/temporal/loma/engine.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/opt/temporal/loma/memory_allocator.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/opt/temporal/salsa/engine.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/opt/temporal/salsa/state.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/CostModelStage.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/DepthFirstStage.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/LomaStage.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/SpatialMappingConversionStage.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/SpatialMappingGeneratorStage.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/TemporalOrderingConversionStage.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/WorkloadStage.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/adjust_accelerator.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/salsa.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/stages/salsa_pipeline.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/workload/layer_node.py	/^import classes.io.input_config as inputs$/;"	i
+io	classes/workload/runner.py	/^import classes.io.input_config as inputs$/;"	i
+is_leaf	classes/stages/CostModelStage.py	/^    def is_leaf(self) -> bool:$/;"	m	class:CostModelStage
+is_leaf	classes/stages/GeneralParameterIteratorStage.py	/^        def is_leaf(self):$/;"	m	class:.Dummy
+is_leaf	classes/stages/Stage.py	/^    def is_leaf(self) -> bool:$/;"	m	class:Stage
+itertools	classes/stages/SpatialMappingGeneratorStage.py	/^import itertools$/;"	i
+join	classes/io/gen_output_files.py	/^from os.path import join$/;"	i
+json	classes/io/gen_output_files.py	/^import json$/;"	i
+json	classes/stages/SaveStage.py	/^import json$/;"	i
+layer	classes/cost_model/cost_model.py	/^    layer = workload[3]$/;"	v	class:CostModelEvaluation
+layer	classes/mapping/combined_mapping.py	/^    layer = workload[1]$/;"	v	class:Mapping
+layer	classes/mapping/mapping_assist_funcs.py	/^    layer = workload[0]$/;"	v
+layer	classes/mapping/spatial/spatial_mapping.py	/^    layer = workload[1]$/;"	v	class:SpatialMapping
+layer	classes/mapping/temporal/temporal_mapping.py	/^    layer = workload[1]$/;"	v	class:TemporalMapping
+layer	classes/opt/temporal/loma/engine.py	/^    layer = workload[1]$/;"	v
+layer_id	classes/depthfirst/data_copy_layer.py	/^    layer_id = 1$/;"	v	class:DataCopyLayer
+layer_node	classes/cost_model/cost_model.py	/^    layer_node = LayerNode(3, layer)$/;"	v	class:CostModelEvaluation
+layer_node	classes/mapping/combined_mapping.py	/^    layer_node = LayerNode(0, layer)$/;"	v	class:Mapping
+layer_node	classes/mapping/mapping_assist_funcs.py	/^    layer_node = LayerNode(0, layer)$/;"	v
+layer_node	classes/mapping/spatial/spatial_mapping.py	/^    layer_node = LayerNode(layer)$/;"	v	class:SpatialMapping
+layer_node	classes/mapping/temporal/temporal_mapping.py	/^    layer_node = LayerNode(1, layer)$/;"	v	class:TemporalMapping
+layer_node	classes/opt/temporal/loma/engine.py	/^    layer_node = LayerNode(layer)$/;"	v
+limit_lpfs	classes/opt/temporal/loma/engine.py	/^    def limit_lpfs(self):$/;"	m	class:LomaEngine
+list_of_cme	visualization/results/plot_cme.py	/^        list_of_cme = pickle.load(f)$/;"	v
+log2	classes/hardware/architecture/adder_hierarchy.py	/^from math import log2, ceil, prod$/;"	i
+logger	classes/cost_model/cost_model.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/io/input_parser.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/opt/temporal/loma/engine.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/opt/temporal/salsa/engine.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/CostModelStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/DepthFirstStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/GeneralParameterIteratorStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/MainInputParserStages.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/ONNXModelParserStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/ReduceStages.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/RunOptStages.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/SaveStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/SpatialMappingConversionStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/SpatialMappingGeneratorStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/TemporalOrderingConversionStage.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/stages/adjust_accelerator.py	/^logger = logging.getLogger(__name__)$/;"	v
+logger	classes/workload/runner.py	/^logger = logging.getLogger(__name__)$/;"	v
+logging	classes/cost_model/cost_model.py	/^import logging$/;"	i
+logging	classes/io/input_parser.py	/^import logging$/;"	i
+logging	classes/opt/temporal/loma/engine.py	/^import logging$/;"	i
+logging	classes/opt/temporal/salsa/engine.py	/^import logging$/;"	i
+logging	classes/stages/CostModelStage.py	/^import logging$/;"	i
+logging	classes/stages/DepthFirstStage.py	/^import logging$/;"	i
+logging	classes/stages/GeneralParameterIteratorStage.py	/^import logging$/;"	i
+logging	classes/stages/MainInputParserStages.py	/^import logging$/;"	i
+logging	classes/stages/ONNXModelParserStage.py	/^import logging$/;"	i
+logging	classes/stages/ReduceStages.py	/^import logging$/;"	i
+logging	classes/stages/RunOptStages.py	/^import logging$/;"	i
+logging	classes/stages/SaveStage.py	/^import logging$/;"	i
+logging	classes/stages/SpatialMappingConversionStage.py	/^import logging$/;"	i
+logging	classes/stages/SpatialMappingGeneratorStage.py	/^import logging$/;"	i
+logging	classes/stages/TemporalOrderingConversionStage.py	/^import logging$/;"	i
+logging	classes/stages/adjust_accelerator.py	/^import logging$/;"	i
+logging	classes/workload/runner.py	/^import logging$/;"	i
+loma_engine	classes/opt/temporal/loma/engine.py	/^    loma_engine = LomaEngine(layer=layer_node,$/;"	v
+loma_lpf_limit	main.py	/^    loma_lpf_limit=6$/;"	v
+loma_lpf_limit	main_onnx.py	/^    loma_lpf_limit=6  # required by LomaStage$/;"	v
+mainstage	main.py	/^mainstage = MainStage([$/;"	v
+mainstage	main_onnx.py	/^mainstage = MainStage([  # Initializes the MainStage as entry point$/;"	v
+make_tensor_value_info	classes/stages/MainInputParserStages.py	/^from onnx.helper import make_tensor_value_info$/;"	i
+mapping	classes/mapping/combined_mapping.py	/^import classes.mapping.mapping_assist_funcs as mapping_assist_funcs$/;"	i
+mapping	classes/mapping/spatial/spatial_mapping.py	/^import classes.mapping.mapping_assist_funcs as mapping_assist_funcs$/;"	i
+mapping	inputs/examples/mapping/alexnet_on_eyeriss_like.py	/^mapping = {$/;"	v
+mapping	inputs/examples/mapping/alexnet_on_tpu_like.py	/^mapping = {$/;"	v
+mapping_assist_funcs	classes/mapping/combined_mapping.py	/^import classes.mapping.mapping_assist_funcs as mapping_assist_funcs$/;"	i
+mapping_assist_funcs	classes/mapping/spatial/spatial_mapping.py	/^import classes.mapping.mapping_assist_funcs as mapping_assist_funcs$/;"	i
+mapping_dic	classes/mapping/mapping_assist_funcs.py	/^    mapping_dic = {'W': [[('K', 4)], [('FX', 3), ('OX', 3), ('C', 2)], [('OX', 7), ('FX', 3), ('OY', 3)], [('OX', 2), ('B', 2)]],$/;"	v
+mapping_dict_reform	classes/mapping/mapping_assist_funcs.py	/^    mapping_dict_reform = decouple_pr_loop(mapping_dic, layer_node)$/;"	v
+mapping_path	main_onnx.py	/^    mapping_path=args.mapping,  # required by ONNXModelParserStage$/;"	v
+math	classes/hardware/architecture/operand_spatial_sharing.py	/^import math$/;"	i
+math	classes/stages/DepthFirstStage.py	/^import math$/;"	i
+matplotlib	visualization/graph/dnn.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	visualization/graph/memory_hierarchy.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	visualization/results/plot_cme.py	/^import matplotlib.pyplot as plt$/;"	i
+memory_hierarchy	classes/opt/temporal/loma/engine.py	/^    memory_hierarchy = memory_hierarchy_example1(multiplier_array)$/;"	v
+memory_hierarchy	inputs/workshop/accelerator copy.py	/^def memory_hierarchy(multiplier_array):$/;"	f
+memory_hierarchy	inputs/workshop/accelerator.py	/^def memory_hierarchy(multiplier_array):$/;"	f
+memory_hierarchy1	classes/hardware/architecture/runtime_mode.py	/^    memory_hierarchy1 = memory_hierarchy_example1(multiplier_array1)$/;"	v
+memory_hierarchy2	classes/hardware/architecture/runtime_mode.py	/^    memory_hierarchy2 = memory_hierarchy_example2(multiplier_array2)$/;"	v
+memory_hierarchy_dut	inputs/examples/hardware/Ascend_like.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/Ascend_like_DF.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/Edge_TPU_like.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/Edge_TPU_like_DF.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/Meta_prototype.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/Meta_prototype_DF.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/TPU_like.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/TPU_like_DF.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/Tesla_NPU_like.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_dut	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^def memory_hierarchy_dut(multiplier_array):$/;"	f
+memory_hierarchy_example1	classes/hardware/architecture/runtime_mode.py	/^    from memory_hierarchy import memory_hierarchy_example1, memory_hierarchy_example2$/;"	i
+memory_hierarchy_example1	classes/opt/temporal/loma/engine.py	/^    from classes.hardware.architecture.memory_hierarchy import memory_hierarchy_example1$/;"	i
+memory_hierarchy_example2	classes/hardware/architecture/runtime_mode.py	/^    from memory_hierarchy import memory_hierarchy_example1, memory_hierarchy_example2$/;"	i
+memory_hierarchy_latency_test1	inputs/examples/hardware/Eyeriss_like.py	/^def memory_hierarchy_latency_test1(multiplier_array):$/;"	f
+memory_hierarchy_latency_test1	inputs/workshop/eyeriss_like_simple.py	/^def memory_hierarchy_latency_test1(multiplier_array):$/;"	f
+multiplier	classes/hardware/architecture/adder_hierarchy.py	/^    multiplier = Multiplier(multiplier_input_precision, multiplier_energy, multiplier_area)$/;"	v	class:AdderHierarchy
+multiplier_area	classes/hardware/architecture/adder_hierarchy.py	/^    multiplier_area = 0.1$/;"	v	class:AdderHierarchy
+multiplier_array	classes/hardware/architecture/adder_hierarchy.py	/^    multiplier_array = MultiplierArray(multiplier, dimensions, operand_spatial_sharing)$/;"	v	class:AdderHierarchy
+multiplier_array	classes/hardware/architecture/operational_array.py	/^    multiplier_array = multiplier_array_example1()$/;"	v
+multiplier_array	classes/opt/temporal/loma/engine.py	/^    multiplier_array = multiplier_array_example1()$/;"	v
+multiplier_array	inputs/workshop/accelerator copy.py	/^def multiplier_array():$/;"	f
+multiplier_array	inputs/workshop/accelerator.py	/^def multiplier_array():$/;"	f
+multiplier_array1	classes/hardware/architecture/runtime_mode.py	/^    multiplier_array1 = multiplier_array_example1()$/;"	v
+multiplier_array2	classes/hardware/architecture/runtime_mode.py	/^    multiplier_array2 = multiplier_array_example2()$/;"	v
+multiplier_array_dut	inputs/examples/hardware/Ascend_like.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/Ascend_like_DF.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/Edge_TPU_like.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/Edge_TPU_like_DF.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/Meta_prototype.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/Meta_prototype_DF.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/TPU_like.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/TPU_like_DF.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/Tesla_NPU_like.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_dut	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^def multiplier_array_dut():$/;"	f
+multiplier_array_example1	classes/hardware/architecture/operational_array.py	/^def multiplier_array_example1():$/;"	f
+multiplier_array_example1	classes/hardware/architecture/runtime_mode.py	/^    from operational_array import multiplier_array_example1, multiplier_array_example2, OperationalArray$/;"	i
+multiplier_array_example1	classes/opt/temporal/loma/engine.py	/^    from classes.hardware.architecture.operational_array import multiplier_array_example1$/;"	i
+multiplier_array_example2	classes/hardware/architecture/operational_array.py	/^def multiplier_array_example2():$/;"	f
+multiplier_array_example2	classes/hardware/architecture/runtime_mode.py	/^    from operational_array import multiplier_array_example1, multiplier_array_example2, OperationalArray$/;"	i
+multiplier_array_latency_test1	inputs/examples/hardware/Eyeriss_like.py	/^def multiplier_array_latency_test1():$/;"	f
+multiplier_array_latency_test1	inputs/workshop/eyeriss_like_simple.py	/^def multiplier_array_latency_test1():$/;"	f
+multiplier_energy	classes/hardware/architecture/adder_hierarchy.py	/^    multiplier_energy = 0.5$/;"	v	class:AdderHierarchy
+multiplier_input_precision	classes/hardware/architecture/adder_hierarchy.py	/^    multiplier_input_precision = [8, 8]$/;"	v	class:AdderHierarchy
+multiprocessing	classes/stages/RunOptStages.py	/^import multiprocessing$/;"	i
+multiset	classes/opt/temporal/loma/multipermute.py	/^    multiset = [('OX', 2), ('OX', 2), ('OX', 3), ('OY', 2), ('K', 2), ('K', 2), ('K', 2), ('K', 3), ('K', 3), ('K', 3), ('K', 3), ('C', 2), ('C', 2), ('C', 2), ('C', 2), ('C', 2)]$/;"	v
+np	classes/cost_model/cost_model.py	/^import numpy as np$/;"	i
+np	classes/depthfirst/data_copy_layer.py	/^import numpy as np$/;"	i
+np	classes/hardware/architecture/memory_level.py	/^import numpy as np$/;"	i
+np	classes/hardware/architecture/operand_spatial_sharing.py	/^import numpy as np$/;"	i
+np	classes/hardware/architecture/operational_array.py	/^import numpy as np$/;"	i
+np	classes/opt/temporal/loma/engine.py	/^import numpy as np$/;"	i
+np	classes/opt/temporal/loma/memory_allocator.py	/^import numpy as np$/;"	i
+np	classes/opt/temporal/salsa/engine.py	/^import numpy as np$/;"	i
+np	classes/stages/CostModelStage.py	/^import numpy as np$/;"	i
+np	classes/stages/SaveStage.py	/^import numpy as np$/;"	i
+np	classes/stages/SpatialMappingConversionStage.py	/^import numpy as np$/;"	i
+np	classes/stages/TemporalOrderingConversionStage.py	/^import numpy as np$/;"	i
+np	visualization/results/plot_cme.py	/^import numpy as np$/;"	i
+nth	classes/opt/temporal/loma/multipermute.py	/^    def nth(self, n):$/;"	m	class:ListElement
+numpy	classes/io/gen_output_files.py	/^    import numpy$/;"	i
+nx	classes/hardware/architecture/core.py	/^import networkx as nx$/;"	i
+nx	classes/hardware/architecture/memory_hierarchy.py	/^import networkx as nx$/;"	i
+nx	classes/stages/DepthFirstStage.py	/^import networkx as nx$/;"	i
+nx	classes/stages/WorkloadStage.py	/^import networkx as nx$/;"	i
+nx	classes/workload/dnn_workload.py	/^import networkx as nx$/;"	i
+nx	classes/workload/onnx_workload.py	/^import networkx as nx$/;"	i
+nx	visualization/graph/dnn.py	/^import networkx as nx$/;"	i
+nx	visualization/graph/memory_hierarchy.py	/^import networkx as nx$/;"	i
+og	classes/opt/temporal/loma/engine.py	/^    def og(self):$/;"	m	class:LomaEngine
+onnx	classes/stages/ONNXModelParserStage.py	/^import onnx$/;"	i
+onnx_model_path	main_onnx.py	/^    onnx_model_path=args.model,  # required by ONNXModelParserStage$/;"	v
+operand_loop_dim_reform	classes/mapping/mapping_assist_funcs.py	/^    operand_loop_dim_reform = layer_node.operand_loop_dim_reform$/;"	v
+operand_precision	classes/workload/layer_node.py	/^    operand_precision = {'O': 24, 'O_final': 24, 'W': 8, 'I': 8}$/;"	v
+operand_spatial_sharing	classes/hardware/architecture/adder_hierarchy.py	/^    operand_spatial_sharing = {'OS1': ((1, 0, 0), 'O'),$/;"	v	class:AdderHierarchy
+operator	classes/opt/temporal/loma/engine.py	/^import operator$/;"	i
+os	classes/stages/DumpStage.py	/^import os$/;"	i
+os	classes/stages/PlotTemporalMappingsStage.py	/^import os$/;"	i
+os	classes/stages/RunOptStages.py	/^import os$/;"	i
+os	classes/stages/SaveStage.py	/^import os$/;"	i
+os	docs/source/conf.py	/^import os$/;"	i
+os	inputs/examples/hardware/Ascend_like.py	/^import os$/;"	i
+os	inputs/examples/hardware/Ascend_like_DF.py	/^import os$/;"	i
+os	inputs/examples/hardware/Edge_TPU_like.py	/^import os$/;"	i
+os	inputs/examples/hardware/Edge_TPU_like_DF.py	/^import os$/;"	i
+os	inputs/examples/hardware/Meta_prototype.py	/^import os$/;"	i
+os	inputs/examples/hardware/Meta_prototype_DF.py	/^import os$/;"	i
+os	inputs/examples/hardware/TPU_like.py	/^import os$/;"	i
+os	inputs/examples/hardware/TPU_like_DF.py	/^import os$/;"	i
+os	inputs/examples/hardware/Tesla_NPU_like.py	/^import os$/;"	i
+os	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^import os$/;"	i
+os	inputs/workshop/accelerator copy.py	/^import os$/;"	i
+os	inputs/workshop/accelerator.py	/^import os$/;"	i
+parse_accelerator_from_path	classes/io/input_parser.py	/^def parse_accelerator_from_path(accelerator_path):$/;"	f
+parse_accelerator_from_path	classes/stages/MainInputParserStages.py	/^def parse_accelerator_from_path(accelerator_path):$/;"	f
+parse_inputs_from_path	classes/io/input_parser.py	/^def parse_inputs_from_path(accelerator_path, workload_path, settings_path):$/;"	f
+parse_mapping_from_path	classes/stages/ONNXModelParserStage.py	/^def parse_mapping_from_path(mapping_path):$/;"	f
+parse_onnx_model_from_path	classes/stages/ONNXModelParserStage.py	/^def parse_onnx_model_from_path(onnx_model_path):$/;"	f
+parse_settings_from_path	classes/io/input_parser.py	/^def parse_settings_from_path(settings_path):$/;"	f
+parse_workload_from_onnx_model_and_mapping	classes/stages/ONNXModelParserStage.py	/^def parse_workload_from_onnx_model_and_mapping(onnx_model, mapping):$/;"	f
+parse_workload_from_path	classes/io/input_parser.py	/^def parse_workload_from_path(workload_path):$/;"	f
+parse_workload_from_path	classes/stages/MainInputParserStages.py	/^def parse_workload_from_path(workload_path):$/;"	f
+parser	main.py	/^parser = argparse.ArgumentParser(description="Setup zigzag-v2 inputs")$/;"	v
+parser	main_onnx.py	/^parser = argparse.ArgumentParser(description="Setup zigzag inputs")$/;"	v
+pdb	classes/hardware/architecture/operational_array.py	/^import pdb$/;"	i
+permutations	classes/opt/temporal/loma/engine.py	/^from classes.opt.temporal.loma.multipermute import permutations$/;"	i
+permutations	classes/opt/temporal/loma/multipermute.py	/^def permutations(multiset):$/;"	f
+permutations	classes/opt/temporal/salsa/engine.py	/^from classes.opt.temporal.loma.multipermute import permutations$/;"	i
+pickle	classes/stages/DepthFirstStage.py	/^import pickle$/;"	i
+pickle	classes/stages/DumpStage.py	/^import pickle$/;"	i
+pickle	classes/stages/PlotTemporalMappingsStage.py	/^import pickle$/;"	i
+pickle	utils.py	/^import pickle$/;"	i
+pickle	visualization/results/plot_cme.py	/^import pickle$/;"	i
+pickle_deepcopy	classes/cost_model/cost_model.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/depthfirst/data_copy_layer.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/hardware/architecture/memory_level.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/mapping/mapping_assist_funcs.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/mapping/temporal/temporal_mapping.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/opt/temporal/salsa/engine.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/opt/temporal/salsa/state.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/stages/DepthFirstStage.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/stages/ONNXModelParserStage.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	classes/stages/adjust_accelerator.py	/^from utils import pickle_deepcopy$/;"	i
+pickle_deepcopy	utils.py	/^def pickle_deepcopy(to_copy):$/;"	f
+plot_cost_model_evaluations	classes/stages/PlotTemporalMappingsStage.py	/^from visualization.results.plot_cme import plot_cost_model_evaluations$/;"	i
+plot_cost_model_evaluations	visualization/results/plot_cme.py	/^def plot_cost_model_evaluations(cmes: List['CostModelEvaluation'], filename: str):$/;"	f
+plot_filename_pattern	main.py	/^    plot_filename_pattern="outputs_workshop\/temporal_mappings.png",$/;"	v
+plt	visualization/graph/dnn.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	visualization/graph/memory_hierarchy.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	visualization/results/plot_cme.py	/^import matplotlib.pyplot as plt$/;"	i
+port_allocation	classes/hardware/architecture/memory_level.py	/^    def port_allocation(self):$/;"	m	class:MemoryLevel
+port_id_counter	classes/hardware/architecture/memory_level.py	/^    port_id_counter = 0$/;"	v	class:MemoryPort
+pprint	classes/stages/MainInputParserStages.py	/^from pprint import pprint$/;"	i
+prod	classes/hardware/architecture/adder_hierarchy.py	/^from math import log2, ceil, prod$/;"	i
+prod	classes/hardware/architecture/memory_level.py	/^from math import prod$/;"	i
+prod	classes/mapping/combined_mapping.py	/^from math import prod$/;"	i
+prod	classes/mapping/mapping_assist_funcs.py	/^from math import prod$/;"	i
+prod	classes/mapping/spatial/spatial_mapping.py	/^from math import prod$/;"	i
+prod	classes/mapping/temporal/temporal_mapping.py	/^from math import prod$/;"	i
+prod	classes/opt/temporal/loma/memory_allocator.py	/^from math import prod$/;"	i
+prod	classes/stages/DepthFirstStage.py	/^from  math import prod$/;"	i
+prod	classes/workload/layer_node.py	/^from math import gcd, prod$/;"	i
+project	docs/source/conf.py	/^project = 'ZigZag'$/;"	v
+raise_exception	classes/stages/RunOptStages.py	/^def raise_exception(e):$/;"	f
+random	classes/opt/temporal/salsa/engine.py	/^import random$/;"	i
+re	classes/workload/layer_node.py	/^import re$/;"	i
+recalculate_memory_hierarchy_information	classes/hardware/architecture/core.py	/^    def recalculate_memory_hierarchy_information(self):$/;"	m	class:Core
+recursive_run	classes/stages/GeneralParameterIteratorStage.py	/^    def recursive_run(self, reduced_param_iters, runparams):$/;"	m	class:GeneralParameterIteratorStage
+release	docs/source/conf.py	/^release = '2.0.0'$/;"	v
+remove_operator_top_level	classes/hardware/architecture/memory_hierarchy.py	/^    def remove_operator_top_level(self, operand):$/;"	m	class:MemoryHierarchy
+remove_top_level	classes/hardware/architecture/memory_hierarchy.py	/^    def remove_top_level(self) -> Tuple[List[MemoryLevel], int]:$/;"	m	class:MemoryHierarchy
+replace_pr_loop_in_mapping	classes/mapping/mapping_assist_funcs.py	/^def replace_pr_loop_in_mapping(single_operand_mapping: Dict, per_pr_data_size: Dict, per_pr_data_reuse: Dict,$/;"	f
+return_0	classes/stages/DepthFirstStage.py	/^def return_0():$/;"	f
+return_0_0_list	classes/stages/DepthFirstStage.py	/^def return_0_0_list():$/;"	f
+return_empty_dict	classes/stages/DepthFirstStage.py	/^def return_empty_dict():$/;"	f
+return_empty_list	classes/stages/DepthFirstStage.py	/^def return_empty_list():$/;"	f
+return_emtpystr_0_list	classes/stages/DepthFirstStage.py	/^def return_emtpystr_0_list():$/;"	f
+return_emtpystr_0_tuple	classes/stages/DepthFirstStage.py	/^def return_emtpystr_0_tuple():$/;"	f
+return_lambda	classes/workload/layer_node.py	/^    def return_lambda(equal_sign_right):$/;"	m	class:LayerNode
+run	classes/cost_model/cost_model.py	/^    def run(self):$/;"	m	class:CostModelEvaluation
+run	classes/opt/temporal/loma/cost_model.py	/^    def run(self, temporal_mapping):$/;"	m	class:CostModelCaller
+run	classes/opt/temporal/loma/engine.py	/^    def run(self):$/;"	m	class:LomaEngine
+run	classes/opt/temporal/loma/memory_allocator.py	/^    def run(self):$/;"	m	class:MemoryAllocator
+run	classes/opt/temporal/salsa/engine.py	/^    def run(self):$/;"	m	class:SalsaEngine
+run	classes/stages/CostModelStage.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:CostModelStage
+run	classes/stages/DepthFirstStage.py	/^    def run(self):$/;"	m	class:DepthFirstStage
+run	classes/stages/DumpStage.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:DumpStage
+run	classes/stages/GeneralParameterIteratorStage.py	/^        def run(self):$/;"	m	class:.Dummy
+run	classes/stages/GeneralParameterIteratorStage.py	/^    def run(self):$/;"	m	class:GeneralParameterIteratorStage
+run	classes/stages/LomaStage.py	/^    def run(self):$/;"	m	class:LomaStage
+run	classes/stages/MainInputParserStages.py	/^    def run(self):$/;"	m	class:AcceleratorParserStage
+run	classes/stages/MainInputParserStages.py	/^    def run(self):$/;"	m	class:WorkloadAndAcceleratorParserStage
+run	classes/stages/MainInputParserStages.py	/^    def run(self):$/;"	m	class:WorkloadParserStage
+run	classes/stages/ONNXModelParserStage.py	/^    def run(self) -> Generator:$/;"	m	class:ONNXModelParserStage
+run	classes/stages/PlotTemporalMappingsStage.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:PlotTemporalMappingsStage
+run	classes/stages/ReduceStages.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:ListifyStage
+run	classes/stages/ReduceStages.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:MinimalEnergyStage
+run	classes/stages/ReduceStages.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:MinimalLatencyStage
+run	classes/stages/ReduceStages.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:SumStage
+run	classes/stages/RunOptStages.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:CacheBeforeYieldStage
+run	classes/stages/RunOptStages.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:RemoveExtraInfoStage
+run	classes/stages/RunOptStages.py	/^    def run(self):$/;"	m	class:MultiProcessingGatherStage
+run	classes/stages/RunOptStages.py	/^    def run(self):$/;"	m	class:MultiProcessingSpawnStage
+run	classes/stages/RunOptStages.py	/^    def run(self):$/;"	m	class:SkipIfDumpExistsStage
+run	classes/stages/SaveStage.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:CompleteSaveStage
+run	classes/stages/SaveStage.py	/^    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:$/;"	m	class:SimpleSaveStage
+run	classes/stages/SpatialMappingConversionStage.py	/^    def run(self):$/;"	m	class:SpatialMappingConversionStage
+run	classes/stages/SpatialMappingGeneratorStage.py	/^    def run(self):$/;"	m	class:SpatialMappingGeneratorStage
+run	classes/stages/Stage.py	/^    def run(self) -> Generator:$/;"	m	class:Stage
+run	classes/stages/Stage.py	/^    def run(self):$/;"	m	class:MainStage
+run	classes/stages/TemporalOrderingConversionStage.py	/^    def run(self):$/;"	m	class:TemporalOrderingConversionStage
+run	classes/stages/WorkloadStage.py	/^    def run(self):$/;"	m	class:WorkloadStage
+run	classes/stages/adjust_accelerator.py	/^    def run(self):$/;"	m	class:AdjustAcceleratorStage
+run	classes/stages/salsa.py	/^    def run(self):$/;"	m	class:SalsaStage
+run	classes/stages/salsa_pipeline.py	/^    def run(self):$/;"	m	class:SalsaPipeline
+run	classes/workload/runner.py	/^    def run(self):$/;"	m	class:WorkloadRunner
+run_for_tilesize	classes/stages/DepthFirstStage.py	/^            def run_for_tilesize(tile_x, tile_y, weights_from_top,$/;"	f	function:DepthFirstStage.run
+run_simulated_annealing_opt	classes/opt/temporal/salsa/engine.py	/^    def run_simulated_annealing_opt(self):$/;"	m	class:SalsaEngine
+run_workload_node	classes/workload/runner.py	/^    def run_workload_node(self, node: LayerNode):$/;"	m	class:WorkloadRunner
+runtime_estimation	classes/opt/temporal/salsa/engine.py	/^    def runtime_estimation(self):$/;"	m	class:SalsaEngine
+runtime_mode1	classes/hardware/architecture/runtime_mode.py	/^    runtime_mode1 = RuntimeMode(id=1, operational_array=multiplier_array1, memory_hierarchy=memory_hierarchy1)$/;"	v
+runtime_mode2	classes/hardware/architecture/runtime_mode.py	/^    runtime_mode2 = RuntimeMode(id=2, operational_array=multiplier_array2, memory_hierarchy=memory_hierarchy2)$/;"	v
+runtime_modes	classes/hardware/architecture/runtime_mode.py	/^    runtime_modes = [runtime_mode1, runtime_mode2]$/;"	v
+save_spatial_loop_dim_size	classes/mapping/spatial/spatial_mapping.py	/^    def save_spatial_loop_dim_size(self):$/;"	m	class:SpatialMapping
+save_to_json	classes/io/gen_output_files.py	/^def save_to_json(obj, file_directory):$/;"	f
+save_to_json	classes/stages/SaveStage.py	/^    def save_to_json(self, obj, filename):$/;"	m	class:CompleteSaveStage
+save_to_json	classes/stages/SaveStage.py	/^    def save_to_json(self, obj, filename):$/;"	m	class:SimpleSaveStage
+set_change	classes/stages/adjust_accelerator.py	/^    def set_change(self, change: Callable[[Accelerator], Any]):$/;"	m	class:AdjustAcceleratorStage
+set_data_elem_move_count	classes/mapping/combined_mapping.py	/^    def set_data_elem_move_count(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_data_precision	classes/mapping/combined_mapping.py	/^    def set_data_precision(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_data_trans_amount_per_period	classes/mapping/combined_mapping.py	/^    def set_data_trans_amount_per_period(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_data_trans_period	classes/mapping/combined_mapping.py	/^    def set_data_trans_period(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_data_trans_period_count	classes/mapping/combined_mapping.py	/^    def set_data_trans_period_count(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_end	classes/workload/dummy_node.py	/^    def set_end(self, end):$/;"	m	class:DummyNode
+set_inst_data_trans_window	classes/mapping/combined_mapping.py	/^    def set_inst_data_trans_window(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_layer	classes/io/input_config.py	/^def set_layer(input_layer: 'LayerNode'):$/;"	f
+set_main_inputs	classes/opt/temporal/salsa/engine.py	/^    def set_main_inputs(self, main_inputs: inputs.MainInputs):$/;"	m	class:SalsaEngine
+set_main_inputs	classes/opt/temporal/salsa/state.py	/^    def set_main_inputs(self, main_inputs: input.MainInputs):$/;"	m	class:SalsaState
+set_main_inputs	classes/stages/adjust_accelerator.py	/^    def set_main_inputs(self, main_inputs: inputs.MainInputs):$/;"	m	class:AdjustAcceleratorStage
+set_main_inputs	classes/stages/salsa.py	/^    def set_main_inputs(self, main_inputs):$/;"	m	class:SalsaStage
+set_main_inputs	classes/stages/salsa_pipeline.py	/^    def set_main_inputs(self, main_inputs: inputs.MainInputs):$/;"	m	class:SalsaPipeline
+set_req_mem_bw_aver	classes/mapping/combined_mapping.py	/^    def set_req_mem_bw_aver(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_req_mem_bw_inst	classes/mapping/combined_mapping.py	/^    def set_req_mem_bw_inst(self, rd_out_to_low, wr_in_by_low, rd_out_to_high, wr_in_by_high):$/;"	m	class:DataMovePattern
+set_spatial_mapping	classes/io/input_config.py	/^def set_spatial_mapping(input_spatial_mapping: 'SpatialMapping'):$/;"	f
+set_start	classes/workload/dummy_node.py	/^    def set_start(self, start):$/;"	m	class:DummyNode
+set_temporal_mapping	classes/io/input_config.py	/^def set_temporal_mapping(input_temporal_mapping: 'TemporalMapping'):$/;"	f
+spatial_mapping	classes/cost_model/cost_model.py	/^    spatial_mapping = SpatialMapping(spatial_mapping_dic, layer_node)$/;"	v	class:CostModelEvaluation
+spatial_mapping	classes/mapping/spatial/spatial_mapping.py	/^    spatial_mapping = SpatialMapping(spatial_mapping_dic, layer_node)$/;"	v	class:SpatialMapping
+spatial_mapping	classes/opt/temporal/loma/engine.py	/^    spatial_mapping = SpatialMapping(spatial_mapping_dict=spatial_mapping_dic, layer_node=layer_node)$/;"	v
+spatial_mapping_dic	classes/cost_model/cost_model.py	/^    spatial_mapping_dic = {'W': [[], [('K', 16), ('OX', 16)], [], []],$/;"	v	class:CostModelEvaluation
+spatial_mapping_dic	classes/mapping/combined_mapping.py	/^    spatial_mapping_dic = {'W': [[], [('C', 4), ('K', 4)], [], []],$/;"	v	class:Mapping
+spatial_mapping_dic	classes/mapping/spatial/spatial_mapping.py	/^    spatial_mapping_dic = {'W': [[('OX', 14), ('OY', 7)], [('FX', 3)], [], []],$/;"	v	class:SpatialMapping
+spatial_mapping_dic	classes/opt/temporal/loma/engine.py	/^    spatial_mapping_dic = {'W': [[('OX', 14), ('OY', 7)], [('FX', 3)], [], []],$/;"	v
+spatial_mapping_fractional_to_int	classes/cost_model/cost_model.py	/^def spatial_mapping_fractional_to_int(spatial_mapping: Dict):$/;"	f
+swap	classes/opt/temporal/salsa/state.py	/^    def swap(self, i, j):$/;"	m	class:SalsaState
+sys	docs/source/conf.py	/^import sys$/;"	i
+templates_path	docs/source/conf.py	/^templates_path = ['_templates']$/;"	v
+temporal_mapping	classes/cost_model/cost_model.py	/^    temporal_mapping = TemporalMapping(temporal_mapping_dic, layer_node)$/;"	v	class:CostModelEvaluation
+temporal_mapping	classes/mapping/temporal/temporal_mapping.py	/^    temporal_mapping = TemporalMapping(temporal_mapping_dic, layer_node)$/;"	v	class:TemporalMapping
+temporal_mapping_dic	classes/cost_model/cost_model.py	/^        {'W': [[('OX', 2), ('FX', 3), ('C', 16), ('OY', 2)], [('FY', 3), ('OY', 16)], [('K', 3)]],$/;"	v	class:CostModelEvaluation
+temporal_mapping_dic	classes/mapping/combined_mapping.py	/^        {'W': [[('OX', 2), ('FX', 3)], [('OY', 2), ('FY', 3)], [('K', 2)]],$/;"	v	class:Mapping
+temporal_mapping_dic	classes/mapping/temporal/temporal_mapping.py	/^        {'W': [[('K', 4)], [('FX', 3), ('OX', 3), ('C', 2)], [('OX', 7), ('FX', 3), ('OY', 3)], [('OX', 2), ('B', 2)], [('OX', 4)]],$/;"	v	class:TemporalMapping
+terminate_threadpool	classes/stages/RunOptStages.py	/^def terminate_threadpool():$/;"	f
+test_CONV1D	classes/workload/test_layer_node.py	/^    def test_CONV1D(self):$/;"	m	class:TestLayerNode
+test_CONV2D_1	classes/workload/test_layer_node.py	/^    def test_CONV2D_1(self):$/;"	m	class:TestLayerNode
+test_CONV2D_2	classes/workload/test_layer_node.py	/^    def test_CONV2D_2(self):$/;"	m	class:TestLayerNode
+test_CONV2D_stride2	classes/workload/test_layer_node.py	/^    def test_CONV2D_stride2(self):$/;"	m	class:TestLayerNode
+test_DW	classes/workload/test_layer_node.py	/^    def test_DW(self):$/;"	m	class:TestLayerNode
+test_FC	classes/workload/test_layer_node.py	/^    def test_FC(self):$/;"	m	class:TestLayerNode
+test_GEMM	classes/workload/test_layer_node.py	/^    def test_GEMM(self):$/;"	m	class:TestLayerNode
+test_MMc	classes/workload/test_layer_node.py	/^    def test_MMc(self):$/;"	m	class:TestLayerNode
+test_MTTKRP	classes/workload/test_layer_node.py	/^    def test_MTTKRP(self):$/;"	m	class:TestLayerNode
+test_MVM	classes/workload/test_layer_node.py	/^    def test_MVM(self):$/;"	m	class:TestLayerNode
+test_PW	classes/workload/test_layer_node.py	/^    def test_PW(self):$/;"	m	class:TestLayerNode
+threadpool	classes/stages/RunOptStages.py	/^threadpool = None$/;"	v
+time	classes/io/gen_output_files.py	/^import time$/;"	i
+topological_sort	classes/workload/dnn_workload.py	/^    def topological_sort(self):$/;"	m	class:DNNWorkload
+topological_sort	classes/workload/onnx_workload.py	/^    def topological_sort(self):$/;"	m	class:ONNXWorkload
+unittest	classes/workload/test_layer_node.py	/^import unittest$/;"	i
+update_single_dir_data	classes/mapping/combined_mapping.py	/^    def update_single_dir_data(self, dir: str, new_value):$/;"	m	class:FourWayDataMoving
+update_single_dir_data	classes/mapping/combined_mapping.py	/^    def update_single_dir_data(self, direction, new_value):$/;"	m	class:DataMovePattern
+user_defined_adder_hierarchy	classes/hardware/architecture/adder_hierarchy.py	/^    user_defined_adder_hierarchy = {'AL1': {'type': 'AG', 'fan_in': 4, 'unit_cost': 0.08, 'unit_area': 0.03},$/;"	v	class:AdderHierarchy
+visit	classes/opt/temporal/loma/multipermute.py	/^def visit(h):$/;"	f
+visualize_dnn_graph	visualization/graph/dnn.py	/^def visualize_dnn_graph(G):$/;"	f
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Ascend_like.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Ascend_like_DF.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Edge_TPU_like.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Edge_TPU_like_DF.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Meta_prototype.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Meta_prototype_DF.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/TPU_like.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/TPU_like_DF.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Tesla_NPU_like.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/examples/hardware/Tesla_NPU_like_DF.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	inputs/workshop/accelerator copy.py	/^    from visualization.graph.memory_hierarchy import visualize_memory_hierarchy_graph$/;"	i
+visualize_memory_hierarchy_graph	visualization/graph/memory_hierarchy.py	/^def visualize_memory_hierarchy_graph(G: MemoryHierarchy):$/;"	f
+workload	classes/cost_model/cost_model.py	/^    from inputs.examples.workloads.workload0 import workload$/;"	i
+workload	classes/mapping/combined_mapping.py	/^    from inputs.examples.workloads.workload0 import workload$/;"	i
+workload	classes/mapping/mapping_assist_funcs.py	/^    from inputs.examples.workloads.workload0 import workload$/;"	i
+workload	classes/mapping/spatial/spatial_mapping.py	/^    from inputs.examples.workload1 import workload$/;"	i
+workload	classes/mapping/temporal/temporal_mapping.py	/^    from inputs.examples.workloads.workload1 import workload$/;"	i
+workload	classes/opt/temporal/loma/engine.py	/^    from inputs.examples.workload1 import workload$/;"	i
+workload	inputs/examples/workloads/resnet18.py	/^workload = {$/;"	v
+workload	inputs/workshop/workload copy.py	/^workload = {$/;"	v
+workload	inputs/workshop/workload.py	/^workload = {$/;"	v
+workload_path	main.py	/^    workload_path=args.workload,$/;"	v

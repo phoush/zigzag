@@ -1,6 +1,7 @@
 from classes.hardware.architecture.operational_array import OperationalArray
 from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy
 import networkx as nx
+import pdb
 
 class Core:
     """
@@ -95,6 +96,10 @@ class Core:
         # Sort the nodes topologically and filter out all memories that don't store mem_op
         memory = [node for node in nx.topological_sort(self.memory_hierarchy) if mem_op in node.operands]
         return memory[mem_lv]
+
+    def get_mac_energy(self, layer, spatial_mapping):
+        MAC_energy = self.operational_array.get_MAC_cost(layer, spatial_mapping)
+        return MAC_energy
 
     def get_lowest_shared_mem_level_above(self, mem_op1, mem_lv1, mem_op2, mem_lv2):
         """

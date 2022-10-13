@@ -225,6 +225,7 @@ class CostModelEvaluation:
                 "energy": {
                     "energy_total": self.energy_total, 
                     "operational_energy": self.MAC_energy,
+                    "operational_energy_breakdown": self.MAC_energy_breakdown,
                     "memory_energy": self.mem_energy,
                     "energy_breakdown_per_level": self.energy_breakdown,
                     "energy_breakdown_per_level_per_operand": self.energy_breakdown_further
@@ -408,7 +409,9 @@ class CostModelEvaluation:
         """ Calculate the dynamic MAC energy """
         core = self.accelerator.get_core(self.core_id)
         single_MAC_energy = core.operational_array.unit.cost
-        self.MAC_energy = single_MAC_energy * self.layer.total_MAC_count
+        # self.MAC_energy = single_MAC_energy * self.layer.total_MAC_count
+        self.MAC_energy_breakdown = core.get_mac_energy(self.layer, self.spatial_mapping)
+        self.MAC_energy = sum([v for v in self.MAC_energy_breakdown.values()])
 
     def calc_memory_energy_cost(self):
         """
