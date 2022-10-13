@@ -182,9 +182,11 @@ class SpatialMappingGeneratorStage(Stage):
                         for ii_c, c in enumerate(best_c):
                             best_c[ii_c] = [[layer_shape, prod([x[1] for x in c if x[0] == layer_shape])] for layer_shape in lc]
                             best_c[ii_c] = [x for x in best_c[ii_c] if x[1] != 1]
-                        unrollings += best_c 
+                        oa_dim_unrollings += best_c 
+                for ii_u, u in enumerate(oa_dim_unrollings):
+                    oa_dim_unrollings[ii_u] = [tuple(x) for x in u]
                 pdb.set_trace()
-
+                unrollings.append(oa_dim_unrollings)
             else:
                 for (layer_dim, unrolling_size) in oa_dim_unrolling[oa_dim].items():
                     layer_dim_size = self.layer.loop_dim_size[layer_dim]
@@ -207,17 +209,20 @@ class SpatialMappingGeneratorStage(Stage):
                     oa_dim_unrollings.append(None)
 
                 unrollings.append(oa_dim_unrollings)
-        pdb.set_trace()
+
 
         # Now we have for each operational array dimension the layer dimensions and size they can be unrolled without fractional remainder.
         # Now we have to combine them into user-defined spatial mappings.
         for combination in itertools.product(*unrollings):
+            print(combination)
             # If the combination has two oa dimensions that unroll the same layer dimension, skip it as this is impossible.
-            if not self.all_unique([loop_dimension for (loop_dimension, loop_size) in combination]):
+            #if not self.all_unique([loop_dimension for (loop_dimension, loop_size) in combination]):
+            if not self.all_unique([j[0] for i in combination for j in i]):
                 continue
             # Zip the combination (which is a (layer_dim, layer_size) for each oa_dim with the oa_dim names.
             oa_dim_names = [oa_dim.name for oa_dim in oa_dims]
             user_spatial_mapping = {oa_dim_name: unrolling for (oa_dim_name, unrolling) in zip(oa_dim_names, combination) if unrolling is not None}
+
             yield user_spatial_mapping
 
     @staticmethod
