@@ -24,6 +24,7 @@ class WorkloadStage(Stage):
                 continue  # skip the DummyNodes
             kwargs = self.kwargs.copy()
             kwargs['layer'] = layer
+            kwargs['workload_mapping'] = self.workload.get_node_with_id(layer.id)
             sub_stage = self.list_of_callables[0](self.list_of_callables[1:], **kwargs)
             for cme, extra_info in sub_stage.run():
                 yield cme, (layer, extra_info)

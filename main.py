@@ -21,8 +21,9 @@ mainstage = MainStage([
     WorkloadAndAcceleratorParserStage,
     CompleteSaveStage,
     WorkloadStage,
-    SpatialMappingConversionStage,
+    # SpatialMappingConversionStage,
     # TemporalOrderingConversionStage,
+    SpatialMappingGeneratorStage,
     LomaStage,
     CostModelStage
 ],

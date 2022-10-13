@@ -8,7 +8,7 @@ from classes.workload.dnn_workload import DNNWorkload
 
 import logging
 logger = logging.getLogger(__name__)
-
+import pdb
 
 def parse_accelerator_from_path(accelerator_path):
     """

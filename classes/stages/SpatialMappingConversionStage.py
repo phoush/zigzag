@@ -1,7 +1,7 @@
 import logging
 
 import numpy as np
-
+import pdb
 from classes.hardware.architecture.accelerator import Accelerator
 from classes.mapping.spatial.spatial_mapping import SpatialMapping
 from classes.stages.Stage import Stage
@@ -128,6 +128,6 @@ class SpatialMappingConversionStage(Stage):
             # because first list we added was the operational array level.
             top_level_spatial_mapping = [spatial_loop for (dim_name, spatial_loop) in user_sm_copy.items()]
             spatial_mapping_dict[layer_op].append(top_level_spatial_mapping)
-
+        pdb.set_trace()
         return SpatialMapping(spatial_mapping_dict=spatial_mapping_dict,
                               layer_node=self.layer)

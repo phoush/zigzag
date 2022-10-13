@@ -30,7 +30,6 @@ class CompleteSaveStage(Stage):
         Run the complete save stage by running the substage and saving the CostModelEvaluation json representation.
         """
         substage = self.list_of_callables[0](self.list_of_callables[1:], **self.kwargs)
-        
         for id, (cme, extra_info) in enumerate(substage.run()):
             cme: CostModelEvaluation
             filename = self.dump_filename_pattern.format(datetime=datetime.now().isoformat().replace(":", "-"))

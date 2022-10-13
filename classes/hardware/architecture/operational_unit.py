@@ -41,7 +41,7 @@ class Multiplier(OperationalUnit):
 class AIMC(OperationalUnit):
     def __init__(self, input_precision: List[int], energy_cost: Dict[str, float], area: Dict[str, float]):
         """
-        Initialize the Multiplier object.
+        Initialize the AIMC object.
 
         :param input_precision: The bit precision of the multiplication inputs.
         :param output_precision: The bit precision of the multiplication outputs.

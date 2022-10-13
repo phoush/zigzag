@@ -4,6 +4,8 @@ from typing import Set
 import bisect
 
 from sympy import factorint
+import itertools
+from math import prod 
 
 from classes.hardware.architecture.accelerator import Accelerator
 from classes.hardware.architecture.core import Core
@@ -15,8 +17,22 @@ from classes.stages.Stage import Stage
 from classes.stages.SpatialMappingConversionStage import SpatialMappingConversionStage
 from classes.workload.layer_node import LayerNode
 import classes.io.input_config as inputs
+import pdb
 
 logger = logging.getLogger(__name__)
+
+def prime_factors(n):
+    i = 2
+    factors = []
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
 
 
 class SpatialMappingGeneratorStage(Stage):
@@ -32,7 +48,7 @@ class SpatialMappingGeneratorStage(Stage):
 
     :param main_inputs: MainInputs, NOT copied
     """
-    def __init__(self, list_of_callables, *, accelerator, layer, **kwargs):
+    def __init__(self, list_of_callables, *, accelerator, layer, workload_mapping, **kwargs):
         """
         Note: list_of_callables does NOT need to include SpatialMappingConversionStage. Although this is used,
         this usage is done automatically.
@@ -41,6 +57,7 @@ class SpatialMappingGeneratorStage(Stage):
         self.accelerator = accelerator
         self.check_layer(layer)
         self.layer = layer
+        self.workload_mapping = workload_mapping
 
 
     @staticmethod
@@ -68,6 +85,7 @@ class SpatialMappingGeneratorStage(Stage):
         nb_user_spatial_mappings = len(user_spatial_mappings)
         logger.info(f"Generated {nb_user_spatial_mappings} spatial mappings.")
 
+        pdb.set_trace()
         for i, user_spatial_mapping in enumerate(user_spatial_mappings):
             logger.info(f"Launching spatial mapping {i+1}/{nb_user_spatial_mappings}: {user_spatial_mapping}.")
             # Set the user_spatial_mapping in the layer, as this is required by SpatialMappingConversionStage
@@ -110,7 +128,7 @@ class SpatialMappingGeneratorStage(Stage):
         # Later these will be restricted if the memory structure doesn't allow for this unrolling
         oa_dim_unrolling = {oa_dim: {layer_dim: int(min(layer_size, oa_dim.size)) for layer_dim, layer_size in
                                      self.layer.loop_dim_size.items()} for oa_dim in oa_dims}
-
+        
         for memory_level in innermost_levels:
             served_dimensions: Set[Dimension] = memory_level.served_dimensions
             mem_ops = memory_level.operands
@@ -140,27 +158,56 @@ class SpatialMappingGeneratorStage(Stage):
         unrollings = []
         for oa_dim in oa_dims:
             oa_dim_unrollings = []
-            for (layer_dim, unrolling_size) in oa_dim_unrolling[oa_dim].items():
-                layer_dim_size = self.layer.loop_dim_size[layer_dim]
-                # If e.g. the unrolling size is 10 (because operational array dimension size is 10)
-                # but the layer dimension size is 14, this would result in a temporal remainder of 14/10.
-                # In that case we change the unrolling size to 7 (to be a factor of 14).
-                # We have to make sure the unrolling size is a divisor of the layer dimension size:
-                while layer_dim_size % unrolling_size != 0:
-                    unrolling_size -= 1  # decrement the unrolling by 1
+            if self.workload_mapping.user_spatial_mapping_hint is not None:
+                smap_hint = self.workload_mapping.user_spatial_mapping_hint
+                oa_unrolls = [(l, u) for l, u in oa_dim_unrolling[oa_dim].items() if l in smap_hint[oa_dim.name]]
+                oa_pf = []
+                oa_ls = []
+                for u in oa_unrolls:
+                    oa_pf += [tuple([u[0], pf]) for pf in prime_factors(u[1])]
+                    oa_ls.append(u[0])
 
-                # If the unrolling_size is not 1, don't add it to the unrollings for this oa_dim
-                if unrolling_size != 1:
-                    oa_dim_unrollings.append((layer_dim, unrolling_size))
+                for lk in range(1, len(oa_ls)+1):
+                    for lc in itertools.combinations(oa_ls, lk):
+                        oa_pf_reduced = [x for x in oa_pf if x[0] in lc]
+                        max_ut, best_c = 0, None
+                        for k in range(1, len(oa_pf_reduced)+1):
+                            for c in itertools.combinations(oa_pf_reduced, k):
+                                if max_ut == prod([x[1] for x in c]):
+                                    if c not in best_c:
+                                        best_c.append(c)
+                                if max_ut < prod([x[1] for x in c]) <= oa_dim.size:
+                                    max_ut = prod([x[1] for x in c])
+                                    best_c = [c]
+                        for ii_c, c in enumerate(best_c):
+                            best_c[ii_c] = [[layer_shape, prod([x[1] for x in c if x[0] == layer_shape])] for layer_shape in lc]
+                            best_c[ii_c] = [x for x in best_c[ii_c] if x[1] != 1]
+                        unrollings += best_c 
+                pdb.set_trace()
 
-            # In case there are no unrollings (of size > 1) possible, add a single unrolling of size 1.
-            # The loop dimension we pick is randomly chosen as the first loop dimension in the layer.
-            # The loop dimension chosen shouldn't matter as the size of unrolling is 1 anyway.
-            if len(oa_dim_unrollings) == 0:
-                # oa_dim_unrollings.append((self.layer.loop_dim_list[0], 1))
-                oa_dim_unrollings.append(None)
+            else:
+                for (layer_dim, unrolling_size) in oa_dim_unrolling[oa_dim].items():
+                    layer_dim_size = self.layer.loop_dim_size[layer_dim]
+                    # If e.g. the unrolling size is 10 (because operational array dimension size is 10)
+                    # but the layer dimension size is 14, this would result in a temporal remainder of 14/10.
+                    # In that case we change the unrolling size to 7 (to be a factor of 14).
+                    # We have to make sure the unrolling size is a divisor of the layer dimension size:
+                    while layer_dim_size % unrolling_size != 0:
+                        unrolling_size -= 1  # decrement the unrolling by 1
 
-            unrollings.append(oa_dim_unrollings)
+                    # If the unrolling_size is not 1, don't add it to the unrollings for this oa_dim
+                    if unrolling_size != 1:
+                        oa_dim_unrollings.append((layer_dim, unrolling_size))
+
+                # In case there are no unrollings (of size > 1) possible, add a single unrolling of size 1.
+                # The loop dimension we pick is randomly chosen as the first loop dimension in the layer.
+                # The loop dimension chosen shouldn't matter as the size of unrolling is 1 anyway.
+                if len(oa_dim_unrollings) == 0:
+                    # oa_dim_unrollings.append((self.layer.loop_dim_list[0], 1))
+                    oa_dim_unrollings.append(None)
+
+                unrollings.append(oa_dim_unrollings)
+        pdb.set_trace()
 
         # Now we have for each operational array dimension the layer dimensions and size they can be unrolled without fractional remainder.
         # Now we have to combine them into user-defined spatial mappings.
