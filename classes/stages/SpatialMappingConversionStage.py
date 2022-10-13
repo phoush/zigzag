@@ -84,16 +84,17 @@ class SpatialMappingConversionStage(Stage):
         for spatial_dim_name, spatial_loop in user_spatial_mapping.items():
             # Check 1: Limit unrolling if operational array dimension is smaller than provided unrolling
             oa_dim_size = next((oa_dim for oa_dim in oa_dims if oa_dim.name == spatial_dim_name)).size
-            (loop_dim_unrolled, loop_size_unrolled) = spatial_loop
-            loop_size_unrolled = min(oa_dim_size, loop_size_unrolled)
-            # Check 2: Limit unrolling if layer dimension is smaller than provided unrolling
-            layer_dim_size = layer_dim_sizes[loop_dim_unrolled]
-            loop_size_unrolled = min(layer_dim_size, loop_size_unrolled)
-            # Check 3: Adjust unrolling if it is not a multiple of the layer dimension size
-            temporal_remainder = int(np.ceil(layer_dim_size/loop_size_unrolled))
-            loop_size_unrolled = layer_dim_size / temporal_remainder
-            # Set the adjusted unrolling size in the original user_spatial_mapping dict
-            user_spatial_mapping[spatial_dim_name] = (loop_dim_unrolled, loop_size_unrolled)
+            for ii_sl, sl in enumerate(spatial_loop):
+                (loop_dim_unrolled, loop_size_unrolled) = sl
+                loop_size_unrolled = min(oa_dim_size, loop_size_unrolled)
+                # Check 2: Limit unrolling if layer dimension is smaller than provided unrolling
+                layer_dim_size = layer_dim_sizes[loop_dim_unrolled]
+                loop_size_unrolled = min(layer_dim_size, loop_size_unrolled)
+                # Check 3: Adjust unrolling if it is not a multiple of the layer dimension size
+                temporal_remainder = int(np.ceil(layer_dim_size/loop_size_unrolled))
+                loop_size_unrolled = layer_dim_size / temporal_remainder
+                # Set the adjusted unrolling size in the original user_spatial_mapping dict
+                user_spatial_mapping[spatial_dim_name][ii_sl] = (loop_dim_unrolled, loop_size_unrolled)
 
         logger.info(f"User-provided spatial mapping converted to: {user_spatial_mapping}")
 
@@ -117,7 +118,7 @@ class SpatialMappingConversionStage(Stage):
                         # The dimension name is present in the user defined spatial mapping
                         # Add the spatial loop of this dimension to the spatial mapping
                         spatial_loop = user_sm_copy[dim_name]
-                        spatial_mapping_lvl.append(spatial_loop)
+                        spatial_mapping_lvl += spatial_loop
                         # Then remove this dim_name and spatial loop key value pair from the dict
                         # as the spatial mapping representation is a level-by-level one.
                         del user_sm_copy[dim_name]
@@ -128,6 +129,5 @@ class SpatialMappingConversionStage(Stage):
             # because first list we added was the operational array level.
             top_level_spatial_mapping = [spatial_loop for (dim_name, spatial_loop) in user_sm_copy.items()]
             spatial_mapping_dict[layer_op].append(top_level_spatial_mapping)
-        pdb.set_trace()
         return SpatialMapping(spatial_mapping_dict=spatial_mapping_dict,
                               layer_node=self.layer)
