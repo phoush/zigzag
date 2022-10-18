@@ -85,7 +85,6 @@ class SpatialMappingGeneratorStage(Stage):
         nb_user_spatial_mappings = len(user_spatial_mappings)
         logger.info(f"Generated {nb_user_spatial_mappings} spatial mappings.")
 
-        pdb.set_trace()
         for i, user_spatial_mapping in enumerate(user_spatial_mappings):
             logger.info(f"Launching spatial mapping {i+1}/{nb_user_spatial_mappings}: {user_spatial_mapping}.")
             # Set the user_spatial_mapping in the layer, as this is required by SpatialMappingConversionStage
@@ -185,7 +184,6 @@ class SpatialMappingGeneratorStage(Stage):
                         oa_dim_unrollings += best_c 
                 for ii_u, u in enumerate(oa_dim_unrollings):
                     oa_dim_unrollings[ii_u] = [tuple(x) for x in u]
-                pdb.set_trace()
                 unrollings.append(oa_dim_unrollings)
             else:
                 for (layer_dim, unrolling_size) in oa_dim_unrolling[oa_dim].items():
@@ -214,7 +212,6 @@ class SpatialMappingGeneratorStage(Stage):
         # Now we have for each operational array dimension the layer dimensions and size they can be unrolled without fractional remainder.
         # Now we have to combine them into user-defined spatial mappings.
         for combination in itertools.product(*unrollings):
-            print(combination)
             # If the combination has two oa dimensions that unroll the same layer dimension, skip it as this is impossible.
             #if not self.all_unique([loop_dimension for (loop_dimension, loop_size) in combination]):
             if not self.all_unique([j[0] for i in combination for j in i]):

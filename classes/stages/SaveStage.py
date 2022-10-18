@@ -9,6 +9,61 @@ import numpy as np
 import logging
 logger = logging.getLogger(__name__)
 
+
+class CompleteSaveBestStage(Stage):
+    """
+    Class that passes through all results yielded by substages, but saves the results as a json list to a file
+    at the end of the iteration.
+    """
+
+    def __init__(self, list_of_callables, *, dump_filename_pattern, **kwargs):
+        """
+        :param list_of_callables: see Stage
+        :param dump_filename_pattern: filename string formatting pattern, which can use named field whose values will be
+        in kwargs (thus supplied by higher level runnables)
+        :param kwargs: any kwargs, passed on to substages and can be used in dump_filename_pattern
+        """
+        super().__init__(list_of_callables, **kwargs)
+        self.dump_filename_pattern = dump_filename_pattern
+
+    def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:
+        """
+        Run the complete save stage by running the substage and saving the CostModelEvaluation json representation.
+        """
+        substage = self.list_of_callables[0](self.list_of_callables[1:], **self.kwargs)
+        best_energy, best_latency = float('inf'), float('inf')
+        cme_best, extra_info_best = None, None
+        for id, (cme, extra_info) in enumerate(substage.run()):
+            cme: CostModelEvaluation
+            if cme.energy_total < best_energy:
+                best_energy = cme.energy_total
+                cme_best = cme
+                extra_info_best = extra_info
+        filename = self.dump_filename_pattern.format(datetime=datetime.now().isoformat().replace(":", "-"))
+        self.save_to_json(cme_best, filename=filename)
+        logger.info(f"Saved BEST CME with energy {cme.energy_total:.3e} and latency {cme.latency_total2:.3e} to {filename}.")
+
+        yield cme_best, extra_info_best
+
+    def save_to_json(self, obj, filename):
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        with open(filename, 'w') as fp:
+            json.dump(obj, fp, default=self.complexHandler, indent=4)
+
+    @staticmethod
+    def complexHandler(obj):
+        # print(type(obj))
+        if isinstance(obj, set):
+            return list(obj)
+        if isinstance(obj, np.int32):
+            return int(obj)
+        if hasattr(obj, '__jsonrepr__'):
+            return obj.__jsonrepr__()
+        else:
+            raise TypeError(f"Object of type {type(obj)} is not serializable. Create a __jsonrepr__ method.")
+
+
+
 class CompleteSaveStage(Stage):
     """
     Class that passes through all results yielded by substages, but saves the results as a json list to a file

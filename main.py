@@ -19,7 +19,7 @@ _logging.basicConfig(level=_logging_level,
 # The second argument of this init are the arguments required for these different stages.
 mainstage = MainStage([
     WorkloadAndAcceleratorParserStage,
-    CompleteSaveStage,
+    CompleteSaveBestStage,
     WorkloadStage,
     # SpatialMappingConversionStage,
     # TemporalOrderingConversionStage,
