@@ -46,4 +46,4 @@ def get_values(spreadsheet_id, range_name):
 if __name__ == '__main__':
     # Pass: spreadsheet_id, and range_name
     table = get_values("14sOT8JJPU9aHC3rwLHjFkLKOu9jYdaPon6qBTLBuOeU", "AIMC!A1:AK100")
-    
+    print(table)
