@@ -2,7 +2,7 @@ from pprint import pprint
 from typing import Generator, Callable, List, Tuple, Any
 from onnx.helper import make_tensor_value_info
 import importlib
-
+import pdb
 from classes.stages.Stage import Stage
 from classes.workload.dnn_workload import DNNWorkload
 
@@ -39,6 +39,7 @@ def parse_workload_from_path(workload_path):
     Parse the input workload residing in accelerator_path.
     The "workload" dict is converted to a NetworkX graph.
     """
+    pdb.set_trace()
     module = importlib.import_module(workload_path)
     workload = module.workload
     # Take only first dict element to start simple
