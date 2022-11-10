@@ -21,7 +21,7 @@ def aimc_model():
     
     # Convert value in specific columns from string to float/int
     #t = t.astype({'Idx': int, 'Technology node [nm]':int, 'Voltage (V)':float, 'TOP/s/W':float, 'Output precision': float, 'Input precision':float, 'Weight precision':float, 'Rows':int, 'Columns':int, 'Frequency (MHz)':float}) 
-    t = t.astype({'Idx': int, 'Voltage (V)': float, 'TOP/s/W':float, 'Weight precision': float, 'Input precision': float, 'Output precision': float, 'Rows':int, 'Columns':int}) 
+    t = t.astype({'Idx': int, 'Div factor' : float, 'Voltage (V)': float, 'TOP/s/W':float, 'Weight precision': float, 'Input precision': float, 'Output precision': float, 'Rows':int, 'Columns':int}) 
    
 
 
@@ -54,10 +54,9 @@ def aimc_model():
     t['Ecap_murmann'] = activity_cell * t['Unit capacitance'] * np.power(t['Voltage (V)'], 2) * np.power(t['Weight precision'], 1)
     t['Elogic_murmann'] = 0.1 * 0.3e-15 * np.power(t['Weight precision'], 1) * 4
     t['Emac_murmann'] = (1/(t['Rows'] )) * t['Eadc_murmann']
-    pdb.set_trace() 
     # Compute TOPSW/1B
     t['TOPSW_zimmer'] = 1/ t['Emac_zimmer'] / 1e12
-    t['TOPSW_murmann'] = 1/ (t['Elogic_murmann'] + t['Emac_murmann'] + t['Ecap_murmann']) / 1e12
+    t['TOPSW_murmann'] = 1/ (t['Elogic_murmann'] + t['Emac_murmann'] + t['Ecap_murmann']) / t['Div factor'] /  1e12
     t['Zimmer_diff'] = t['TOPSW_zimmer'] / t['TOP/s/W']
     t['Murmann_diff'] = t['TOPSW_murmann'] / t['TOP/s/W']
     #t['TOPSW_1B'] = t['TOPSW_1B'] * (t['Technology node [nm]'])
