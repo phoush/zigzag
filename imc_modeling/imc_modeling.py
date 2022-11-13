@@ -48,9 +48,12 @@ def aimc_model():
     t['Eadc_conv_step'] = t['Technology node [nm]']
     t['Eadc_conv_step'] = t['Eadc_conv_step'].apply(get_adc_conv)
 
-    t['Eadc_murmann'] = t['Eadc_conv_step'] * t['Output precision'] + 1e-18 * np.power(4, t['Output precision'])
     t['Unit capacitance'] = t['Technology node [nm]']
     t['Unit capacitance'] = t["Unit capacitance"].apply(get_cap_cell)
+
+
+    # MURMANN MODEL FUNCTIONS
+    t['Eadc_murmann'] = t['Eadc_conv_step'] * t['Output precision'] + 1e-18 * np.power(4, t['Output precision'])
     t['Ecap_murmann'] = activity_cell * t['Unit capacitance'] * np.power(t['Voltage (V)'], 2) * np.power(t['Weight precision'], 1)
     t['Elogic_murmann'] = 0.1 * 0.3e-15 * np.power(t['Weight precision'], 1) * 4
     t['Emac_murmann'] = (1/(t['Rows'] )) * t['Eadc_murmann']
@@ -60,7 +63,7 @@ def aimc_model():
     t['Zimmer_diff'] = t['TOPSW_zimmer'] / t['TOP/s/W']
     t['Murmann_diff'] = t['TOPSW_murmann'] / t['TOP/s/W']
     #t['TOPSW_1B'] = t['TOPSW_1B'] * (t['Technology node [nm]'])
-    
+    pdb.set_trace() 
 
     fig = make_subplots(rows=1, cols=2)
     colors = px.colors.qualitative.Plotly

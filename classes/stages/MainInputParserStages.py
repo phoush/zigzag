@@ -8,7 +8,6 @@ from classes.workload.dnn_workload import DNNWorkload
 
 import logging
 logger = logging.getLogger(__name__)
-import pdb
 
 def parse_accelerator_from_path(accelerator_path):
     """
@@ -39,7 +38,6 @@ def parse_workload_from_path(workload_path):
     Parse the input workload residing in accelerator_path.
     The "workload" dict is converted to a NetworkX graph.
     """
-    pdb.set_trace()
     module = importlib.import_module(workload_path)
     workload = module.workload
     # Take only first dict element to start simple

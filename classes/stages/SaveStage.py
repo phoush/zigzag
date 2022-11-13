@@ -5,6 +5,7 @@ import os
 import json
 from datetime import datetime
 import numpy as np
+import pdb
 
 import logging
 logger = logging.getLogger(__name__)
@@ -31,17 +32,24 @@ class CompleteSaveBestStage(Stage):
         Run the complete save stage by running the substage and saving the CostModelEvaluation json representation.
         """
         substage = self.list_of_callables[0](self.list_of_callables[1:], **self.kwargs)
-        best_energy, best_latency = float('inf'), float('inf')
-        cme_best, extra_info_best = None, None
+        best_energy, best_latency = {}, {}
+        cme_best, extra_info_best = {}, {}
         for id, (cme, extra_info) in enumerate(substage.run()):
             cme: CostModelEvaluation
-            if cme.energy_total < best_energy:
-                best_energy = cme.energy_total
-                cme_best = cme
-                extra_info_best = extra_info
-        filename = self.dump_filename_pattern.format(datetime=datetime.now().isoformat().replace(":", "-"))
-        self.save_to_json(cme_best, filename=filename)
-        logger.info(f"Saved BEST CME with energy {cme.energy_total:.3e} and latency {cme.latency_total2:.3e} to {filename}.")
+            if cme.layer not in best_energy.keys():
+                best_energy[cme.layer], best_latency[cme.layer] = float('inf'), float('inf')
+                cme_best[cme.layer], extra_info_best[cme.layer] = None, None
+
+            if cme.energy_total < best_energy[cme.layer]:
+                best_energy[cme.layer] = cme.energy_total
+                cme_best[cme.layer] = cme
+                extra_info_best[cme.layer] = extra_info
+
+        for k, v in cme_best.items():
+            pdb.set_trace()
+            filename = self.dump_filename_pattern.format(layer=k,datetime=datetime.now().isoformat().replace(":", "-"))
+            self.save_to_json(cme_best[k], filename=filename)
+            logger.info(f"Saved BEST CME with energy {cme_best[k].energy_total:.3e} and latency {cme_best[k].latency_total2:.3e} to {filename}.")
 
         yield cme_best, extra_info_best
 
