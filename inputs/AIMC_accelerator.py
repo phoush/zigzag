@@ -20,7 +20,7 @@ def multiplier_array():
             'DAC_cost' : 0.155,
             'mac_cost' : 1}
     AIMC_area = {'MAC_cell': 1, 'ADC': 1, 'DAC': 1}
-    dimensions = {'D1': 64, 'D2': 512}
+    dimensions = {'D1': 1152, 'D2': 512}
 
     aimc = AIMC(multiplier_input_precision, AIMC_unit_costs, AIMC_area)
     aimc_array = AIMCArray(aimc, dimensions)
@@ -32,48 +32,43 @@ def memory_hierarchy(multiplier_array):
     ''' size = #bit '''
 
     # 2MB SRAM
-    L2_sram = MemoryInstanceClocked(name="L2", 
+    L2_sram = MemoryInstance(name="L2", 
             size=2097152, 
             r_bw=512, w_bw=512, 
             r_cost=0, w_cost=0, 
             r_port = 1, w_port = 1, 
-            area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            area=0) 
     
     # 256kB L1 SRAM
-    L1_sram = MemoryInstanceClocked(name="L1", 
+    L1_sram = MemoryInstance(name="L1", 
             size=262144, 
             r_bw=512, w_bw=512, 
             r_cost=7, w_cost=7, 
             r_port = 1, w_port = 1, 
-            area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            area=0) 
 
     # AIMC array weight cell
-    weight_cell = MemoryInstanceClocked(name="weight_cell", 
+    weight_cell = MemoryInstance(name="weight_cell", 
             size=2, 
             r_bw=2, w_bw=2, 
             r_cost=0, w_cost=1.4e-3, 
-            rw_port = 1, area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            rw_port = 1, area=0) 
 
     # Input buffer
-    input_buffer = MemoryInstanceClocked(name="input_buffer", 
+    input_buffer = MemoryInstance(name="input_buffer", 
             size=8, 
             r_bw=8, w_bw=8, 
             r_cost=0.1, w_cost=0.1, 
             r_port = 1, w_port = 1, 
-            area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            area=0) 
 
     # Output buffer
-    output_buffer = MemoryInstanceClocked(name="output_buffer", 
+    output_buffer = MemoryInstance(name="output_buffer", 
             size=8, 
             r_bw=8, w_bw=8, 
             r_cost=0.1, w_cost=0.1, 
             r_port = 2, w_port = 2, 
-            area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            area=0) 
 
     # Create memory hierarchy graph object
     # Operational array has dimensions [1152 x 512]

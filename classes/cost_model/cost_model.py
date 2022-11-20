@@ -156,7 +156,7 @@ class CostModelEvaluation:
     Class that stores inputs and runs them through the zigzag cost model.
     """
 
-    def __init__(self, *, accelerator, layer, spatial_mapping, temporal_mapping):
+    def __init__(self, *, accelerator, layer, spatial_mapping, temporal_mapping, mac_clock_domain):
         """
         Initialize the cost model evaluation with the following inputs:
         - accelerator: the accelerator that includes the core on which to run the layer
@@ -179,6 +179,7 @@ class CostModelEvaluation:
         self.layer = layer
         self.spatial_mapping = spatial_mapping
         self.temporal_mapping = temporal_mapping
+        self.mac_clock_domain = mac_clock_domain
 
         self.core_id = layer.core_allocation
         self.mem_instance_list = accelerator.get_core(self.core_id).get_memory_hierarchy().mem_instance_list
@@ -556,25 +557,25 @@ class CostModelEvaluation:
                 ''' wr_in_by_low '''
                 data_precision = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_precision.wr_in_by_low
                 data_trans_amount = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_trans_amount_per_period.wr_in_by_low
-                mem_bw = self.mem_w_bw_dict[mem_op][mem_lv]
+                mem_bw = self.mem_w_bw_dict[mem_op][mem_lv] * self.mac_clock_domain
                 wr_in_by_low_real = ceil(data_trans_amount * data_precision / mem_bw)
 
                 ''' rd_out_to_low '''
                 data_precision = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_precision.rd_out_to_low
                 data_trans_amount = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_trans_amount_per_period.rd_out_to_low
-                mem_bw = self.mem_r_bw_dict[mem_op][mem_lv]
+                mem_bw = self.mem_r_bw_dict[mem_op][mem_lv] * self.mac_clock_domain
                 rd_out_to_low_real = ceil(data_trans_amount * data_precision / mem_bw)
 
                 ''' rd_out_to_high '''
                 data_precision = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_precision.rd_out_to_high
                 data_trans_amount = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_trans_amount_per_period.rd_out_to_high
-                mem_bw = self.mem_r_bw_dict[mem_op][mem_lv]
+                mem_bw = self.mem_r_bw_dict[mem_op][mem_lv] * self.mac_clock_domain
                 rd_out_to_high_real = ceil(data_trans_amount * data_precision / mem_bw)
 
                 ''' wr_in_by_high '''
                 data_precision = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_precision.wr_in_by_high
                 data_trans_amount = self.mapping_int.unit_mem_data_movement[layer_op][mem_lv].data_trans_amount_per_period.wr_in_by_high
-                mem_bw = self.mem_w_bw_dict[mem_op][mem_lv]
+                mem_bw = self.mem_w_bw_dict[mem_op][mem_lv] * self.mac_clock_domain
                 wr_in_by_high_real = ceil(data_trans_amount * data_precision / mem_bw)
 
                 ''' All '''
@@ -622,8 +623,6 @@ class CostModelEvaluation:
             for port_name, port_activity in mem_ports.items():
                 if len(port_activity) == 1:
 
-                    #print(port_activity[0].SS)
-                    #pdb.set_trace()
                     MUW_union_collect[idx][port_name] = port_activity[0].allowed_cycle
                     SS_comb_collect[idx][port_name] = port_activity[0].SS
                     SS_comb_list.append(port_activity[0].SS)
@@ -780,10 +779,10 @@ class CostModelEvaluation:
         """ This function integrates the previous calculated SScomb, data loading and off-loading cycle to get the overall latency """
 
         ''' the ideal cycle count assuming the MAC array is 100% utilized '''
-        ideal_cycle = ceil(self.layer.total_MAC_count / self.accelerator.get_core(self.core_id).operational_array.total_unit_count)
+        ideal_cycle = ceil(self.layer.total_MAC_count / self.accelerator.get_core(self.core_id).operational_array.total_unit_count) * self.mac_clock_domain
 
         ''' the ideal temporal cycle count given the spatial mapping (the spatial mapping can be non-ideal) '''
-        ideal_temporal_cycle = self.mapping_int.temporal_mapping.total_cycle
+        ideal_temporal_cycle = self.mapping_int.temporal_mapping.total_cycle * self.mac_clock_domain
         MAC_spatial_utilization = ideal_cycle / ideal_temporal_cycle
 
         ''' Total latency without the initial data loading and the final data off-loading '''

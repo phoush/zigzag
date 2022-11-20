@@ -46,8 +46,6 @@ class CompleteSaveBestStage(Stage):
                 extra_info_best[cme.layer] = extra_info
 
         for k, v in cme_best.items():
-            print(cme_best[k].SS_comb_collect)
-            print(cme_best[k].latency_total0)
             filename = self.dump_filename_pattern.format(layer=k,datetime=datetime.now().isoformat().replace(":", "-"))
             self.save_to_json(cme_best[k], filename=filename)
             logger.info(f"Saved BEST CME with energy {cme_best[k].energy_total:.3e} and latency {cme_best[k].latency_total2:.3e} to {filename}.")

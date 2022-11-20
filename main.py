@@ -21,17 +21,17 @@ mainstage = MainStage([
     WorkloadAndAcceleratorParserStage,
     CompleteSaveBestStage,
     WorkloadStage,
-    # SpatialMappingConversionStage,
     SpatialMappingGeneratorStage,
-    #TemporalOrderingConversionStage,
-    LomaStage,
+    MinimalEnergyStage,
+    TemporalOrderingConversionStage,
     CostModelStage
 ],
     accelerator_path=args.accelerator,
     workload_path=args.workload,
     dump_filename_pattern="outputs_workshop/layer_{layer}_{datetime}.json",
     plot_filename_pattern="outputs_workshop/temporal_mappings.png",
-    loma_lpf_limit=6
+    loma_lpf_limit=6,
+    mac_clock_domain=1,
 )
 
 # Launch the MainStage

@@ -11,7 +11,3 @@ workload = {
         'operand_source': {'W': [], 'I': []}
     }
 }
-
-
-
-
