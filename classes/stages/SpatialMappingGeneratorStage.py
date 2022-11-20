@@ -149,7 +149,7 @@ class SpatialMappingGeneratorStage(Stage):
                             continue
                         # If not irrelevant, it is (partially) relevant. Limit based on BW and operand precision.
                         max_multicast_elements = mem_bandwidth // precision
-                        oa_dim_unrolling[oa_dim][layer_dim] = min(max_multicast_elements, unrolling_size)
+                        oa_dim_unrolling[oa_dim][layer_dim] = unrolling_size #min(max_multicast_elements, unrolling_size)
 
         # At this point the unrolled layer dimensions are maximal (wrt the served dimensions and bandwidth of the lowest memory level).
         # The unrolling size might not be a factor of the layer dimension size, which is required (for non greedy mapping).
@@ -219,6 +219,9 @@ class SpatialMappingGeneratorStage(Stage):
             # Zip the combination (which is a (layer_dim, layer_size) for each oa_dim with the oa_dim names.
             oa_dim_names = [oa_dim.name for oa_dim in oa_dims]
             user_spatial_mapping = {oa_dim_name: unrolling for (oa_dim_name, unrolling) in zip(oa_dim_names, combination) if unrolling is not None}
+            
+#            if user_spatial_mapping['D1'] != [('C',128), ('FX',3), ('FY',3)]:
+#                continue
 
             yield user_spatial_mapping
 

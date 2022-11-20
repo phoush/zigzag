@@ -1,6 +1,7 @@
 from typing import Dict
 from math import prod
 from typing import TYPE_CHECKING
+import pdb
 
 if TYPE_CHECKING:
     from classes.workload.layer_node import LayerNode
@@ -14,7 +15,7 @@ class SpatialMapping:
 
     def __init__(self, spatial_mapping_dict: Dict, layer_node: 'LayerNode'):
         self.mapping_dict_origin = spatial_mapping_dict
-        self.mapping_dict_reform = mapping_assist_funcs.decouple_pr_loop(spatial_mapping_dict, layer_node)
+        self.mapping_dict_reform = mapping_assist_funcs.decouple_pr_loop_spatial(spatial_mapping_dict, layer_node)
         self.layer_node = layer_node
         self.operand_list = layer_node.operand_list
 

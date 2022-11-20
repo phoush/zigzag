@@ -4,7 +4,8 @@ from classes.workload.layer_node import LayerNode
 from classes.mapping.spatial.spatial_mapping import SpatialMapping
 from classes.mapping.temporal.temporal_mapping import TemporalMapping
 import classes.mapping.mapping_assist_funcs as mapping_assist_funcs
-
+import pdb
+import copy
 
 class FourWayDataMoving:
     """
@@ -171,7 +172,7 @@ class Mapping:
         self.mem_level = self.temporal_mapping.mem_level
         ''' Initialize unit_mem_data_movement, which collects all the important data movement info 
         related to each unit memory, such as data access count, data precision, required memory BW to 
-        prevent stall, data transfer rate, etc. '''
+        revent stall, data transfer rate, etc. '''
         self.unit_mem_data_movement = {
             op: [[] for _ in range(self.mem_level[op])]
             for op in self.operand_list
@@ -182,12 +183,58 @@ class Mapping:
         self.combine_spatial_temporal_mapping_dict()
 
         ''' Decouple pr loops into r and ir loops, preparing for later mapping info extraction '''
-        self.combined_mapping_dict_1s1t_reform = mapping_assist_funcs.decouple_pr_loop(
+        self.combined_mapping_dict_1s1t_reform, tm_input1 = mapping_assist_funcs.decouple_pr_loop(
             self.combined_mapping_dict_1s1t, layer_node
         )
-        self.combined_mapping_dict_1s2t_reform = mapping_assist_funcs.decouple_pr_loop(
+        self.combined_mapping_dict_1s2t_reform, tm_input2 = mapping_assist_funcs.decouple_pr_loop(
             self.combined_mapping_dict_1s2t, layer_node
         )
+        
+        tmp_copy = copy.deepcopy(self.combined_mapping_dict_1s1t_reform)
+        for ii_lev, lev in enumerate(tmp_copy['I']):
+            if ii_lev > 0:
+                for ii_lpf, lpf in enumerate(lev):
+                    if lpf[0][-2:] != 'ir':
+                        break
+                    if lpf[0][-2:] == 'ir':
+                        self.combined_mapping_dict_1s1t_reform['I'][ii_lev - 1].append(lpf)
+                        self.combined_mapping_dict_1s1t_reform['I'][ii_lev].remove(lpf)
+        tmp_copy = copy.deepcopy(self.combined_mapping_dict_1s2t_reform)
+        for ii_lev, lev in enumerate(tmp_copy['I']):
+            if ii_lev > 0:
+                for ii_lpf, lpf in enumerate(lev):
+                    if lpf[0][-2:] != 'ir':
+                        break
+                    if lpf[0][-2:] == 'ir':
+                        self.combined_mapping_dict_1s2t_reform['I'][ii_lev - 1].append(lpf)
+                        self.combined_mapping_dict_1s2t_reform['I'][ii_lev].remove(lpf)
+        tmp_copy = copy.deepcopy(tm_input1)
+        for ii_lev, lev in enumerate(tmp_copy):
+            if ii_lev > 0:
+                for ii_lpf, lpf in enumerate(lev):
+                    if lpf[0][-2:] != 'ir':
+                        break
+                    if lpf[0][-2:] == 'ir':
+                        tm_input1[ii_lev - 1].append(lpf)
+                        tm_input1[ii_lev].remove(lpf)
+        tmp_copy = copy.deepcopy(tm_input2)
+        for ii_lev, lev in enumerate(tmp_copy):
+            if ii_lev > 0:
+                for ii_lpf, lpf in enumerate(lev):
+                    if lpf[0][-2:] != 'ir':
+                        break
+                    if lpf[0][-2:] == 'ir':
+                        tm_input2[ii_lev - 1].append(lpf)
+                        tm_input2[ii_lev].remove(lpf)
+        dict_tm_vals = {'C':'C', 'K':'K', 'IX_r':'OX', 'IX_ir': 'OX', 'IY_ir' :'OY', 'IY_r':'OY','B':'B'}
+        tm_input1 = [[(dict_tm_vals[t[0]], t[1]) for t in lev] for lev in tm_input1]
+        tm_input2 = [[(dict_tm_vals[t[0]], t[1]) for t in lev] for lev in tm_input2]
+        del tm_input1[0]
+        del tm_input2[0]
+        tm_original = copy.deepcopy(self.temporal_mapping.mapping_dic_origin)
+        tm_original['I'] = tm_input1
+        self.temporal_mapping = TemporalMapping(tm_original, layer_node)
+
 
         ''' Distinguish final output from partial output: "psum_flag" '''
         self.distinguish_output()
@@ -245,9 +292,20 @@ class Mapping:
             for level, current_level_su_loops in enumerate(su_dict_seed[operand]):
                 current_level_tm_loops = tm_dict_seed[operand][level]
                 above_level_tm_loops = tm_dict_seed[operand][level + 1]
-                combined_mapping_dict_1s1t[operand][level] = current_level_tm_loops + current_level_su_loops
-                combined_mapping_dict_1s2t[operand][level + 1] = above_level_tm_loops + current_level_su_loops
+                if operand in ['W', 'O']:
+                    current_level_su_loops_mod = [tuple([x[0], x[1]]) for x in current_level_su_loops]
+                    current_level_tm_loops_mod = [tuple([x[0], x[1]]) for x in current_level_tm_loops]
+                    above_level_tm_loops_mod = [tuple([x[0], x[1]]) for x in above_level_tm_loops]
 
+                if operand in ['I']:
+                    current_level_su_loops_mod = [tuple([x[0], x[1], 's']) for x in current_level_su_loops]
+                    current_level_tm_loops_mod = [tuple([x[0], x[1], 't']) for x in current_level_tm_loops]
+                    above_level_tm_loops_mod = [tuple([x[0], x[1], 't']) for x in above_level_tm_loops]
+
+
+                combined_mapping_dict_1s1t[operand][level] = current_level_tm_loops_mod + current_level_su_loops_mod
+                combined_mapping_dict_1s2t[operand][level + 1] = above_level_tm_loops_mod + current_level_su_loops_mod
+        
         self.combined_mapping_dict_1s1t = combined_mapping_dict_1s1t
         self.combined_mapping_dict_1s2t = combined_mapping_dict_1s2t
 
@@ -568,21 +626,24 @@ class Mapping:
                     rd_out_to_high_pd, wr_in_by_high_pd
                 )
                 ''' data transfer period count '''
-                rd_out_to_low_pc = self.temporal_mapping.total_cycle // cycle_each_level[operand][mem_level]
+                rd_out_to_low_pc = self.temporal_mapping.total_cycle / cycle_each_level[operand][mem_level]
                 wr_in_by_low_pc = 0
                 rd_out_to_high_pc = 0
-                wr_in_by_high_pc = self.temporal_mapping.total_cycle // cycle_each_level[operand][mem_level + 1]
+                wr_in_by_high_pc = self.temporal_mapping.total_cycle / cycle_each_level[operand][mem_level + 1]
                 self.unit_mem_data_movement[operand][mem_level].set_data_trans_period_count(
                     rd_out_to_low_pc, wr_in_by_low_pc,
                     rd_out_to_high_pc, wr_in_by_high_pc
                 )
                 ''' per-period data transfer amount '''
+                top_ir_loop = 1
+                if self.combined_mapping_dict_1s1t_reform['I'][mem_level][-1][0][-2:] == "ir" and operand == 'I':
+                    top_ir_loop = self.combined_mapping_dict_1s1t_reform['I'][mem_level][-1][1]
+
                 rd_out_to_low_da = data_each_level_unrolled[operand][mem_level] * \
-                                   mem_bw_boost_factor[operand][mem_level]
+                                   mem_bw_boost_factor[operand][mem_level]# * top_ir_loop
                 wr_in_by_low_da = 0
                 rd_out_to_high_da = 0
                 wr_in_by_high_da = data_each_level_unrolled[operand][mem_level + 1]
-
                 self.unit_mem_data_movement[operand][mem_level].set_data_trans_amount_per_period(
                     rd_out_to_low_da, wr_in_by_low_da,
                     rd_out_to_high_da, wr_in_by_high_da
@@ -661,10 +722,10 @@ class Mapping:
 
                 data_trans_period = data_movement_item.data_trans_period
                 ''' calculate "instant data transferring window", assuming non-double buffered memory '''
-                rd_out_to_low_wd = data_trans_period.rd_out_to_low // top_ir_loop_size[operand][level]
-                wr_in_by_low_wd = data_trans_period.wr_in_by_low // top_ir_loop_size[operand][level]
-                rd_out_to_high_wd = data_trans_period.rd_out_to_high // top_ir_loop_size[operand][level + 1]
-                wr_in_by_high_wd = data_trans_period.wr_in_by_high // top_ir_loop_size[operand][level + 1]
+                rd_out_to_low_wd = data_trans_period.rd_out_to_low / top_ir_loop_size[operand][level]
+                wr_in_by_low_wd = data_trans_period.wr_in_by_low / top_ir_loop_size[operand][level]
+                rd_out_to_high_wd = data_trans_period.rd_out_to_high / top_ir_loop_size[operand][level + 1]
+                wr_in_by_high_wd = data_trans_period.wr_in_by_high / top_ir_loop_size[operand][level + 1]
                 data_movement_item.set_inst_data_trans_window(rd_out_to_low_wd, wr_in_by_low_wd,
                                                               rd_out_to_high_wd, wr_in_by_high_wd)
 

@@ -97,7 +97,6 @@ class SpatialMappingConversionStage(Stage):
                 user_spatial_mapping[spatial_dim_name][ii_sl] = (loop_dim_unrolled, loop_size_unrolled)
 
         logger.info(f"User-provided spatial mapping converted to: {user_spatial_mapping}")
-
         spatial_mapping_dict = {}
         layer_to_mem_op = self.layer.memory_operand_links
         mem_to_layer_op = {mem_op: layer_op for (layer_op, mem_op) in layer_to_mem_op.items()}

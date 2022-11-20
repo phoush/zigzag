@@ -8,6 +8,32 @@ from classes.mapping.temporal.temporal_mapping import TemporalMapping
 from classes.opt.temporal.loma.loop import Loop
 from classes.workload.layer_node import LayerNode
 from math import prod
+import copy
+
+
+def merge_loops(temporal_mapping):
+    tm_merged = {}
+    tm = copy.deepcopy(temporal_mapping)#.mapping_dic_origin
+    for op in tm.keys():
+        tm_merged[op] = []
+        for lev in tm[op]:
+            tm_level = []
+            for ii_tm, tmx in enumerate(lev):
+                if ii_tm > 0:
+                    if tmx[0] == lev[ii_tm-1][0]:
+                        tm_level[-1][1] *= tmx[1]
+                    else:
+                        tm_level.append([tmx[0], tmx[1]])
+                else:
+                    tm_level.append([tmx[0], tmx[1]])
+            tm_merged[op].append(tm_level)
+    #temporal_mapping.mapping_dic_origin = tm_merged
+
+    for op in tm_merged.keys():
+        tm_merged[op] = [[tuple(x) for x in lev] for lev in tm_merged[op]] 
+
+    return tm_merged
+
 
 class MemHierarchyTooSmallException(Exception):
     pass
@@ -83,6 +109,7 @@ class MemoryAllocator:
         for node in nodes:
             self.allocate_node(node, top_levels)
 
+        self.temporal_mapping_dict = merge_loops(self.temporal_mapping_dict)
         # After all the nodes have been allocated, we can creat the TemporalMapping
         # object from the dictionary we have built
         temporal_mapping = TemporalMapping(self.temporal_mapping_dict, self.layer)

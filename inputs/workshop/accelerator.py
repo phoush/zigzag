@@ -34,10 +34,12 @@ def memory_hierarchy(multiplier_array):
     """Memory hierarchy variables"""
     ''' size = #bit '''
 
-    dram = MemoryInstance(name="dram", size=10000000000, r_bw=6400000, w_bw=6400000, r_cost=700, w_cost=750, area=0)
+    dram = MemoryInstance(name="dram", size=10000000000, r_bw=512, w_bw=512, r_cost=700, w_cost=750, area=0)
 
     memory_hierarchy_graph = MemoryHierarchy(operational_array=multiplier_array)
-    memory_hierarchy_graph.add_memory(memory_instance=dram, operands=('I1', 'I2', 'O'), served_dimensions='all')
+    memory_hierarchy_graph.add_memory(memory_instance=dram, operands=('I1',), served_dimensions='all')
+    memory_hierarchy_graph.add_memory(memory_instance=dram, operands=('I2',), served_dimensions='all')
+    memory_hierarchy_graph.add_memory(memory_instance=dram, operands=('O',), served_dimensions='all')
 
     return memory_hierarchy_graph
 

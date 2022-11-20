@@ -10,6 +10,8 @@ from classes.mapping.combined_mapping import Mapping
 from classes.mapping.combined_mapping import FourWayDataMoving
 from classes.workload.layer_node import LayerNode
 import classes.io.input_config as inputs
+import pdb
+
 
 logger = logging.getLogger(__name__)
 
@@ -616,12 +618,15 @@ class CostModelEvaluation:
         SS_comb_list = [0]
         # intermediate parameters saved for debugging purpose
         MUW_union_collect = [{port: None for port in mem_ports} for mem_ports in port_activity_collect]
-
         for idx, mem_ports in enumerate(port_activity_collect):
             for port_name, port_activity in mem_ports.items():
                 if len(port_activity) == 1:
+
+                    #print(port_activity[0].SS)
+                    #pdb.set_trace()
                     MUW_union_collect[idx][port_name] = port_activity[0].allowed_cycle
                     SS_comb_collect[idx][port_name] = port_activity[0].SS
+                    SS_comb_list.append(port_activity[0].SS)
                 elif len(port_activity) != 0:
                     MUW_union_collect[idx][port_name] = calc_MUW_union(port_activity)
                     SS_positive_sum = 0
@@ -641,6 +646,7 @@ class CostModelEvaluation:
         self.SS_comb_collect = SS_comb_collect
         ''' Assuming all the memory ports can work in parallel '''
         self.SS_comb = max(SS_comb_list)
+         
 
     def calc_data_loading_offloading_latency(self):
         """ Calculate the initial/final data loading/off-loading cycle by separating out
@@ -801,6 +807,7 @@ class CostModelEvaluation:
         self.MAC_utilization0 = MAC_utilization0
         self.MAC_utilization1 = MAC_utilization1
         self.MAC_utilization2 = MAC_utilization2
+
 
     def __add__(self, other):
         sum = pickle_deepcopy(self)

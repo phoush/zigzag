@@ -86,18 +86,14 @@ class AIMCArray(OperationalArray):
         imc_array_single_cost = energy_act_line + energy_sum_line + DAC_cost_totalx + ADC_cost_totalx
         DAC_cost_total += eff_num_rows * self.unit.cost['DAC_cost'] * layer.total_MAC_count/(num_cols * num_rowsx)
         ADC_cost_total += eff_num_cols * self.unit.cost['ADC_cost'] * layer.total_MAC_count/(num_cols * num_rowsx)
-        write_cycles = layer.loop_dim_size['C'] * (FXu + OXu - 1) * layer.loop_dim_size['FY'] * (layer.loop_dim_size['FX'] / FXu) 
         imc_array_cost += imc_array_single_cost * layer.total_MAC_count / (num_cols * num_rowsx)
         # TODO ACCUMULATION COST
         imc_accumulation_cost += 1 #accumulation_cycles * single_accumulation_cost
-        imc_array_write_cost += write_cycles * self.unit.cost['imc_write_cost']
 
         imc_array_internal_cost += (energy_act_line + energy_sum_line) * layer.total_MAC_count/(num_cols * num_rowsx)
         mac_cost =  {'AIMC array' : imc_array_internal_cost,\
                 'DAC': DAC_cost_total,\
-                'ADC': ADC_cost_total,\
-                'AIMC write': imc_array_write_cost,\
-                'AIMC ps accumulation': imc_accumulation_cost}
+                'ADC': ADC_cost_total}
         return mac_cost
 
 

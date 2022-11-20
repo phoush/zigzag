@@ -11,6 +11,31 @@ from classes.mapping.temporal.temporal_mapping import TemporalMapping
 from classes.workload.layer_node import LayerNode
 import classes.io.input_config as inputs
 logger = logging.getLogger(__name__)
+import pdb
+
+
+def merge_loops(temporal_mapping):
+    tm_merged = {}
+    tm = temporal_mapping.mapping_dic_origin
+    for op in tm.keys():
+        tm_merged[op] = []
+        for lev in tm[op]:
+            tm_level = []
+            for ii_tm, tmx in enumerate(lev):
+                if ii_tm > 0:
+                    if tmx[0] == lev[ii_tm-1][0]:
+                        tm_level[-1][1] *= tmx[1]
+                    else:
+                        tm_level.append([tmx[0], tmx[1]])
+                else:
+                    tm_level.append([tmx[0], tmx[1]])
+            tm_merged[op].append(tm_level)
+    for op in tm_merged.keys():
+        tm_merged[op] = [[tuple(x) for x in lev] for lev in tm_merged[op]] 
+
+
+    temporal_mapping.mapping_dic_origin = tm_merged
+    return tm_merged
 
 
 class CostModelStage(Stage):
@@ -32,7 +57,7 @@ class CostModelStage(Stage):
         self.cme = CostModelEvaluation(accelerator=self.accelerator,
                                        layer=self.layer,
                                        spatial_mapping=self.spatial_mapping,
-                                       temporal_mapping=self.temporal_mapping)
+                                       temporal_mapping=merge_loops(self.temporal_mapping))
         yield (self.cme, None)
 
     def is_leaf(self) -> bool:

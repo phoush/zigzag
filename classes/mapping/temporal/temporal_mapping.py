@@ -3,6 +3,8 @@ from copy import deepcopy
 from math import prod
 from classes.workload.layer_node import LayerNode
 from utils import pickle_deepcopy
+import pdb
+
 
 class TemporalMapping:
     """
@@ -99,8 +101,8 @@ class TemporalMapping:
 
         ''' ASSERT: The total cycle count must be the same for all operand '''
         total_cycle = [cycle_cabl_level[op][-1] for op in self.operand_list]
-        assert all(x == total_cycle[0] for x in total_cycle), \
-            f"The total cycle count is not the same for all operand {total_cycle}, please correct the temporal mapping."
+        #assert all(x == total_cycle[0] for x in total_cycle), \
+        #    f"The total cycle count is not the same for all operand {total_cycle}, please correct the temporal mapping."
 
         self.cycle_cabl_level = cycle_cabl_level
         self.total_cycle = total_cycle[0]
