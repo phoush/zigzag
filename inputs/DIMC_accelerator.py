@@ -13,7 +13,7 @@ def multiplier_array():
     multiplier_input_precision = [8, 8]
     multiplier_energy = {'MAC_8b' : 0.08}
     multiplier_area = {'MAC_unit': 1}
-    dimensions = {'D1': 144, 'D2': 16}
+    dimensions = {'D1': 128, 'D2': 16}
 
     multiplier = Multiplier(multiplier_input_precision, multiplier_energy, multiplier_area)
     multiplier_array = MultiplierArray(multiplier, dimensions)
@@ -27,40 +27,36 @@ def memory_hierarchy(multiplier_array):
     ''' size = #bit '''
 
     # 128MB SRAM
-    L2_sram = MemoryInstanceClocked(name="L2", 
+    L2_sram = MemoryInstance(name="L2", 
             size=64*2097152, 
-            r_bw=512, w_bw=512, 
+            r_bw=2048, w_bw=2048, 
             r_cost=10, w_cost=10, 
-            r_port = 2, w_port = 2, 
-            area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            r_port = 1, w_port = 1, 
+            area=0)
     
 
     # DIMC array weight cell
-    weight_cell = MemoryInstanceClocked(name="weight_cell", 
+    weight_cell = MemoryInstance(name="weight_cell", 
             size=512, 
             r_bw=8, w_bw=8, 
             r_cost=0.078, w_cost=0.078, 
-            rw_port = 1, area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            rw_port = 1, area=0)
 
     # Input buffer
-    input_buffer = MemoryInstanceClocked(name="input_buffer", 
+    input_buffer = MemoryInstance(name="input_buffer", 
             size=8, 
             r_bw=8, w_bw=8, 
             r_cost=0.1, w_cost=0.1, 
             r_port = 1, w_port = 1, 
-            area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            area=0) 
 
     # Output buffer
-    output_buffer = MemoryInstanceClocked(name="output_buffer", 
+    output_buffer = MemoryInstance(name="output_buffer", 
             size=8, 
             r_bw=8, w_bw=8, 
             r_cost=0, w_cost=0, 
             r_port = 2, w_port = 2, 
-            area=0, 
-            clock_domain_rd = 1, clock_domain_wr = 1)
+            area=0) 
 
     # Create memory hierarchy graph object
     # Operational array has dimensions [128 x 16]

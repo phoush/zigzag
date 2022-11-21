@@ -1,7 +1,7 @@
 workload = {
    0: {'equation': 'O[ox][oy][k]+=W[fx][fy][c][k]*I[ix][iy][c]',
         'dimension_relations': ['ix=1*ox+1*fx', 'iy=1*oy+1*fy'],
-        'loop_dim_size': {'OX': 56, 'OY': 56, 'K': 512, 'C': 512, 'FX': 3, 'FY': 3},
+        'loop_dim_size': {'OX': 4, 'OY': 4, 'K': 512, 'C': 128, 'FX': 3, 'FY': 3},
         'operand_precision': {'O': 8,  'O_final': 8, 'W': 8, 'I': 8},
         'core_allocation': 1,
         'spatial_mapping_hint': {'D1': ['C','FX','FY'], 'D2': ['K']},
