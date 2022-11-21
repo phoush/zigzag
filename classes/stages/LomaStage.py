@@ -26,7 +26,6 @@ class LomaStage(Stage):
         self.engine = None
 
     def run(self):
-        pdb.set_trace()
         self.engine = LomaEngine(accelerator=self.accelerator, layer=self.layer, spatial_mapping=self.spatial_mapping,
                                  **self.kwargs)
 
