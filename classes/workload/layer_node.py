@@ -1,4 +1,4 @@
-from math import gcd, prod
+from math import gcd, prod, floor
 import re
 from collections import defaultdict
 from typing import Dict, List
@@ -8,6 +8,8 @@ from typing import Callable, Any
 import classes.io.input_config as inputs
 from classes.hardware.architecture.memory_hierarchy import MemoryHierarchy
 from collections import defaultdict
+import pdb
+
 
 class LayerNode:
 
@@ -176,7 +178,15 @@ class LayerNode:
         a in range(0,A,1) and b in range(0,B,1) according to the equation c = sa * a + sb * b.
         sa and sb thus represent the scaling of a, resp. b.
         """
-        return int(A*B - max(0, B - (sa/gcd(sa,sb))) * (A - (sb/gcd(sa,sb))))
+        if sa % 1 == 0.0 and sb % 1 == 0.0:
+            return int(A*B - max(0, B - (sa/gcd(int(sa),int(sb)))) * (A - (sb/gcd(int(sa),int(sb)))))
+        else:
+            if B != 1:
+                return float((A+B-1)*sa)
+            else:
+                return float((A+B)*sa)
+
+
 
 
     @staticmethod
@@ -206,7 +216,8 @@ class LayerNode:
                     if not relation[relation.index(val_lower)-2].isdigit():
                         raise NotImplementedError(f"Please use a scaling factor for every dimension iterator on the RHS of equation {relation}")
                     else:
-                        scaling_factors[val_lower] = int(re.findall('(\\d+)(?=\\*'+val_lower+')', relation)[0])
+#                        scaling_factors[val_lower] = int(re.findall('(\\d+)(?=\\*'+val_lower+')', relation)[0])
+                        scaling_factors[val_lower] = float(re.findall('(\\S+)(?=\\*'+val_lower+')', relation)[0])
                 else:
                     scaling_factors[val_lower] = 1
             #scaling_factors = re.findall('[0-9]+', relation)

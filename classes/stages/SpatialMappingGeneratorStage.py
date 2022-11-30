@@ -220,8 +220,8 @@ class SpatialMappingGeneratorStage(Stage):
             oa_dim_names = [oa_dim.name for oa_dim in oa_dims]
             user_spatial_mapping = {oa_dim_name: unrolling for (oa_dim_name, unrolling) in zip(oa_dim_names, combination) if unrolling is not None}
             
-#            if user_spatial_mapping['D1'] != [('C',128), ('FX',3), ('FY',3)]:
-#                continue
+            if user_spatial_mapping['D1'] != [('C',128), ('FX',3), ('FY',3)]:
+                continue
 
             yield user_spatial_mapping
 

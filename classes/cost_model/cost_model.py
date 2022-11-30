@@ -284,7 +284,6 @@ class CostModelEvaluation:
                 effective_mem_utilization = self.mapping.effective_data_bit[layer_op][mem_lv + 1] / \
                                             self.mem_size_dict[self.layer_op_to_mem_op[layer_op]][mem_lv]
                 effective_mem_utili_individual[layer_op].append(effective_mem_utilization)
-
         mem_utili_shared = pickle_deepcopy(mem_utili_individual)
         effective_mem_utili_shared = pickle_deepcopy(effective_mem_utili_individual)
         for mem_share_dict in self.mem_sharing_list:
@@ -645,7 +644,6 @@ class CostModelEvaluation:
         self.SS_comb_collect = SS_comb_collect
         ''' Assuming all the memory ports can work in parallel '''
         self.SS_comb = max(SS_comb_list)
-         
 
     def calc_data_loading_offloading_latency(self):
         """ Calculate the initial/final data loading/off-loading cycle by separating out

@@ -22,8 +22,9 @@ mainstage = MainStage([
     CompleteSaveBestStage,
     WorkloadStage,
     SpatialMappingGeneratorStage,
-    MinimalEnergyStage,
+    MinimalLatencyStage,
     TemporalOrderingConversionStage,
+    #LomaStage,
     CostModelStage
 ],
     accelerator_path=args.accelerator,

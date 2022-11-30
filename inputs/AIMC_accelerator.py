@@ -85,7 +85,10 @@ def memory_hierarchy(multiplier_array):
             port_alloc=({'fh':'w_port_1', 'fl': 'w_port_2', 'th': 'r_port_1', 'tl': 'r_port_2'},), 
             served_dimensions={(1,0)})
     # Add L1 memory
-    memory_hierarchy_graph.add_memory(memory_instance=L1_sram, operands=('I2','O',), 
+    memory_hierarchy_graph.add_memory(memory_instance=L1_sram, operands=('O',), 
+            served_dimensions='all')
+    # Add L1 memory
+    memory_hierarchy_graph.add_memory(memory_instance=L1_sram, operands=('I2',), 
             served_dimensions='all')
     # Add L2 memory
     memory_hierarchy_graph.add_memory(memory_instance=L2_sram, operands=('I1','I2','O',), 
