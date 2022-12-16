@@ -49,7 +49,6 @@ class CostModelStage(Stage):
         super().__init__(list_of_callables, **kwargs)
         self.accelerator, self.layer, self.spatial_mapping, self.temporal_mapping =\
             accelerator, layer, spatial_mapping, temporal_mapping
-        self.mac_clock_domain = kwargs['mac_clock_domain']
 
     def run(self) -> Generator[Tuple[CostModelEvaluation, Any], None, None]:
         """
@@ -58,8 +57,8 @@ class CostModelStage(Stage):
         self.cme = CostModelEvaluation(accelerator=self.accelerator,
                                        layer=self.layer,
                                        spatial_mapping=self.spatial_mapping,
-                                       temporal_mapping=merge_loops(self.temporal_mapping),
-                                       mac_clock_domain = self.mac_clock_domain)
+                                       temporal_mapping=merge_loops(self.temporal_mapping)
+                                       )
         yield (self.cme, None)
 
     def is_leaf(self) -> bool:

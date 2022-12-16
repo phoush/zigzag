@@ -344,10 +344,10 @@ class LayerNode:
 
 if __name__ == "__main__":
 
-    equation = 'O[g][b][k][oy][ox]+=W[g][k][c][fy][fx]*I[g][b][c][ix][iy]'
-    dimension_size = {'B': 1, 'K': 32, 'C': 64, 'OY': 28, 'OX': 28, 'FY': 3, 'FX': 3, 'G': 2}
-    operand_precision = {'O': 24, 'O_final': 24, 'W': 8, 'I': 8}
-    equation_relations = ['ix=ox+fx-1', 'iy=oy+fy-1']
+    equation = 'O[b][h][k][p]+=W[h][k][c]*I[b][b][c][x][y]'
+    dimension_size = {'B': 1, 'H': 4, 'K': 12, 'X': 32, 'Y': 32}
+    operand_precision = {'O': 8, 'O_final': 8, 'W': 8, 'I': 8}
+    equation_relations = ['p= 32*x + y', 'c= 12*h + k']
 
     aa = LayerNode(equation, dimension_size, operand_precision, equation_relations)
     a=1

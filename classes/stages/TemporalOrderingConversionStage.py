@@ -23,7 +23,6 @@ class TemporalOrderingConversionStage(Stage):
         self.layer = layer
         self.spatial_mapping = spatial_mapping
         self.accelerator = accelerator
-        self.mac_clock_domain = kwargs['mac_clock_domain']
 
     @staticmethod
     def check_layer(layer):
@@ -57,7 +56,6 @@ class TemporalOrderingConversionStage(Stage):
         kwargs['spatial_mapping'] = self.spatial_mapping
         kwargs['layer'] = self.layer
         kwargs['accelerator'] = self.accelerator
-        kwargs['mac_clock_domain'] = self.mac_clock_domain
         substage = self.list_of_callables[0](self.list_of_callables[1:], **kwargs)
         for cme, extra_info in substage.run():
             yield cme, extra_info

@@ -137,6 +137,8 @@ def decouple_pr_loop(mapping_dict: Dict, layer_node: 'LayerNode'):
     ''' each single pr loop data reuse '''
     per_pr_data_reuse = {}
 
+    if 'A' in mapping_dict.keys():
+        tm_mapping_input = deepcopy(mapping_dict['A'])
     for operand in pr_operand_list:
 
         ''' initialize current and below level pr loop size '''
@@ -175,7 +177,10 @@ def decouple_pr_loop(mapping_dict: Dict, layer_node: 'LayerNode'):
                         ''' compute pr related data dimension size and data dimension reuse at current and below joint levels
                         based on pr_funcs (dynamic functions extracted in LayerNode). Each pr loop is decoupled into r and ir loops. '''
                         pr_loop_combined_to_r = layer_node.calc_tensor_dim(operand, cabl_pr_lp_size[pr_data_dim], pr_data_dim)
-                        pr_loop_combined_to_ir = prod(cabl_pr_lp_size[pr_data_dim].values()) / pr_loop_combined_to_r
+                        try:
+                            pr_loop_combined_to_ir = prod(cabl_pr_lp_size[pr_data_dim].values()) / pr_loop_combined_to_r
+                        except:
+                            breakpoint()
                         cabl_pr_data_reuse[operand][pr_data_dim][level].append(pr_loop_combined_to_ir)
                         cabl_pr_data_size[operand][pr_data_dim][level].append(pr_loop_combined_to_r)
 
@@ -253,7 +258,7 @@ def replace_pr_loop_in_mapping(single_operand_mapping: Dict, per_pr_data_size: D
         cl_pr_lp_idx_global = 0
         tm_mapping_new.append([])
         for idx, (loop_type, loop_size, t_m) in enumerate(loop_list):
-            if loop_type in r_ir_operand_loop_LUT:
+            if loop_type in ['G','C','K']:#r_ir_operand_loop_LUT:
 #                continue
                 mapping_new[level][idx+cl_pr_lp_idx_global] = tuple([loop_type, loop_size])
                 if t_m == 't':

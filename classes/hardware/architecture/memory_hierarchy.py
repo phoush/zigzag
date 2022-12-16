@@ -2,7 +2,8 @@ from collections import defaultdict
 from typing import Set, Tuple, List
 import networkx as nx
 from networkx import DiGraph
-
+import numpy as np
+from classes.hardware.architecture.dimension import Dimension
 from classes.hardware.architecture.memory_instance import MemoryInstance
 from classes.hardware.architecture.memory_level import MemoryLevel
 from classes.hardware.architecture.operational_array import OperationalArray
@@ -27,6 +28,25 @@ class MemoryHierarchy(DiGraph):
         self.operands = set()  # Initialize the set that will store all memory operands
         self.nb_levels = {}  # Initialize the dict that will store how many memory levels an operand has
         self.mem_instance_list = []
+
+        if operational_array.type in ['DIMC', 'AIMC']:
+            row_div = 1
+            macro_div = 1
+            if operational_array.type == 'DIMC':
+                size_elem = operational_array.unit.cost['WEIGHT_BITCELL'] 
+                row_div = operational_array.unit.cost['CORE_ROWS']
+            else:
+                size_elem = operational_array.unit.cost['WEIGHT_BITCELL']
+            dim_div = {'D1':size_elem, 'D2':row_div, 'D3': macro_div}
+            base_dims = [Dimension(dim.id, dim.name, int(dim.size / dim_div[dim.name])) for idx, dim in enumerate(operational_array.dimensions)]
+            self.operational_array.dimensions = base_dims
+            self.operational_array.dimension_sizes = [dim.size for dim in base_dims]
+            self.operational_array.total_unit_count  = int(np.prod(operational_array.dimension_sizes))
+
+            weight_cell = MemoryInstance(name="weight_cell", size=size_elem * row_div, r_bw=operational_array.unit.cost['WEIGHT_BITCELL'], w_bw=operational_array.unit.cost['WEIGHT_BITCELL'], 
+                r_cost=0, w_cost=0.000378, area=0)
+
+            self.add_memory(weight_cell, operands=('I1',), served_dimensions=set())
 
     def __jsonrepr__(self):
         """

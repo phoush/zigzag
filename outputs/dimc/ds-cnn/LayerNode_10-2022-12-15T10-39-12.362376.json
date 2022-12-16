@@ -1,0 +1,443 @@
+{
+    "inputs": {
+        "accelerator": {
+            "name": "MyAccelerator",
+            "cores": [
+                {
+                    "id": 1,
+                    "operational_array": {
+                        "operational_unit": {
+                            "input_precision": [
+                                8,
+                                8
+                            ],
+                            "output_precision": 16,
+                            "precision": [
+                                8,
+                                8,
+                                16
+                            ],
+                            "cost": {
+                                "vdd": 0.8,
+                                "CORE_ROWS": 8,
+                                "INPUT_BITS_PER_CYCLE": 4,
+                                "WEIGHT_BITCELL": 8,
+                                "wl_cap": 0.000378,
+                                "bl_cap": 0.000378
+                            },
+                            "technology": 28,
+                            "area": {
+                                "cell": 1,
+                                "adder": 1,
+                                "multiplier": 1
+                            },
+                            "imc_type": "IMC"
+                        },
+                        "dimensions": [
+                            {
+                                "id": 0,
+                                "name": "D1",
+                                "size": 6
+                            },
+                            {
+                                "id": 1,
+                                "name": "D2",
+                                "size": 4
+                            },
+                            {
+                                "id": 2,
+                                "name": "D3",
+                                "size": 384
+                            }
+                        ]
+                    },
+                    "memory_hierarchy": {
+                        "memory_levels": [
+                            "MemoryLevel(instance=weight_cell,operands=['I1'],served_dimensions=set())",
+                            "MemoryLevel(instance=input_buffer,operands=['I2'],served_dimensions={Dimension(id=0,name=D1,size=6)})",
+                            "MemoryLevel(instance=output_buffer,operands=['O'],served_dimensions={Dimension(id=1,name=D2,size=4)})",
+                            "MemoryLevel(instance=L2,operands=['I1', 'I2', 'O'],served_dimensions={Dimension(id=0,name=D1,size=6), Dimension(id=1,name=D2,size=4), Dimension(id=2,name=D3,size=384)})"
+                        ]
+                    },
+                    "mem_hierarchy_dict": {
+                        "I1": [
+                            "MemoryLevel(instance=weight_cell,operands=['I1'],served_dimensions=set())",
+                            "MemoryLevel(instance=L2,operands=['I1', 'I2', 'O'],served_dimensions={Dimension(id=0,name=D1,size=6), Dimension(id=1,name=D2,size=4), Dimension(id=2,name=D3,size=384)})"
+                        ],
+                        "I2": [
+                            "MemoryLevel(instance=input_buffer,operands=['I2'],served_dimensions={Dimension(id=0,name=D1,size=6)})",
+                            "MemoryLevel(instance=L2,operands=['I1', 'I2', 'O'],served_dimensions={Dimension(id=0,name=D1,size=6), Dimension(id=1,name=D2,size=4), Dimension(id=2,name=D3,size=384)})"
+                        ],
+                        "O": [
+                            "MemoryLevel(instance=output_buffer,operands=['O'],served_dimensions={Dimension(id=1,name=D2,size=4)})",
+                            "MemoryLevel(instance=L2,operands=['I1', 'I2', 'O'],served_dimensions={Dimension(id=0,name=D1,size=6), Dimension(id=1,name=D2,size=4), Dimension(id=2,name=D3,size=384)})"
+                        ]
+                    },
+                    "mem_size_dict": {
+                        "I1": [
+                            64,
+                            134217728
+                        ],
+                        "I2": [
+                            8,
+                            134217728
+                        ],
+                        "O": [
+                            8,
+                            134217728
+                        ]
+                    },
+                    "mem_r_bw_dict": {
+                        "I1": [
+                            8,
+                            8
+                        ],
+                        "I2": [
+                            8,
+                            8
+                        ],
+                        "O": [
+                            8,
+                            8
+                        ]
+                    },
+                    "mem_w_bw_dict": {
+                        "I1": [
+                            8,
+                            8
+                        ],
+                        "I2": [
+                            8,
+                            8
+                        ],
+                        "O": [
+                            8,
+                            8
+                        ]
+                    },
+                    "mem_r_bw_min_dict": {
+                        "I1": [
+                            8,
+                            8
+                        ],
+                        "I2": [
+                            8,
+                            8
+                        ],
+                        "O": [
+                            8,
+                            8
+                        ]
+                    },
+                    "mem_w_bw_min_dict": {
+                        "I1": [
+                            8,
+                            8
+                        ],
+                        "I2": [
+                            8,
+                            8
+                        ],
+                        "O": [
+                            8,
+                            8
+                        ]
+                    },
+                    "mem_sharing_list": [
+                        {
+                            "I1": 1,
+                            "I2": 1,
+                            "O": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "layer": {
+            "equation": "O[b][g][k][oy][ox]+=W[k][c][fy][fx]*I[b][g][c][iy][ix]",
+            "equation_relations": [
+                "ix= 1*ox + 1*fx",
+                "iy= 1*oy + 1*fy"
+            ],
+            "loop_dimensions": {
+                "B": 1,
+                "K": 1,
+                "G": 64,
+                "OX": 25,
+                "OY": 5,
+                "C": 1,
+                "FX": 3,
+                "FY": 3
+            },
+            "operand_precision": {
+                "O": 8,
+                "O_final": 8,
+                "W": 8,
+                "I": 8
+            },
+            "core_allocation": 1,
+            "user_spatial_mapping": {
+                "D1": [
+                    [
+                        "K",
+                        1.0
+                    ]
+                ],
+                "D2": [],
+                "D3": [
+                    [
+                        "OX",
+                        25.0
+                    ],
+                    [
+                        "OY",
+                        5.0
+                    ]
+                ]
+            },
+            "memory_operand_links": {
+                "O": "O",
+                "W": "I1",
+                "I": "I2"
+            },
+            "source_storage_level": {}
+        },
+        "spatial_mapping": {
+            "spatial_mapping": {
+                "O": [
+                    [
+                        [
+                            "FX",
+                            3.0
+                        ]
+                    ],
+                    [
+                        [
+                            "K",
+                            1.0
+                        ],
+                        [
+                            "OX",
+                            25.0
+                        ],
+                        [
+                            "OY",
+                            5.0
+                        ]
+                    ],
+                    []
+                ],
+                "W": [
+                    [],
+                    [
+                        [
+                            "K",
+                            1.0
+                        ],
+                        [
+                            "FX",
+                            3.0
+                        ],
+                        [
+                            "OX",
+                            25.0
+                        ],
+                        [
+                            "OY",
+                            5.0
+                        ]
+                    ],
+                    []
+                ],
+                "I": [
+                    [
+                        [
+                            "K",
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            "FX",
+                            3.0
+                        ],
+                        [
+                            "OX",
+                            25.0
+                        ],
+                        [
+                            "OY",
+                            5.0
+                        ]
+                    ],
+                    []
+                ]
+            }
+        },
+        "temporal_mapping": {
+            "O": [
+                [
+                    [
+                        "OX",
+                        1.0
+                    ],
+                    [
+                        "OY",
+                        1.0
+                    ],
+                    [
+                        "K",
+                        1.0
+                    ],
+                    [
+                        "FX",
+                        1.0
+                    ],
+                    [
+                        "FY",
+                        3
+                    ],
+                    [
+                        "C",
+                        1
+                    ]
+                ],
+                []
+            ],
+            "W": [
+                [
+                    [
+                        "OX",
+                        1.0
+                    ],
+                    [
+                        "OY",
+                        1.0
+                    ],
+                    [
+                        "K",
+                        1.0
+                    ],
+                    [
+                        "FX",
+                        1.0
+                    ],
+                    [
+                        "FY",
+                        3
+                    ],
+                    [
+                        "C",
+                        1
+                    ]
+                ],
+                []
+            ],
+            "I": [
+                [
+                    [
+                        "OX",
+                        1.0
+                    ],
+                    [
+                        "OY",
+                        1.0
+                    ],
+                    [
+                        "K",
+                        1.0
+                    ],
+                    [
+                        "FX",
+                        1.0
+                    ]
+                ],
+                [
+                    [
+                        "FY",
+                        3
+                    ],
+                    [
+                        "C",
+                        1
+                    ]
+                ]
+            ]
+        }
+    },
+    "outputs": {
+        "memory": {
+            "utilization": {
+                "O": [
+                    1.0,
+                    1.9252300262451172e-05
+                ],
+                "W": [
+                    0.375,
+                    1.9252300262451172e-05
+                ],
+                "I": [
+                    1.0,
+                    1.9252300262451172e-05
+                ]
+            },
+            "word_accesses": {
+                "O": [
+                    "4waydatamoving (rd /\\: 125.0, wr V: 0, rd V: 375.0, wr /\\: 375.0)",
+                    "4waydatamoving (rd /\\: 0, wr V: 0, rd V: 0, wr /\\: 125.0)"
+                ],
+                "W": [
+                    "4waydatamoving (rd /\\: 0, wr V: 1125.0, rd V: 1125.0, wr /\\: 0)",
+                    "4waydatamoving (rd /\\: 0, wr V: 0, rd V: 9.0, wr /\\: 0)"
+                ],
+                "I": [
+                    "4waydatamoving (rd /\\: 0, wr V: 525.0, rd V: 1125.0, wr /\\: 0)",
+                    "4waydatamoving (rd /\\: 0, wr V: 0, rd V: 189.00000000000003, wr /\\: 0)"
+                ]
+            }
+        },
+        "energy": {
+            "energy_total": 7518.39189183626,
+            "operational_energy": 7441.61064183626,
+            "operational_energy_breakdown": {
+                "precharging_cell": 8.082063360000001,
+                "multiplication_energy": 2508.2265600000005,
+                "accumulation_energy": 4925.302018476259
+            },
+            "memory_energy": 76.78125,
+            "energy_breakdown_per_level": {
+                "O": [
+                    26.46,
+                    0.0
+                ],
+                "W": [
+                    0.42525,
+                    0.0
+                ],
+                "I": [
+                    49.896,
+                    0.0
+                ]
+            },
+            "energy_breakdown_per_level_per_operand": {
+                "O": [
+                    "4waydatamoving (rd /\\: 3.7800000000000002, wr V: 0.0, rd V: 11.340000000000002, wr /\\: 11.340000000000002)",
+                    "4waydatamoving (rd /\\: 0, wr V: 0, rd V: 0, wr /\\: 0.0)"
+                ],
+                "W": [
+                    "4waydatamoving (rd /\\: 0, wr V: 0.42525, rd V: 0.0, wr /\\: 0.0)",
+                    "4waydatamoving (rd /\\: 0, wr V: 0, rd V: 0.0, wr /\\: 0)"
+                ],
+                "I": [
+                    "4waydatamoving (rd /\\: 0.0, wr V: 15.876000000000001, rd V: 34.02, wr /\\: 0.0)",
+                    "4waydatamoving (rd /\\: 0, wr V: 0, rd V: 0.0, wr /\\: 0)"
+                ]
+            }
+        },
+        "latency": {
+            "latency_without_onloading_without_offloading": 56.14285714285716,
+            "latency_with_onloading_without_offloading": 191.14285714285717,
+            "latency_with_onloading_with_offloading": 316.14285714285717
+        }
+    }
+}

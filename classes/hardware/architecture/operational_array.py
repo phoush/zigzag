@@ -5,7 +5,7 @@ from classes.hardware.architecture.operand_spatial_sharing import OperandSpatial
 from classes.hardware.architecture.operational_unit import OperationalUnit, Multiplier
 from math import ceil
 from abc import ABC, abstractmethod
-import pdb
+
 
 class OperationalArray(ABC):
     def __init__(self, operational_unit: OperationalUnit, dimensions: Dict[str, int]):
@@ -31,6 +31,8 @@ class OperationalArray(ABC):
         """
         return {"operational_unit": self.unit, "dimensions": self.dimensions}
    
+
+
     @abstractmethod
     def get_area(self):
         raise NotImplementedError('get_area() function not implemented for the operational array')
@@ -48,52 +50,121 @@ class MultiplierArray(OperationalArray):
         area = self.unit.area['MAC_unit'] * self.total_unit_count
         return area
 
-    def get_MAC_cost(self, layer, spatial_mapping):
-        return {'Digital MAC': layer.total_MAC_count * self.unit.cost['MAC_8b']}
+    def get_MAC_cost(self, layer, mapping):
+        return {'Digital MAC': layer.total_MAC_count * (self.unit.get_multiplier_energy() + self.unit.get_adder_energy())}
 
 
 class AIMCArray(OperationalArray):
-    #def __init__(self, operational_unit, dimensions):
-    #    super().__init__(operational_unit, dimensions):
+    def __init__(self, operational_unit: OperationalUnit, dimensions: Dict[str, int]):
+        super().__init__(operational_unit, dimensions)
+        self.type = 'AIMC'
 
     def get_area(self):
-        area = self.unit.area['MAC_cell'] * self.total_unit_count + \
+        area = self.unit.area['cell'] * self.total_unit_count + \
             self.unit.area['ADC'] * self.dimension_sizes[0] + \
             self.unit.area['DAC'] * self.dimension_sizes[1]
         return area
 
-    def get_MAC_cost(self, layer, spatial_mapping):
-        spatial_mapping = spatial_mapping.mapping_dict_origin 
-        spatial_mapping = [j for i in spatial_mapping['W'] for j in i]
-        DAC_cost_total, ADC_cost_total, write_cycles, imc_array_cost, imc_accumulation_cost, imc_array_write_cost, imc_array_internal_cost = 0, 0, 0, 0, 0, 0, 0
+    def get_MAC_cost(self, layer, mapping):
+        
+        spatial_mapping = mapping.spatial_mapping.mapping_dict_origin 
+        const_operand = 'W' if 'W' in spatial_mapping.keys() else 'B'
+        input_operand = 'I' if const_operand =='W' else 'A'
+        spatial_mapping = [j for i in spatial_mapping['O'] for j in i]
+        
         FXu = np.prod([x[1] for x in spatial_mapping if x[0] == 'FX'])
         FYu = np.prod([x[1] for x in spatial_mapping if x[0] == 'FY'])
         OXu = np.prod([x[1] for x in spatial_mapping if x[0] == 'OX'])
         Cu = np.prod([x[1] for x in spatial_mapping if x[0] == 'C'])
         Ku = np.prod([x[1] for x in spatial_mapping if x[0] == 'K'])
-
         num_rows = Cu * (FXu * (OXu + FXu - 1))
-        num_rowsx = np.prod([x[1] for x in spatial_mapping if x[0] in ['FX','FY','C']])
-        num_cols = np.prod([x[1] for x in spatial_mapping if x[0] in ['OX','K']])
-        eff_num_rows = ceil(num_rows/64)*64
-        eff_num_cols = ceil(num_cols/64)*64
+        num_cols = OXu * Ku 
         
-        energy_act_line = (eff_num_rows * (eff_num_cols * self.unit.cost['act_line_cap'] * self.unit.cost['act_line_v'] * self.unit.cost['vdd']))
-        energy_sum_line = (eff_num_cols * (eff_num_rows * self.unit.cost['sum_line_cap'] * self.unit.cost['sum_line_v'] * self.unit.cost['vdd']))
-        DAC_cost_totalx = eff_num_rows * self.unit.cost['DAC_cost']
-        ADC_cost_totalx = eff_num_cols * self.unit.cost['ADC_cost']
-        single_accumulation_cost = self.unit.cost['mac_cost']
-        imc_array_single_cost = energy_act_line + energy_sum_line + DAC_cost_totalx + ADC_cost_totalx
-        DAC_cost_total += eff_num_rows * self.unit.cost['DAC_cost'] * layer.total_MAC_count/(num_cols * num_rowsx)
-        ADC_cost_total += eff_num_cols * self.unit.cost['ADC_cost'] * layer.total_MAC_count/(num_cols * num_rowsx)
-        imc_array_cost += imc_array_single_cost * layer.total_MAC_count / (num_cols * num_rowsx)
-        # TODO ACCUMULATION COST
-        imc_accumulation_cost += 1 #accumulation_cycles * single_accumulation_cost
+        cell = ((self.unit.cost['wl_cap'] * (self.unit.cost['wl_v']**2)) * self.dimensions[1].size * num_cols + \
+            (self.unit.cost['bl_cap'] * (self.unit.cost['bl_v']**2) * self.dimensions[0].size * num_rows)) * \
+            (self.unit.cost['WEIGHT_BITCELL']) * (layer.operand_precision[input_operand] / self.unit.cost['DAC_RES'])
+    
+        DAC_energy = num_rows * 50e-3 * self.unit.cost['DAC_RES'] * (layer.operand_precision[input_operand]/self.unit.cost['DAC_RES']) * (np.power(self.unit.cost['vdd'],2)) * (layer.operand_precision[const_operand] / self.unit.cost['WEIGHT_BITCELL']) 
+        # all columns activated
+        #ADC_energy = (100e-15 * self.unit.cost['ADC_ENOB'] + 1e-18 * (np.power(4, self.unit.cost['ADC_ENOB']))) * (np.power(self.unit.cost['vdd'],  2)) * (layer.operand_precision[input_operand] / self.unit.cost['DAC_RES']) * (layer.operand_precision[const_operand] / self.unit.cost['WEIGHT_BITCELL']) * (self.unit.cost['WEIGHT_BITCELL'] / self.unit.cost['BL_PER_ADC']) 
+        ADC_energy = num_cols * (100e-3 * self.unit.cost['ADC_RES'] + 1e-6 * (np.power(4, self.unit.cost['ADC_RES']))) * (np.power(self.unit.cost['vdd'],  2)) * (layer.operand_precision[input_operand] / self.unit.cost['DAC_RES']) * (self.unit.cost['WEIGHT_BITCELL'] / self.unit.cost['BL_PER_ADC'])
+    
+        B = self.unit.cost['ADC_RES']
+        N = self.dimensions[0].size * self.unit.cost['WEIGHT_BITCELL']#self.unit.cost['WEIGHT_BITCELL']
+        accumulation_energy = self.unit.get_1b_adder_energy() * N *( B + ((N-2) / N) - (((B+np.log2(N) - 1)) / N)) * (layer.operand_precision[input_operand] / self.unit.cost['DAC_RES'])
+        total_MAC = layer.total_MAC_count / (FXu * FYu * Cu * Ku * OXu)
 
-        imc_array_internal_cost += (energy_act_line + energy_sum_line) * layer.total_MAC_count/(num_cols * num_rowsx)
-        mac_cost =  {'AIMC array' : imc_array_internal_cost,\
-                'DAC': DAC_cost_total,\
-                'ADC': ADC_cost_total}
+        mac_cost =  {'cell' : cell * total_MAC,\
+                'DAC': DAC_energy * total_MAC,\
+                'ADC': ADC_energy * total_MAC, \
+                'accumulation_energy' : accumulation_energy * total_MAC}
+        return mac_cost
+
+
+class DIMCArray(OperationalArray):
+    def __init__(self, operational_unit: OperationalUnit, dimensions: Dict[str, int]):
+        super().__init__(operational_unit, dimensions)
+        self.type = 'DIMC'
+
+
+    def get_area(self):
+        area = self.unit.area['cell'] * self.total_unit_count + \
+            self.unit.area['adder'] * self.dimension_sizes[1] + \
+            self.unit.area['multiplier'] * self.dimension_sizes[1] * self.dimension_sizes[0]
+        return area
+
+    def get_MAC_cost(self, layer, mapping):
+        spatial_mapping = mapping.spatial_mapping.mapping_dict_origin 
+        const_operand = 'W' if 'W' in spatial_mapping.keys() else 'B'
+        input_operand = 'I' if const_operand =='W' else 'A'
+        spatial_mapping = [j for i in spatial_mapping['O'] for j in i]
+        
+        FXu = np.prod([x[1] for x in spatial_mapping if x[0] == 'FX'])
+        FYu = np.prod([x[1] for x in spatial_mapping if x[0] == 'FY'])
+        OXu = np.prod([x[1] for x in spatial_mapping if x[0] == 'OX'])
+        OYu = np.prod([x[1] for x in spatial_mapping if x[0] == 'OY'])
+        Cu = np.prod([x[1] for x in spatial_mapping if x[0] == 'C'])
+        Ku = np.prod([x[1] for x in spatial_mapping if x[0] == 'K'])
+        core_depth = self.unit.cost['CORE_ROWS']
+
+        #to be fixed
+        num_cols = self.dimensions[1].size
+        total_MAC = layer.total_MAC_count
+
+        precharging_cell = 0
+        if core_depth > 1:
+            precharging_cycles = mapping.unit_mem_data_movement[const_operand][0].data_elem_move_count.rd_out_to_low / mapping.ir_loop_size_per_level[const_operand][1]
+            precharging_cell = (self.unit.cost['wl_cap'] * ((self.unit.cost['vdd']/2)**2) + \
+                (self.unit.cost['bl_cap'] * (self.unit.cost['vdd']**2) * (core_depth - 1))) * \
+                (self.unit.cost['WEIGHT_BITCELL']) * precharging_cycles
+
+        if self.unit.imc_type == 'NMC':
+            B = max(layer.operand_precision[const_operand], layer.operand_precision[input_operand])
+            multiplication_energy = (self.unit.cost['wl_cap']/1.56) * (1.9 * np.power(B,2) * np.log2(B)) * (self.unit.cost['vdd']**2) *(layer.operand_precision['I'] / self.unit.cost['INPUT_BITS_PER_CYCLE']) * total_MAC
+            multiplication_energy = self.unit.get_multiplier_energy() *(layer.operand_precision[input_operand] / self.unit.cost['INPUT_BITS_PER_CYCLE']) * total_MAC
+        if self.unit.imc_type == 'IMC':
+            multiplication_energy = (self.unit.cost['wl_cap'] * (self.unit.cost['vdd']**2) + \
+                (self.unit.cost['bl_cap'] * (self.unit.cost['vdd']**2) * core_depth)) * \
+                (self.unit.cost['WEIGHT_BITCELL']) * (layer.operand_precision[input_operand] / self.unit.cost['INPUT_BITS_PER_CYCLE']) * total_MAC
+        
+        B = self.unit.cost['WEIGHT_BITCELL']
+
+        accumulation_energy = 0
+        # to divide by reuse at each level for outputs!
+        for ii_lev, lev in enumerate(mapping.spatial_mapping.unroll_size_ir['O'][:-1]):
+            N = self.dimension_sizes[0]
+            #breakpoint()
+            if ii_lev > 0:
+                B = max(layer.operand_precision[const_operand], layer.operand_precision[input_operand])
+                N = lev
+            if N > 1:
+                accumulation_energy += self.unit.get_1b_adder_energy() * N * ( B + ((N-2) / N) - ((B + np.log2(N) - 1) / N) ) *(layer.operand_precision[input_operand] / self.unit.cost['INPUT_BITS_PER_CYCLE']) * mapping.unit_mem_data_movement['O'][ii_lev].data_elem_move_count.wr_in_by_low
+                single_accumulation_energy = self.unit.get_1b_adder_energy() * ( B + ((N-2) / N) - ((B + np.log2(N) - 1) / N) ) * (layer.operand_precision[input_operand] / self.unit.cost['INPUT_BITS_PER_CYCLE'])
+            
+        #breakpoint()
+        mac_cost =  {'precharging_cell' : precharging_cell,\
+                'multiplication_energy': multiplication_energy,
+                'accumulation_energy' : accumulation_energy }
         return mac_cost
 
 

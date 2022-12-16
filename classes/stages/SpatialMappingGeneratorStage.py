@@ -17,7 +17,7 @@ from classes.stages.Stage import Stage
 from classes.stages.SpatialMappingConversionStage import SpatialMappingConversionStage
 from classes.workload.layer_node import LayerNode
 import classes.io.input_config as inputs
-import pdb
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +33,20 @@ def prime_factors(n):
     if n > 1:
         factors.append(n)
     return factors
+
+def is_pareto_efficient_dumb(costs):
+    """
+    Find the pareto-efficient points
+    :param costs: An (n_points, n_costs) array
+    :return: A (n_points, ) boolean array, indicating whether each point is Pareto efficient
+    """
+    is_efficient = np.ones(costs.shape[0], dtype = bool)
+    for i, c in enumerate(costs):
+        if is_efficient[i]:
+            is_efficient[is_efficient] = np.any(costs[is_efficient] <= c, axis=1)
+            is_efficient[i] = True
+#        is_efficient[i] = np.all(np.any(costs[:i]<c, axis=1)) and np.all(np.any(costs[i+1:]<c, axis=1))
+    return is_efficient
 
 
 class SpatialMappingGeneratorStage(Stage):
@@ -122,7 +136,6 @@ class SpatialMappingGeneratorStage(Stage):
         oa_dims = operational_array.dimensions
         memory_hierarchy: MemoryHierarchy = core.memory_hierarchy
         innermost_levels = memory_hierarchy.get_inner_memories()
-
         # For every operational array dimension, we initialize it by maximally unrolling all layer dimensions.
         # Later these will be restricted if the memory structure doesn't allow for this unrolling
         oa_dim_unrolling = {oa_dim: {layer_dim: int(min(layer_size, oa_dim.size)) for layer_dim, layer_size in
@@ -169,7 +182,7 @@ class SpatialMappingGeneratorStage(Stage):
                 for lk in range(1, len(oa_ls)+1):
                     for lc in itertools.combinations(oa_ls, lk):
                         oa_pf_reduced = [x for x in oa_pf if x[0] in lc]
-                        max_ut, best_c = 0, None
+                        max_ut, best_c = 0, []
                         for k in range(1, len(oa_pf_reduced)+1):
                             for c in itertools.combinations(oa_pf_reduced, k):
                                 if max_ut == prod([x[1] for x in c]):
@@ -178,12 +191,15 @@ class SpatialMappingGeneratorStage(Stage):
                                 if max_ut < prod([x[1] for x in c]) <= oa_dim.size:
                                     max_ut = prod([x[1] for x in c])
                                     best_c = [c]
+                        if best_c == None:
+                            continue
                         for ii_c, c in enumerate(best_c):
                             best_c[ii_c] = [[layer_shape, prod([x[1] for x in c if x[0] == layer_shape])] for layer_shape in lc]
                             best_c[ii_c] = [x for x in best_c[ii_c] if x[1] != 1]
                         oa_dim_unrollings += best_c 
                 for ii_u, u in enumerate(oa_dim_unrollings):
                     oa_dim_unrollings[ii_u] = [tuple(x) for x in u]
+                oa_dim_unrollings.append([])
                 unrollings.append(oa_dim_unrollings)
             else:
                 for (layer_dim, unrolling_size) in oa_dim_unrolling[oa_dim].items():
@@ -208,22 +224,79 @@ class SpatialMappingGeneratorStage(Stage):
 
                 unrollings.append(oa_dim_unrollings)
 
-
         # Now we have for each operational array dimension the layer dimensions and size they can be unrolled without fractional remainder.
         # Now we have to combine them into user-defined spatial mappings.
-        for combination in itertools.product(*unrollings):
-            # If the combination has two oa dimensions that unroll the same layer dimension, skip it as this is impossible.
-            #if not self.all_unique([loop_dimension for (loop_dimension, loop_size) in combination]):
-            if not self.all_unique([j[0] for i in combination for j in i]):
-                continue
-            # Zip the combination (which is a (layer_dim, layer_size) for each oa_dim with the oa_dim names.
-            oa_dim_names = [oa_dim.name for oa_dim in oa_dims]
-            user_spatial_mapping = {oa_dim_name: unrolling for (oa_dim_name, unrolling) in zip(oa_dim_names, combination) if unrolling is not None}
-            
-        #    if user_spatial_mapping['D1'] != [('C',128), ('FX',3), ('FY',3)]:
-        #        continue
+        if 'G' in self.layer.loop_dim_size.keys():
+            if self.layer.loop_dim_size['G'] != 1: 
+                unrollings[0] = [[('K', 1)]]
+        if 'OX' in self.layer.loop_dim_size.keys():
+            max_w_reuse = self.layer.loop_dim_size['OX'] * self.layer.loop_dim_size['OY'] 
+            max_i_reuse = self.layer.loop_dim_size['K'] 
+            max_o_reuse = self.layer.loop_dim_size['C'] * self.layer.loop_dim_size['FX'] * self.layer.loop_dim_size['FY'] 
+            reuse_list = []
+            comb_list = []
+            for combination in itertools.product(*unrollings):
+                if self.layer.loop_dim_size['G'] == 1: 
+                    if not self.all_unique([j[0] for i in combination for j in i]):
+                        continue
+                comb = [j for i in combination for j in i]
+                # reuse for w, i, o
+                reuse_w = max_w_reuse / np.prod([x[1] for x in comb if x[0] in ['OX', 'OY']])
+                reuse_i = max_i_reuse / np.prod([x[1] for x in comb if x[0] in ['K']])
+                reuse_o = max_o_reuse / np.prod([x[1] for x in comb if x[0] in ['C', 'FX', 'FY']])
+                if [reuse_w, reuse_i, reuse_o] not in reuse_list: 
+                    reuse_list.append([reuse_w, reuse_i, reuse_o])
+                    comb_list.append(combination)
 
-            yield user_spatial_mapping
+            reuse_list = [np.array(x) for x in reuse_list]
+            reuse_list = np.array(reuse_list)
+            opt_list = is_pareto_efficient_dumb(reuse_list)
+            opt_reuse_list = [x for ii, x in enumerate(comb_list) if opt_list[ii] == True] 
+
+            for combination in opt_reuse_list:#itertools.product(*unrollings):
+                # If the combination has two oa dimensions that unroll the same layer dimension, skip it as this is impossible.
+                #if not self.all_unique([loop_dimension for (loop_dimension, loop_size) in combination]):
+                if self.layer.loop_dim_size['G'] == 1: 
+                    if not self.all_unique([j[0] for i in combination for j in i]):
+                        continue
+                unrolled_dim = {'OX':1, 'OY':1, 'FX':1, 'FY':1, 'C':1, 'K':1, 'G':1}
+                us = [j for i in combination for j in i]
+                for k in us:
+                    unrolled_dim[k[0]] *= k[1]
+                if any([unrolled_dim[k] > self.layer.loop_dim_size[k] for k in unrolled_dim.keys()]):
+                    continue
+
+                # Zip the combination (which is a (layer_dim, layer_size) for each oa_dim with the oa_dim names.
+                oa_dim_names = [oa_dim.name for oa_dim in oa_dims]
+                user_spatial_mapping = {oa_dim_name: unrolling for (oa_dim_name, unrolling) in zip(oa_dim_names, combination) if unrolling is not None}
+                if user_spatial_mapping['D1'] == []:
+                    user_spatial_mapping['D1'] = [('K',1)]
+                if core.operational_array.type == 'AIMC':
+                    OXu = np.prod([x[1] for x in user_spatial_mapping['D1'] if x[0] == 'OX'])
+                    FXu = np.prod([x[1] for x in user_spatial_mapping['D2'] if x[0] == 'FX'])
+                    FYu = np.prod([x[1] for x in user_spatial_mapping['D2'] if x[0] == 'FY'])
+                    Cu = np.prod([x[1] for x in user_spatial_mapping['D2'] if x[0] == 'C'])
+                    num_rows = Cu * (FYu * (OXu + FXu - 1))
+                    if num_rows > core.operational_array.dimensions[1].size:
+                        breakpoint()
+                        continue
+            #    if user_spatial_mapping['D1'] != [('C',128), ('FX',3), ('FY',3)]:
+            #        continue
+                yield user_spatial_mapping
+        else:
+            for combination in itertools.product(*unrollings):
+                # If the combination has two oa dimensions that unroll the same layer dimension, skip it as this is impossible.
+                #if not self.all_unique([loop_dimension for (loop_dimension, loop_size) in combination]):
+                if not self.all_unique([j[0] for i in combination for j in i]):
+                    continue
+                # Zip the combination (which is a (layer_dim, layer_size) for each oa_dim with the oa_dim names.
+                oa_dim_names = [oa_dim.name for oa_dim in oa_dims]
+                user_spatial_mapping = {oa_dim_name: unrolling for (oa_dim_name, unrolling) in zip(oa_dim_names, combination) if unrolling is not None}
+                
+            #    if user_spatial_mapping['D1'] != [('C',128), ('FX',3), ('FY',3)]:
+            #        continue
+
+                yield user_spatial_mapping
 
     @staticmethod
     def all_unique(items):

@@ -156,7 +156,7 @@ class CostModelEvaluation:
     Class that stores inputs and runs them through the zigzag cost model.
     """
 
-    def __init__(self, *, accelerator, layer, spatial_mapping, temporal_mapping, mac_clock_domain):
+    def __init__(self, *, accelerator, layer, spatial_mapping, temporal_mapping):
         """
         Initialize the cost model evaluation with the following inputs:
         - accelerator: the accelerator that includes the core on which to run the layer
@@ -179,7 +179,14 @@ class CostModelEvaluation:
         self.layer = layer
         self.spatial_mapping = spatial_mapping
         self.temporal_mapping = temporal_mapping
-        self.mac_clock_domain = mac_clock_domain
+        mac_array_costs = self.accelerator.cores[0].operational_array.unit.cost
+        input_operand = 'I' if 'I' in temporal_mapping.keys() else 'A' 
+        
+        if self.accelerator.cores[0].operational_array.type == 'AIMC':
+            self.mac_clock_domain = mac_array_costs['mac_clock_domain'] * layer.operand_precision[input_operand]/ mac_array_costs['DAC_RES']
+        if self.accelerator.cores[0].operational_array.type == 'DIMC':
+            self.mac_clock_domain = mac_array_costs['mac_clock_domain'] * layer.operand_precision[input_operand]/ mac_array_costs['INPUT_BITS_PER_CYCLE']
+
 
         self.core_id = layer.core_allocation
         self.mem_instance_list = accelerator.get_core(self.core_id).get_memory_hierarchy().mem_instance_list
@@ -260,7 +267,8 @@ class CostModelEvaluation:
         self.calc_memory_word_access()
         self.calc_energy()
         self.calc_latency()
-
+#        if self.spatial_mapping.mapping_dict_origin['I'][0][0] == ('K',1):# and self.layer.id == 12:
+        
     def calc_memory_utilization(self):
         """
         Calculate occupancy for each physical memory based on the mapping.
@@ -412,8 +420,9 @@ class CostModelEvaluation:
         core = self.accelerator.get_core(self.core_id)
         single_MAC_energy = core.operational_array.unit.cost
         # self.MAC_energy = single_MAC_energy * self.layer.total_MAC_count
-        self.MAC_energy_breakdown = core.get_mac_energy(self.layer, self.spatial_mapping)
+        self.MAC_energy_breakdown = core.get_mac_energy(self.layer, self.mapping)
         self.MAC_energy = sum([v for v in self.MAC_energy_breakdown.values()])
+
 
     def calc_memory_energy_cost(self):
         """

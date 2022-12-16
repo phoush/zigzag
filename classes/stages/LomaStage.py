@@ -22,7 +22,6 @@ class LomaStage(Stage):
         """
         super().__init__(list_of_callables, **kwargs)
         self.accelerator, self.layer, self.spatial_mapping = accelerator, layer, spatial_mapping
-        self.mac_clock_domain = kwargs['mac_clock_domain']
         self.engine = None
 
     def run(self):
@@ -35,7 +34,6 @@ class LomaStage(Stage):
             kwargs['layer'] = self.layer
             kwargs['spatial_mapping'] = self.spatial_mapping
             kwargs['temporal_mapping'] = tm
-            kwargs['mac_clock_domain'] = self.mac_clock_domain
             sub_stage = self.list_of_callables[0](self.list_of_callables[1:], **kwargs)
             for cme, extra_info in sub_stage.run():
                 yield cme, (tm, extra_info)

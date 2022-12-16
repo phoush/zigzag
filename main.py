@@ -31,8 +31,7 @@ mainstage = MainStage([
     workload_path=args.workload,
     dump_filename_pattern="outputs_workshop/layer_{layer}_{datetime}.json",
     plot_filename_pattern="outputs_workshop/temporal_mappings.png",
-    loma_lpf_limit=6,
-    mac_clock_domain=1,
+    loma_lpf_limit=6
 )
 
 # Launch the MainStage

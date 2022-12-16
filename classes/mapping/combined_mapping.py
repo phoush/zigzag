@@ -190,50 +190,51 @@ class Mapping:
             self.combined_mapping_dict_1s2t, layer_node
         )
         
-        tmp_copy = copy.deepcopy(self.combined_mapping_dict_1s1t_reform)
-        for ii_lev, lev in enumerate(tmp_copy['I']):
-            if ii_lev > 0:
-                for ii_lpf, lpf in enumerate(lev):
-                    if lpf[0][-2:] != 'ir':
-                        break
-                    if lpf[0][-2:] == 'ir':
-                        self.combined_mapping_dict_1s1t_reform['I'][ii_lev - 1].append(lpf)
-                        self.combined_mapping_dict_1s1t_reform['I'][ii_lev].remove(lpf)
-        tmp_copy = copy.deepcopy(self.combined_mapping_dict_1s2t_reform)
-        for ii_lev, lev in enumerate(tmp_copy['I']):
-            if ii_lev > 0:
-                for ii_lpf, lpf in enumerate(lev):
-                    if lpf[0][-2:] != 'ir':
-                        break
-                    if lpf[0][-2:] == 'ir':
-                        self.combined_mapping_dict_1s2t_reform['I'][ii_lev - 1].append(lpf)
-                        self.combined_mapping_dict_1s2t_reform['I'][ii_lev].remove(lpf)
-        tmp_copy = copy.deepcopy(tm_input1)
-        for ii_lev, lev in enumerate(tmp_copy):
-            if ii_lev > 0:
-                for ii_lpf, lpf in enumerate(lev):
-                    if lpf[0][-2:] != 'ir':
-                        break
-                    if lpf[0][-2:] == 'ir':
-                        tm_input1[ii_lev - 1].append(lpf)
-                        tm_input1[ii_lev].remove(lpf)
-        tmp_copy = copy.deepcopy(tm_input2)
-        for ii_lev, lev in enumerate(tmp_copy):
-            if ii_lev > 0:
-                for ii_lpf, lpf in enumerate(lev):
-                    if lpf[0][-2:] != 'ir':
-                        break
-                    if lpf[0][-2:] == 'ir':
-                        tm_input2[ii_lev - 1].append(lpf)
-                        tm_input2[ii_lev].remove(lpf)
-        dict_tm_vals = {'C':'C', 'K':'K', 'IX_r':'OX', 'IX_ir': 'OX', 'IY_ir' :'OY', 'IY_r':'OY','B':'B'}
-        tm_input1 = [[(dict_tm_vals[t[0]], t[1]) for t in lev] for lev in tm_input1]
-        tm_input2 = [[(dict_tm_vals[t[0]], t[1]) for t in lev] for lev in tm_input2]
-        del tm_input1[0]
-        del tm_input2[0]
-        tm_original = copy.deepcopy(self.temporal_mapping.mapping_dic_origin)
-        tm_original['I'] = tm_input1
-        self.temporal_mapping = TemporalMapping(tm_original, layer_node)
+        if 'I' in self.temporal_mapping.operand_list:
+            tmp_copy = copy.deepcopy(self.combined_mapping_dict_1s1t_reform)
+            for ii_lev, lev in enumerate(tmp_copy['I']):
+                if ii_lev > 0:
+                    for ii_lpf, lpf in enumerate(lev):
+                        if lpf[0][-2:] != 'ir':
+                            break
+                        if lpf[0][-2:] == 'ir':
+                            self.combined_mapping_dict_1s1t_reform['I'][ii_lev - 1].append(lpf)
+                            self.combined_mapping_dict_1s1t_reform['I'][ii_lev].remove(lpf)
+            tmp_copy = copy.deepcopy(self.combined_mapping_dict_1s2t_reform)
+            for ii_lev, lev in enumerate(tmp_copy['I']):
+                if ii_lev > 0:
+                    for ii_lpf, lpf in enumerate(lev):
+                        if lpf[0][-2:] != 'ir':
+                            break
+                        if lpf[0][-2:] == 'ir':
+                            self.combined_mapping_dict_1s2t_reform['I'][ii_lev - 1].append(lpf)
+                            self.combined_mapping_dict_1s2t_reform['I'][ii_lev].remove(lpf)
+            tmp_copy = copy.deepcopy(tm_input1)
+            for ii_lev, lev in enumerate(tmp_copy):
+                if ii_lev > 0:
+                    for ii_lpf, lpf in enumerate(lev):
+                        if lpf[0][-2:] != 'ir':
+                            break
+                        if lpf[0][-2:] == 'ir':
+                            tm_input1[ii_lev - 1].append(lpf)
+                            tm_input1[ii_lev].remove(lpf)
+            tmp_copy = copy.deepcopy(tm_input2)
+            for ii_lev, lev in enumerate(tmp_copy):
+                if ii_lev > 0:
+                    for ii_lpf, lpf in enumerate(lev):
+                        if lpf[0][-2:] != 'ir':
+                            break
+                        if lpf[0][-2:] == 'ir':
+                            tm_input2[ii_lev - 1].append(lpf)
+                            tm_input2[ii_lev].remove(lpf)
+            dict_tm_vals = {'C':'C', 'K':'K', 'IX_r':'OX', 'IX_ir': 'OX', 'IY_ir' :'OY', 'IY_r':'OY','B':'B'}
+            tm_input1 = [[(dict_tm_vals[t[0]], t[1]) for t in lev] for lev in tm_input1]
+            tm_input2 = [[(dict_tm_vals[t[0]], t[1]) for t in lev] for lev in tm_input2]
+            del tm_input1[0]
+            del tm_input2[0]
+            tm_original = copy.deepcopy(self.temporal_mapping.mapping_dic_origin)
+            tm_original['I'] = tm_input1
+            self.temporal_mapping = TemporalMapping(tm_original, layer_node)
 
 
         ''' Distinguish final output from partial output: "psum_flag" '''
@@ -358,6 +359,8 @@ class Mapping:
         combined_mapping = self.combined_mapping_dict_1s1t_reform
         combined_mapping2 = self.combined_mapping_dict_1s2t_reform
         relevancy_table = self.layer_node.operand_loop_dim_reform
+#        if self.layer_node.loop_dim_size['G'] != 1:
+#            breakpoint()
         r_loop_size_per_level = {
             op: [
                 prod([lp_dim for lp_type, lp_dim in combined_mapping[op][lv] if lp_type in relevancy_table[op]['r']])
@@ -636,9 +639,12 @@ class Mapping:
                 )
                 ''' per-period data transfer amount '''
                 top_ir_loop = 1
-                if self.combined_mapping_dict_1s1t_reform['I'][mem_level][-1][0][-2:] == "ir" and operand == 'I':
-                    top_ir_loop = self.combined_mapping_dict_1s1t_reform['I'][mem_level][-1][1]
-
+                if 'I' in self.temporal_mapping.operand_list:
+                    try:
+                        if self.combined_mapping_dict_1s1t_reform['I'][mem_level][-1][0][-2:] == "ir" and operand == 'I':
+                            top_ir_loop = self.combined_mapping_dict_1s1t_reform['I'][mem_level][-1][1]
+                    except:
+                        breakpoint()
                 rd_out_to_low_da = data_each_level_unrolled[operand][mem_level] * \
                                    mem_bw_boost_factor[operand][mem_level]# * top_ir_loop
                 wr_in_by_low_da = 0

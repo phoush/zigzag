@@ -3,6 +3,7 @@ import argparse
 
 # Get the onnx model, the mapping and accelerator arguments
 parser = argparse.ArgumentParser(description="Setup zigzag inputs")
+#parser.add_argument('--wl', metavar='path', required=True, help='path to onnx model, e.g. inputs/examples/my_onnx_model.onnx')
 parser.add_argument('--model', metavar='path', required=True, help='path to onnx model, e.g. inputs/examples/my_onnx_model.onnx')
 parser.add_argument('--mapping', metavar='path', required=True, help='path to mapping file, e.g., inputs.examples.my_mapping')
 parser.add_argument('--accelerator', metavar='path', required=True, help='module path to the accelerator, e.g. inputs.examples.accelerator1')
@@ -22,17 +23,18 @@ _logging.basicConfig(level=_logging_level,
 mainstage = MainStage([  # Initializes the MainStage as entry point
     ONNXModelParserStage,  # Parses the ONNX Model into the workload
     AcceleratorParserStage,  # Parses the accelerator
-    SimpleSaveStage,  # Saves all received CMEs information to a json
+    CompleteSaveBestStage,  # Saves all received CMEs information to a json
     WorkloadStage,  # Iterates through the different layers in the workload
-    SpatialMappingConversionStage,  # Generates multiple spatial mappings (SM)
-    MinimalLatencyStage,  # Reduces all CMEs, returning minimal latency one
-    LomaStage,  # Generates multiple temporal mappings (TM)
+    SpatialMappingGeneratorStage,  # Generates multiple spatial mappings (SM)
+    MinimalEnergyStage,  # Reduces all CMEs, returning minimal latency one
+    TemporalOrderingConversionStage,
+    #LomaStage,  # Generates multiple temporal mappings (TM)
     CostModelStage  # Evaluates generated SM and TM through cost model
 ],
-    accelerator_path=args.accelerator,  # required by AcceleratorParserStage
-    onnx_model_path=args.model,  # required by ONNXModelParserStage
+    onnx_model=args.model,  # required by ONNXModelParserStage
     mapping_path=args.mapping,  # required by ONNXModelParserStage
-    dump_filename_pattern="outputs/{datetime}.json",  # output file save pattern
+    accelerator_path=args.accelerator,  # required by AcceleratorParserStage
+    dump_filename_pattern="outputs_workshop/{layer}-{datetime}.json",  # output file save pattern
     loma_lpf_limit=6  # required by LomaStage
 )
 
