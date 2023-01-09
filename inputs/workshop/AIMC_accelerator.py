@@ -10,7 +10,7 @@ from classes.hardware.architecture.core import Core
 
 def multiplier_array():
     AIMC_unit_costs = {'vdd' : 0.8, 
-            'ADC_RES' : 4, 
+            'ADC_RES' : 16, 
             'DAC_RES' : 4, 
             'WEIGHT_BITCELL' : 4, 
             'mac_clock_domain' :1,
