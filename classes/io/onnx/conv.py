@@ -31,6 +31,8 @@ class ConvParser(Parser):
             op_type = node.op_type  # 'Conv', 'QLinearConv', ...
             if op_type == "Conv":
                 return node.input[1]
+            if op_type =='ConvTranspose':
+                return node.input[1]
             elif op_type == "QLinearConv":
                 return node.input[3]
             else:
@@ -112,7 +114,11 @@ class ConvParser(Parser):
             d["operand_precision"] =  node_mapping['operand_precision']#{'O': 16, 'O_final': 8, 'W': 8, 'I': 8}
             # d["operand_source"] =  {'W': [], 'I': []}
             d["constant_operands"] =  ['W']
-
+            print()
+            print(self.node.op_type)
+            print(d['dimension_relations'])
+            print(d['loop_dim_size'])
+            print(d['pr_loop_dim_size'])
             d["core_allocation"] =  node_mapping["core_allocation"]
             if 'spatial_mapping' in node_mapping.keys():
                 d["spatial_mapping"] =  node_mapping["spatial_mapping"]
@@ -145,7 +151,11 @@ class ConvParser(Parser):
         # Find kernel shape in attrs
         kernel_shape = get_attribute_ints_with_name("kernel_shape", attrs, default=None)
         # Find strides in attrs
-        strides = get_attribute_ints_with_name("strides", attrs, default=[1, 1])
+        if self.node.op_type == 'ConvTranspose': 
+            strides = [1/x for x in get_attribute_ints_with_name("strides", attrs, default=[1, 1])]
+        else:
+            strides = get_attribute_ints_with_name("strides", attrs, default=[1, 1])
+
         # Find dilation rate in attrs
         dilations = get_attribute_ints_with_name("dilations", attrs, default=[1, 1])
         # Find number of groups in attrs

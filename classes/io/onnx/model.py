@@ -86,7 +86,7 @@ class ONNXModelParser:
             nodes_inputs[node_id] = node.input
             nodes_outputs[node_id] = node.output
 
-            if node.op_type in ["QLinearConv", "Conv"]:
+            if node.op_type in ["QLinearConv", "Conv", "ConvTranspose"]:
                 parser = ConvParser(node_id, node, nodes_outputs, self.mapping, self.onnx_model)
             elif node.op_type in ["MatMul"]:
                 parser = MatMulParser(node_id, node, nodes_outputs, self.mapping, self.onnx_model)

@@ -10,14 +10,14 @@ from classes.hardware.architecture.core import Core
 
 def multiplier_array():
     AIMC_unit_costs = {'vdd' : 0.8, 
-            'ADC_RES' : 16, 
-            'DAC_RES' : 1, 
+            'ADC_RES' : 4, 
+            'DAC_RES' : 4, 
             'WEIGHT_BITCELL' : 4, 
             'mac_clock_domain' :1,
             'BL_PER_ADC': 1} 
 
     AIMC_area = {'cell': 1, 'ADC': 1, 'DAC': 1}
-    dimensions = {'D1': 512, 'D2':1152, 'D3':4}
+    dimensions = {'D1': 512, 'D2':1152}
     technology = 28
     aimc = AIMC([0,0], AIMC_unit_costs, AIMC_area, technology)
     aimc_array = AIMCArray(aimc, dimensions)

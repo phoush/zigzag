@@ -189,6 +189,9 @@ class MemoryAllocator:
             unallocated_slice = unallocated_loops[:i]  # Grab a slice of the unallocated loops
             loops = allocated_loops + unallocated_slice  # Join them with already allocated loops
             size = self.calc_loops_size(loops, mem_op, unallocated_loops)
+            if self.accelerator.cores[0].operational_array.type == 'AIMC' and self.accelerator.cores[0].mem_hierarchy_dict['I2'][0].unroll_count > 1 and i == 0:
+                OXu = np.prod([x.size for x in loops if x.type == 'spatial' and x.dimension == 'OX'])
+                size /= OXu
             if size <= mem_capacity:
                 sizes.append(size)
             else:

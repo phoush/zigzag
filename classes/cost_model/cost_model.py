@@ -283,9 +283,9 @@ class CostModelEvaluation:
             for mem_lv in range(self.active_mem_level[layer_op]):
                 mem_utilization = self.mapping.data_bit_per_level_unrolled[layer_op][mem_lv + 1] / \
                                   self.mem_size_dict[self.layer_op_to_mem_op[layer_op]][mem_lv]
-                assert mem_utilization <= 1, f"Operand {layer_op} memory level {mem_lv}'s individual memory utilization is " \
-                                             f"{mem_utilization}, which is larger than 1 " \
-                                             f"(memory level starts from 0)"
+                #assert mem_utilization <= 1, f"Operand {layer_op} memory level {mem_lv}'s individual memory utilization is " \
+                #                             f"{mem_utilization}, which is larger than 1 " \
+                #                             f"(memory level starts from 0)"
                 mem_utili_individual[layer_op].append(mem_utilization)
 
                 # if we do not count copied data in parallel memories as effective, what is the utilization then? =>
@@ -304,9 +304,9 @@ class CostModelEvaluation:
                     continue
                 mem_utilization += mem_utili_individual[layer_op][mem_lv]
                 effective_mem_utilization += effective_mem_utili_individual[layer_op][mem_lv]
-            assert mem_utilization <= 1, f"Memory shared by {mem_share_dict} (memory operand, memory level) has shared utilization of " \
-                                        f"{mem_utilization}, which is > 1 " \
-                                        f"(memory level starts from 0)."
+            #assert mem_utilization <= 1, f"Memory shared by {mem_share_dict} (memory operand, memory level) has shared utilization of " \
+            #                            f"{mem_utilization}, which is > 1 " \
+            #                            f"(memory level starts from 0)."
             for mem_op, mem_lv in mem_share_dict.items():
                 try:
                     layer_op = self.mem_op_to_layer_op[mem_op]

@@ -278,7 +278,6 @@ class SpatialMappingGeneratorStage(Stage):
                     Cu = np.prod([x[1] for x in user_spatial_mapping['D2'] if x[0] == 'C'])
                     num_rows = Cu * (FYu * (OXu + FXu - 1))
                     if num_rows > core.operational_array.dimensions[1].size:
-                        breakpoint()
                         continue
             #    if user_spatial_mapping['D1'] != [('C',128), ('FX',3), ('FY',3)]:
             #        continue
